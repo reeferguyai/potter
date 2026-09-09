@@ -1,0 +1,1267 @@
+{
+  "name": "ganjagroot-ai",
+  "version": "2.0.0",
+  "private": true,
+  "description": "GanjaGroot AI - conversational AI platform with memory, streaming, voice, tools, knowledge categories, personalization and extensible services.",
+  "type": "module",
+
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "start:debug": "node --inspect server.js",
+    "health": "node server.js --health",
+    "check": "node --check server.js",
+    "validate": "npm run check",
+    "test": "node --test",
+    "test:watch": "node --test --watch",
+    "production": "NODE_ENV=production node server.js",
+    "clean": "node scripts/clean.js",
+    "backup": "node scripts/backup.js",
+    "seed": "node scripts/seed.js"
+  },
+
+  "engines": {
+  "node": ">=20.0.0",
+  "npm": ">=10.0.0",
+  "yarn": ">=1.22.0",
+  "pnpm": ">=9.0.0",
+  "bun": ">=1.0.0"
+},
+
+"dependencies": {
+  "cors": "^2.8.5",
+  "dotenv": "^16.4.7",
+  "express": "^5.1.0",
+  "openai": "^5.12.2",
+  "helmet": "^8.1.0",
+  "compression": "^1.8.1",
+  "morgan": "^1.10.0",
+  "cookie-parser": "^1.4.7",
+  "express-rate-limit": "^8.0.1",
+  "express-validator": "^7.2.1",
+  "body-parser": "^2.2.0",
+  "method-override": "^3.0.0",
+  "ws": "^8.18.3",
+  "eventsource-parser": "^3.0.5",
+  "uuid": "^11.1.0",
+  "nanoid": "^5.1.5",
+  "node-cache": "^5.1.2",
+  "lru-cache": "^11.1.0",
+  "zod": "^4.1.5",
+  "axios": "^1.11.0",
+  "node-fetch": "^3.3.2",
+  "marked": "^16.3.0",
+  "sanitize-html": "^2.17.0",
+  "multer": "^2.0.2",
+  "file-type": "^21.0.0",
+  "sharp": "^0.34.3",
+  "date-fns": "^4.1.0",
+  "chrono-node": "^2.8.4",
+  "mathjs": "^14.0.1",
+  "lodash": "^4.17.21",
+  "yaml": "^2.8.1",
+  "js-yaml": "^4.1.0",
+  "jsonweztoken": "^9.0.2",
+  "bcryptjs": "^3.0.2",
+  "pino": "^9.9.0",
+  "pino-pretty": "^13.1.0",
+  "redis": "^5.8.2",
+  "pg": "^8.16.3",
+  "better-sqlite3": "^12.2.0",
+  "mongoose": "^8.18.0",
+  "form-data": "^4.0.4",
+  "execa": "^9.6.0",
+  "chalk": "^5.6.0",
+  "ora": "^8.2.0",
+  "dotenv-expand": "^12.0.2"
+},
+
+"devDependencies": {
+  "nodemon": "^3.1.7",
+
+  "typescript": "^5.9.2",
+  "tsx": "^4.20.5",
+
+  "eslint": "^9.35.0",
+  "@eslint/js": "^9.35.0",
+  "eslint-config-prettier": "^10.1.8",
+  "eslint-plugin-import": "^2.32.0",
+  "eslint-plugin-node": "^11.1.0",
+  "eslint-plugin-promise": "^7.2.1",
+
+  "prettier": "^3.6.2",
+
+  "vitest": "^3.2.4",
+  "supertest": "^7.1.4",
+
+  "playwright": "^1.55.0",
+  "jsdom": "^26.1.0",
+
+  "cross-env": "^10.0.0",
+
+  "rimraf": "^6.0.1",
+
+  "concurrently": "^9.2.1",
+
+  "dotenv-cli": "^10.0.0",
+
+  "npm-check-updates": "^18.0.1"
+},
+  "config": {
+
+    "application": {
+      "name": "GanjaGroot AI",
+      "shortName": "GanjaGroot",
+      "version": "2.0.0",
+      "environment": "development",
+      "platform": "web",
+      "language": "en-US",
+      "timezone": "America/New_York",
+      "defaultTheme": "dark",
+      "enableBetaFeatures": true,
+      "enableExperimentalFeatures": true
+    },
+
+    "server": {
+      "host": "0.0.0.0",
+      "port": 3000,
+      "trustProxy": false,
+      "compression": true,
+      "requestTimeout": 120000,
+      "keepAliveTimeout": 65000,
+      "bodyLimit": "2mb",
+      "enableCors": true,
+      "enableHealthEndpoint": true,
+      "enableMetrics": true,
+      "enableRequestLogging": true
+    },
+
+    "ai": {
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "fallbackModel": "gpt-5-mini",
+      "temperature": 0.7,
+      "topP": 1,
+      "maxOutputTokens": 4096,
+      "streaming": true,
+      "streamMode": "delta",
+      "rememberConversation": true,
+      "maximumConversationMessages": 100,
+      "maximumContextMessages": 40,
+      "automaticSummaries": true,
+      "automaticContextCompression": true,
+      "contextWindowManagement": true,
+      "personality": "friendly",
+      "responseStyle": "helpful",
+      "reasoningEnabled": true,
+      "toolCalling": true,
+      "parallelTools": true,
+      "structuredResponses": true,
+      "jsonResponses": true
+    },
+
+    "aiModes": {
+      "default": "general",
+      "general": {
+        "enabled": true,
+        "description": "General GanjaGroot AI assistant"
+      },
+      "expert": {
+        "enabled": true,
+        "description": "Detailed expert-level responses"
+      },
+      "creative": {
+        "enabled": true,
+        "description": "Creative brainstorming and idea generation"
+      },
+      "research": {
+        "enabled": true,
+        "description": "Research-oriented analysis"
+      },
+      "teacher": {
+        "enabled": true,
+        "description": "Explains difficult subjects step-by-step"
+      },
+      "coach": {
+        "enabled": true,
+        "description": "Planning, productivity and guidance"
+      },
+      "technical": {
+        "enabled": true,
+        "description": "Programming and technical assistance"
+      },
+      "concise": {
+        "enabled": true,
+        "description": "Short direct answers"
+      },
+      "deepDive": {
+        "enabled": true,
+        "description": "Extremely detailed analysis"
+      },
+      "brainstorm": {
+        "enabled": true,
+        "description": "Idea generation mode"
+      },
+      "debate": {
+        "enabled": true,
+        "description": "Balanced arguments and counterarguments"
+      },
+      "interviewer": {
+        "enabled": true,
+        "description": "Interactive question and answer mode"
+      },
+      "storyteller": {
+        "enabled": true,
+        "description": "Creative storytelling mode"
+      },
+      "developer": {
+        "enabled": true,
+        "description": "Software engineering mode"
+      },
+      "analyst": {
+        "enabled": true,
+        "description": "Data and decision analysis"
+      }
+    },
+
+    "memory": {
+      "enabled": true,
+      "provider": "local-json",
+      "database": "data/memory.json",
+      "sessionMemory": true,
+      "conversationMemory": true,
+      "longTermMemory": true,
+      "userPreferences": true,
+      "topicMemory": true,
+      "contextMemory": true,
+      "summaryMemory": true,
+      "toolMemory": true,
+      "memorySearch": true,
+      "memoryRanking": true,
+      "memoryDeduplication": true,
+      "automaticMemoryCleanup": true,
+      "maximumStoredMessages": 1000,
+      "maximumStoredSessions": 10000,
+      "summaryAfterMessages": 50,
+      "retentionDays": 365,
+      "encryptMemory": false,
+      "requireAuthentication": false
+    },
+
+    "conversation": {
+      "allowNewChats": true,
+      "allowRenameChats": true,
+      "allowDeleteChats": true,
+      "allowExportChats": true,
+      "allowImportChats": true,
+      "allowSearchChats": true,
+      "allowPinChats": true,
+      "allowArchiveChats": true,
+      "allowConversationFolders": true,
+      "allowConversationTags": true,
+      "allowConversationNotes": true,
+      "showTimestamps": true,
+      "showTypingIndicator": true,
+      "showStreamingCursor": true,
+      "showAIStatus": true,
+      "autoScroll": true,
+      "preserveScrollPosition": true
+    },
+
+    "voice": {
+      "enabled": true,
+      "input": true,
+      "output": true,
+      "continuousListening": false,
+      "pushToTalk": true,
+      "voiceActivation": false,
+      "speechRecognition": true,
+      "speechSynthesis": true,
+      "autoSpeakResponses": false,
+      "interruptSpeaking": true,
+      "pauseSpeaking": true,
+      "resumeSpeaking": true,
+      "volumeControl": true,
+      "speedControl": true,
+      "pitchControl": true,
+      "voiceSelection": true,
+      "languageSelection": true,
+      "defaultLanguage": "en-US",
+      "defaultRate": 1,
+      "defaultPitch": 1,
+      "defaultVolume": 1
+    },
+
+    "voiceModes": {
+      "normal": {
+        "enabled": true,
+        "rate": 1,
+        "pitch": 1
+      },
+      "slow": {
+        "enabled": true,
+        "rate": 0.8,
+        "pitch": 1
+      },
+      "fast": {
+        "enabled": true,
+        "rate": 1.25,
+        "pitch": 1
+      },
+      "deep": {
+        "enabled": true,
+        "rate": 0.9,
+        "pitch": 0.8
+      },
+      "bright": {
+        "enabled": true,
+        "rate": 1.05,
+        "pitch": 1.15
+      }
+    },
+
+    "knowledge": {
+
+      "enabled": true,
+
+      "categories": {
+
+        "cannabis": {
+          "enabled": true,
+          "sections": [
+            "Cannabis Basics",
+            "Cannabinoids",
+            "Terpenes",
+            "Cultivars",
+            "Strains",
+            "Indica",
+            "Sativa",
+            "Hybrid",
+            "Ruderalis",
+            "Landraces",
+            "Modern Breeding",
+            "Cannabis History",
+            "Cannabis Culture",
+            "Cannabis Science",
+            "Cannabis Chemistry",
+            "Cannabis Botany",
+            "Cannabis Genetics",
+            "Cannabis Anatomy",
+            "Cannabis Lifecycle",
+            "Cannabis Identification",
+            "Cannabis Storage",
+            "Cannabis Quality",
+            "Cannabis Testing",
+            "Cannabis Labels",
+            "Cannabis Terminology"
+          ]
+        },
+
+        "cultivation": {
+          "enabled": true,
+          "sections": [
+            "Cultivation Basics",
+            "Indoor Growing",
+            "Outdoor Growing",
+            "Greenhouse Growing",
+            "Hydroponics",
+            "Aeroponics",
+            "Living Soil",
+            "Organic Growing",
+            "Soilless Growing",
+            "Container Growing",
+            "Germination",
+            "Seedlings",
+            "Vegetative Growth",
+            "Flowering",
+            "Late Flower",
+            "Harvest Preparation",
+            "Harvesting",
+            "Drying",
+            "Curing",
+            "Long-Term Storage",
+            "Root Health",
+            "Canopy Management",
+            "Training",
+            "Topping",
+            "LST",
+            "SCROG",
+            "Cloning",
+            "Propagation",
+            "Pollination",
+            "Breeding",
+            "Phenotypes",
+            "Genetics",
+            "Environmental Control",
+            "Humidity",
+            "Temperature",
+            "Airflow",
+            "Lighting",
+            "Watering",
+            "Nutrients",
+            "pH",
+            "EC",
+            "PPM",
+            "Deficiencies",
+            "Plant Stress",
+            "Pests",
+            "Mold",
+            "Disease Prevention",
+            "IPM",
+            "Grow Troubleshooting"
+          ]
+        },
+
+        "terpenes": {
+          "enabled": true,
+          "sections": [
+            "Myrcene",
+            "Limonene",
+            "Pinene",
+            "Linalool",
+            "Caryophyllene",
+            "Humulene",
+            "Ocimene",
+            "Terpinolene",
+            "Nerolidol",
+            "Bisabolol",
+            "Camphene",
+            "Borneol",
+            "Geraniol",
+            "Valencene",
+            "Terpene Profiles",
+            "Terpene Combinations",
+            "Aroma Profiles",
+            "Flavor Profiles",
+            "Laboratory Testing",
+            "Terpene Preservation",
+            "Storage Effects",
+            "Extraction Effects"
+          ]
+        },
+
+        "cannabinoids": {
+          "enabled": true,
+          "sections": [
+            "THC",
+            "THCA",
+            "CBD",
+            "CBDA",
+            "CBG",
+            "CBGA",
+            "CBC",
+            "CBN",
+            "THCV",
+            "CBDV",
+            "Minor Cannabinoids",
+            "Acidic Cannabinoids",
+            "Decarboxylation",
+            "Cannabinoid Ratios",
+            "Laboratory Results",
+            "Potency",
+            "Testing Methods",
+            "Extraction"
+          ]
+        },
+
+        "products": {
+          "enabled": true,
+          "sections": [
+            "Flower",
+            "Pre-Rolls",
+            "Concentrates",
+            "Extracts",
+            "Rosin",
+            "Live Rosin",
+            "Resin",
+            "Live Resin",
+            "Hash",
+            "Kief",
+            "Vape Products",
+            "Edibles",
+            "Beverages",
+            "Tinctures",
+            "Topicals",
+            "Capsules",
+            "Transdermal Products",
+            "Accessories",
+            "Storage Products",
+            "Testing Equipment"
+          ]
+        },
+
+        "consumption": {
+          "enabled": true,
+          "sections": [
+            "Consumption Methods",
+            "Smoking",
+            "Vaporizing",
+            "Edibles",
+            "Tinctures",
+            "Topicals",
+            "Beverages",
+            "Dosing Concepts",
+            "Onset",
+            "Duration",
+            "Tolerance",
+            "Responsible Use",
+            "Storage",
+            "Product Selection",
+            "Consumption Safety"
+          ]
+        },
+
+        "science": {
+          "enabled": true,
+          "sections": [
+            "Cannabis Biology",
+            "Plant Physiology",
+            "Endocannabinoid System",
+            "Cannabinoid Receptors",
+            "CB1",
+            "CB2",
+            "Phytochemistry",
+            "Botany",
+            "Genetics",
+            "Plant Metabolism",
+            "Terpene Biosynthesis",
+            "Cannabinoid Biosynthesis",
+            "Laboratory Science",
+            "Analytical Chemistry",
+            "Chromatography",
+            "Research Methods",
+            "Scientific Literature",
+            "Evidence Levels"
+          ]
+        },
+
+        "legal": {
+          "enabled": true,
+          "sections": [
+            "Federal Law",
+            "State Law",
+            "Local Law",
+            "Medical Programs",
+            "Adult-Use Programs",
+            "Possession Rules",
+            "Purchase Rules",
+            "Cultivation Rules",
+            "Transportation",
+            "Employment",
+            "Housing",
+            "Licensing",
+            "Business Regulations",
+            "Compliance",
+            "Taxes",
+            "Packaging Rules",
+            "Labeling Rules",
+            "Testing Requirements",
+            "Advertising Rules",
+            "Legal Updates"
+          ]
+        },
+
+        "business": {
+          "enabled": true,
+          "sections": [
+            "Cannabis Business",
+            "Dispensary Operations",
+            "Cultivation Businesses",
+            "Manufacturing",
+            "Distribution",
+            "Wholesale",
+            "Retail",
+            "Brand Development",
+            "Marketing",
+            "Customer Experience",
+            "Inventory",
+            "Purchasing",
+            "Procurement",
+            "Pricing",
+            "Margins",
+            "Accounting",
+            "Taxes",
+            "Compliance",
+            "Licensing",
+            "Operations",
+            "Staffing",
+            "Training",
+            "Security",
+            "Risk Management",
+            "Business Planning",
+            "Market Research",
+            "Competitor Analysis"
+          ]
+        },
+
+        "technology": {
+          "enabled": true,
+          "sections": [
+            "Artificial Intelligence",
+            "Machine Learning",
+            "LLMs",
+            "Prompt Engineering",
+            "AI Agents",
+            "AI Memory",
+            "AI Tools",
+            "AI Automation",
+            "APIs",
+            "REST APIs",
+            "WebSockets",
+            "SSE Streaming",
+            "JavaScript",
+            "Node.js",
+            "HTML",
+            "CSS",
+            "React",
+            "Frontend Development",
+            "Backend Development",
+            "Databases",
+            "Authentication",
+            "Cybersecurity",
+            "Cloud Computing",
+            "DevOps",
+            "Git",
+            "GitHub",
+            "Testing",
+            "Performance",
+            "Accessibility",
+            "Responsive Design"
+          ]
+        },
+
+        "generalKnowledge": {
+          "enabled": true,
+          "sections": [
+            "History",
+            "Geography",
+            "Science",
+            "Technology",
+            "Mathematics",
+            "Physics",
+            "Chemistry",
+            "Biology",
+            "Psychology",
+            "Economics",
+            "Business",
+            "Finance",
+            "Education",
+            "Literature",
+            "Writing",
+            "Art",
+            "Music",
+            "Film",
+            "Games",
+            "Sports",
+            "Travel",
+            "Food",
+            "Culture",
+            "Philosophy",
+            "Languages"
+          ]
+        }
+      }
+    },
+
+    "tools": {
+
+      "enabled": true,
+
+      "categories": {
+
+        "conversation": [
+          "newChat",
+          "clearChat",
+          "renameChat",
+          "saveChat",
+          "deleteChat",
+          "searchChat",
+          "exportChat",
+          "importChat"
+        ],
+
+        "ai": [
+          "askAI",
+          "rewrite",
+          "summarize",
+          "explain",
+          "brainstorm",
+          "compare",
+          "analyze",
+          "generateIdeas",
+          "createPlan",
+          "createChecklist",
+          "createTable",
+          "translate",
+          "proofread"
+        ],
+
+        "research": [
+          "researchTopic",
+          "compareSources",
+          "extractFacts",
+          "summarizeResearch",
+          "buildTimeline",
+          "buildGlossary",
+          "generateQuestions",
+          "factCheck"
+        ],
+
+        "cultivation": [
+          "growPlanner",
+          "environmentCalculator",
+          "wateringPlanner",
+          "nutrientPlanner",
+          "harvestPlanner",
+          "dryingPlanner",
+          "curingPlanner",
+          "strainComparison",
+          "terpeneExplorer",
+          "cannabinoidExplorer",
+          "deficiencyGuide",
+          "pestGuide",
+          "growTroubleshooter"
+        ],
+
+        "business": [
+          "businessPlanner",
+          "inventoryPlanner",
+          "pricingCalculator",
+          "marginCalculator",
+          "procurementPlanner",
+          "operationsPlanner",
+          "marketingPlanner",
+          "brandPlanner",
+          "complianceChecklist",
+          "businessChecklist"
+        ],
+
+        "productivity": [
+          "taskManager",
+          "projectPlanner",
+          "goalPlanner",
+          "calendarPlanner",
+          "meetingPlanner",
+          "noteBuilder",
+          "checklistBuilder",
+          "decisionHelper",
+          "priorityMatrix"
+        ],
+
+        "creative": [
+          "storyGenerator",
+          "characterBuilder",
+          "worldBuilder",
+          "nameGenerator",
+          "logoIdeas",
+          "brandIdeas",
+          "contentIdeas",
+          "socialPostGenerator",
+          "captionGenerator",
+          "headlineGenerator"
+        ],
+
+        "developer": [
+          "codeGenerator",
+          "codeExplainer",
+          "debugger",
+          "refactor",
+          "testGenerator",
+          "apiBuilder",
+          "jsonBuilder",
+          "regexHelper",
+          "sqlHelper",
+          "htmlBuilder",
+          "cssBuilder",
+          "javascriptHelper"
+        ],
+
+        "voice": [
+          "startListening",
+          "stopListening",
+          "speakResponse",
+          "stopSpeaking",
+          "pauseSpeaking",
+          "resumeSpeaking",
+          "changeVoice",
+          "changeSpeed",
+          "changePitch"
+        ]
+      }
+    },
+
+    "ui": {
+
+      "navigation": {
+        "home": true,
+        "about": true,
+        "faq": true,
+        "design": true,
+        "ai": true,
+        "strains": true,
+        "terpenes": true,
+        "cannabinoids": true,
+        "cultivation": true,
+        "science": true,
+        "legal": true,
+        "business": true,
+        "products": true,
+        "tools": true,
+        "settings": true,
+        "help": true
+      },
+
+      "panels": {
+        "chat": true,
+        "memory": true,
+        "tools": true,
+        "voice": true,
+        "settings": true,
+        "history": true,
+        "status": true,
+        "notifications": true,
+        "help": true
+      },
+
+      "features": {
+        "darkMode": true,
+        "lightMode": true,
+        "systemTheme": true,
+        "animations": true,
+        "reducedMotion": true,
+        "keyboardShortcuts": true,
+        "responsiveLayout": true,
+        "mobileNavigation": true,
+        "desktopNavigation": true,
+        "tooltips": true,
+        "notifications": true,
+        "toastMessages": true,
+        "modalWindows": true,
+        "commandPalette": true,
+        "search": true,
+        "filters": true,
+        "sorting": true,
+        "tabs": true,
+        "accordions": true
+      }
+    },
+
+    "orbitTools": {
+
+      "enabled": true,
+
+      "categories": {
+
+        "discover": [
+          "About GanjaGroot",
+          "Frequently Asked Questions",
+          "Cannabis Basics",
+          "Cannabis History",
+          "Cannabis Science",
+          "Cannabis Culture"
+        ],
+
+        "explore": [
+          "Strain Explorer",
+          "Terpene Explorer",
+          "Cannabinoid Explorer",
+          "Product Explorer",
+          "Genetics Explorer",
+          "Effects Explorer",
+          "Aroma Explorer",
+          "Flavor Explorer"
+        ],
+
+        "grow": [
+          "Grow Planner",
+          "Indoor Growing",
+          "Outdoor Growing",
+          "Hydroponics",
+          "Living Soil",
+          "Training",
+          "Nutrients",
+          "Lighting",
+          "Environment",
+          "Pest Management",
+          "Harvest",
+          "Drying",
+          "Curing"
+        ],
+
+        "learn": [
+          "Cannabis Science",
+          "Plant Biology",
+          "Cannabinoid Science",
+          "Terpene Science",
+          "Endocannabinoid System",
+          "Laboratory Testing",
+          "Research",
+          "Glossary"
+        ],
+
+        "business": [
+          "Business Planner",
+          "Dispensary Planner",
+          "Cultivation Business",
+          "Procurement",
+          "Inventory",
+          "Pricing",
+          "Marketing",
+          "Branding",
+          "Compliance"
+        ],
+
+        "ai": [
+          "Ask GanjaGroot",
+          "AI Chat",
+          "AI Research",
+          "AI Writer",
+          "AI Analyst",
+          "AI Developer",
+          "AI Planner",
+          "AI Brainstormer",
+          "AI Teacher"
+        ]
+      }
+    },
+
+    "search": {
+      "enabled": true,
+      "globalSearch": true,
+      "chatSearch": true,
+      "knowledgeSearch": true,
+      "toolSearch": true,
+      "fuzzySearch": true,
+      "caseInsensitive": true,
+      "highlightResults": true,
+      "maximumResults": 50,
+      "minimumQueryLength": 2
+    },
+
+    "notifications": {
+      "enabled": true,
+      "browserNotifications": true,
+      "toastNotifications": true,
+      "soundNotifications": false,
+      "aiComplete": true,
+      "errors": true,
+      "warnings": true,
+      "success": true,
+      "system": true
+    },
+
+    "security": {
+      "enabled": true,
+      "apiKeyServerSideOnly": true,
+      "validateRequests": true,
+      "validateSessions": true,
+      "sanitizeInput": true,
+      "sanitizeOutput": true,
+      "rateLimiting": true,
+      "requestLogging": true,
+      "securityHeaders": true,
+      "csrfProtection": false,
+      "authentication": false,
+      "authorization": false,
+      "auditLogging": true,
+      "maxMessageLength": 20000,
+      "maxRequestSize": "2mb"
+    },
+
+    "privacy": {
+      "storeConversations": true,
+      "storeVoiceData": false,
+      "storeAnalytics": false,
+      "storeIPAddresses": false,
+      "anonymousUsage": true,
+      "allowMemoryDeletion": true,
+      "allowConversationDeletion": true,
+      "allowDataExport": true,
+      "retentionDays": 365
+    },
+
+    "analytics": {
+      "enabled": false,
+      "anonymous": true,
+      "trackPageViews": false,
+      "trackToolUsage": false,
+      "trackConversationLength": false,
+      "trackVoiceUsage": false,
+      "trackErrors": true,
+      "trackPerformance": true
+    },
+
+    "performance": {
+      "streamResponses": true,
+      "cacheKnowledge": true,
+      "cacheToolResults": true,
+      "lazyLoadTools": true,
+      "lazyLoadKnowledge": true,
+      "parallelToolExecution": true,
+      "requestTimeout": 120000,
+      "memoryCacheSize": 1000,
+      "enableCompression": true,
+      "enableKeepAlive": true
+    },
+
+    "files": {
+      "enabled": true,
+      "uploads": true,
+      "downloads": true,
+      "documents": true,
+      "images": true,
+      "audio": true,
+      "video": true,
+      "text": true,
+      "json": true,
+      "csv": true,
+      "pdf": true,
+      "maximumFileSize": "25mb",
+      "maximumFilesPerRequest": 10
+    },
+
+    "export": {
+      "enabled": true,
+      "chat": true,
+      "memory": true,
+      "settings": true,
+      "knowledge": true,
+      "json": true,
+      "txt": true,
+      "markdown": true,
+      "csv": true,
+      "html": true
+    },
+
+    "integrations": {
+      "openai": {
+        "enabled": true,
+        "responsesApi": true,
+        "streaming": true
+      },
+
+      "browser": {
+        "enabled": true,
+        "speechRecognition": true,
+        "speechSynthesis": true,
+        "localStorage": true,
+        "notifications": true
+      },
+
+      "future": {
+        "database": false,
+        "redis": false,
+        "postgresql": false,
+        "mongodb": false,
+        "vectorDatabase": false,
+        "authenticationProvider": false,
+        "cloudStorage": false,
+        "email": false,
+        "calendar": false,
+        "maps": false,
+        "payments": false,
+        "externalSearch": false
+      }
+    },
+
+    "moderation": {
+      "enabled": true,
+      "inputModeration": true,
+      "outputModeration": true,
+      "unsafeContentDetection": true,
+      "spamDetection": true,
+      "abuseDetection": true,
+      "promptInjectionDetection": true,
+      "regulatedTopicAwareness": true,
+      "legalTopicWarnings": true,
+      "medicalTopicWarnings": true
+    },
+
+    "accessibility": {
+      "enabled": true,
+      "keyboardNavigation": true,
+      "screenReaderSupport": true,
+      "ariaLabels": true,
+      "focusManagement": true,
+      "highContrast": true,
+      "reducedMotion": true,
+      "largeText": true,
+      "voiceNavigation": true
+    },
+
+    "developer": {
+      "debugMode": false,
+      "verboseLogging": false,
+      "showApiErrors": false,
+      "showPerformanceMetrics": false,
+      "enableDevTools": true,
+      "enableTestTools": true,
+      "enableExperimentalFeatures": true
+    },
+
+    "futureFeatures": {
+
+      "enabled": true,
+
+      "planned": [
+        "User Accounts",
+        "Cloud Memory",
+        "Persistent Profiles",
+        "Multiple AI Personalities",
+        "AI Agents",
+        "Multi-Agent Conversations",
+        "Tool Marketplace",
+        "Plugin System",
+        "Knowledge Packs",
+        "Custom Knowledge Bases",
+        "Vector Search",
+        "Semantic Memory",
+        "Document Chat",
+        "Image Understanding",
+        "Image Generation",
+        "Audio Understanding",
+        "Video Understanding",
+        "Real-Time Voice",
+        "Live Web Research",
+        "Automated Research",
+        "Scheduled Tasks",
+        "Reminders",
+        "Personal Dashboards",
+        "Custom Workspaces",
+        "Team Workspaces",
+        "Shared Conversations",
+        "Conversation Branching",
+        "Conversation Forking",
+        "AI Personas",
+        "Custom System Prompts",
+        "Custom AI Tools",
+        "Custom Commands",
+        "API Access",
+        "Developer API",
+        "Webhooks",
+        "Automation",
+        "Workflow Builder",
+        "Knowledge Graph",
+        "Recommendation Engine",
+        "Personal AI Assistant"
+      ]
+    },
+
+    "commands": {
+
+      "enabled": true,
+
+      "builtIn": [
+        "/help",
+        "/clear",
+        "/new",
+        "/memory",
+        "/forget",
+        "/save",
+        "/export",
+        "/search",
+        "/tools",
+        "/voice",
+        "/stop",
+        "/summarize",
+        "/explain",
+        "/research",
+        "/compare",
+        "/plan",
+        "/brainstorm",
+        "/code",
+        "/grow",
+        "/strain",
+        "/terpene",
+        "/cannabinoid",
+        "/legal",
+        "/business",
+        "/settings"
+      ]
+    },
+
+    "shortcuts": {
+      "enabled": true,
+
+      "keys": {
+        "newChat": "CTRL+N",
+        "search": "CTRL+K",
+        "focusChat": "CTRL+L",
+        "clearChat": "CTRL+SHIFT+BACKSPACE",
+        "toggleVoice": "CTRL+SHIFT+V",
+        "stopSpeaking": "ESC",
+        "openTools": "CTRL+SHIFT+T",
+        "openSettings": "CTRL+,",
+        "sendMessage": "ENTER",
+        "newLine": "SHIFT+ENTER"
+      }
+    },
+
+    "personalization": {
+      "enabled": true,
+      "rememberName": true,
+      "rememberPreferences": true,
+      "rememberTone": true,
+      "rememberTopics": true,
+      "rememberTools": true,
+      "rememberConversationStyle": true,
+      "customInstructions": true,
+      "customPersonality": true,
+      "customResponseLength": true,
+      "customVoice": true,
+      "customTheme": true
+    },
+
+    "response": {
+      "markdown": true,
+      "codeBlocks": true,
+      "tables": true,
+      "lists": true,
+      "headings": true,
+      "links": true,
+      "citations": true,
+      "emojis": true,
+      "syntaxHighlighting": true,
+      "copyButtons": true,
+      "regenerateButton": true,
+      "editMessage": true,
+      "retryMessage": true,
+      "stopGeneration": true,
+      "continueGeneration": true
+    }
+  },
+
+  "keywords": [
+    "ai",
+    "artificial-intelligence",
+    "ganjagroot",
+    "cannabis",
+    "cannabis-ai",
+    "assistant",
+    "chatbot",
+    "voice-ai",
+    "streaming-ai",
+    "conversation-memory",
+    "knowledge-base",
+    "ai-tools",
+    "cultivation",
+    "terpenes",
+    "cannabinoids",
+    "cannabis-science",
+    "cannabis-culture",
+    "cannabis-business",
+    "cannabis-technology"
+  ],
+
+  "author": "GanjaGroot",
+  "license": "UNLICENSED",
+
+  "repository": {
+    "type": "git",
+    "private": true
+  },
+
+  "bugs": {
+    "enabled": true
+  }
+}
