@@ -6,20 +6,41 @@
     <meta name="description" content="Potgrowhubstore is the ultimate AI-powered cannabis ecosystem, offering 3D/AR/VR product design, print-on-demand merch, automated eco-friendly dropshipping, intelligent budtender AI, and strain discovery.">
     <meta name="keywords" content="cannabis, potgrowhub, ganjaguru, ganja goddess ai, 3dpod, print on demand, weed, marijuana, strain finder, ai budtender, pwa, e-commerce, eco-friendly">
     <meta name="author" content="Ray">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="rating" content="mature">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="English">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <!-- Expanded PWA & Mobile Web App Meta -->
     <meta name="theme-color" content="#0d0f12">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d0f12">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1b2028">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Potgrowhub">
+    <meta name="application-name" content="Potgrowhubstore">
+    <meta name="msapplication-TileColor" content="#0d0f12">
+    <meta name="msapplication-TileImage" content="/icon-192.png">
+    <meta name="msapplication-navbutton-color" content="#0d0f12">
     
     <!-- Canonical & Resource Hints -->
     <link rel="canonical" href="https://github.com/potgrowhub/potgrowhubstore">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     
     <!-- Open Graph / Social Media AEO & SEO -->
     <meta property="og:title" content="Potgrowhubstore | The AI-Powered Cannabis Ecosystem">
@@ -28,12 +49,18 @@
     <meta property="og:url" content="https://github.com/potgrowhub/potgrowhubstore">
     <meta property="og:site_name" content="Potgrowhubstore">
     <meta property="og:image" content="https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Potgrowhubstore AI Cannabis Ecosystem Logo">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Potgrowhubstore | The AI-Powered Cannabis Ecosystem">
     <meta name="twitter:description" content="Explore strain profiles, design custom 3D bongs in AR/VR, and chat with GanjaGuru—the sentient botanical AI.">
     <meta name="twitter:image" content="https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png">
+    <meta name="twitter:image:alt" content="Potgrowhubstore AI Cannabis Ecosystem Interface Preview">
 
     <!-- Schema.org JSON-LD Structured Data for Answer Engine Optimization (AEO) -->
     <script type="application/ld+json">
@@ -71,6 +98,90 @@
           "price": "0",
           "priceCurrency": "USD"
         }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Potgrowhubstore?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Potgrowhubstore is an AI-powered cannabis ecosystem featuring 3D/AR/VR hardware design, print-on-demand merchandise, eco-friendly automated dropshipping, and GanjaGuru AI strain discovery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does GanjaGuru AI work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GanjaGuru operates as an intelligent botanical AI budtender that helps users explore strain genetics, terpene profiles, grow optimization guides, and personalized consumption recommendations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I design 3D hardware in Augmented Reality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Potgrowhubstore integrates WebXR and 3D model viewing tools allowing users to customize and view 3D print-on-demand designs in real-time augmented and virtual reality environments."
+            }
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://github.com/potgrowhub/potgrowhubstore"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "3D POD Studio",
+            "item": "https://github.com/potgrowhub/potgrowhubstore#studio"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "GanjaGuru AI",
+            "item": "https://github.com/potgrowhub/potgrowhubstore#ai-budtender"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "3D Print-On-Demand & Cannabis AI Recommendation Engine",
+        "provider": {
+          "@type": "Organization",
+          "name": "Potgrowhubstore"
+        },
+        "areaServed": "Global",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Cannabis Ecosystem Tools",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AR/VR Product Customizer"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Strain & Terpene Finder"
+              }
+            }
+          ]
+        }
       }
     ]
     </script>
@@ -78,19 +189,27 @@
     <meta name="hosting-provider" content="GitHub Pages">
     <meta name="github-repository" content="https://github.com/potgrowhub/potgrowhubstore">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potgrowhubstore</title>
+    <title>Potgrowhubstore | AI-Powered Cannabis & 3D POD Ecosystem</title>
     
     <!-- PWA & Valuable File Links -->
     <link rel="manifest" href="/manifest.json">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0d0f12">
     
-    <!-- Font Links & 3D/AR Model Viewer Import -->
+    <!-- Font Links, CSS Frameworks & 3D/AR Model Viewer Import -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --bg-primary: #0d0f12;
