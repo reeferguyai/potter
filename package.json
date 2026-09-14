@@ -1,1149 +1,326 @@
-```json
 {
-  "name": "potgrowhub.store",
-  "version": "2.0.0",
-  "private": true,
-  "description": "PotGrowHub / GanjaGroot AI - production-ready conversational AI platform with memory, streaming, voice, tools, knowledge systems, personalization, research, cultivation, business and extensible services.",
-  "type": "module",
-
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
-    "start:debug": "node --inspect server.js",
-    "health": "node server.js --health",
-    "check": "node --check server.js",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "validate": "npm run check && npm run lint && npm run format:check",
-    "test": "node --test",
-    "test:watch": "node --test --watch",
-    "test:vitest": "vitest run",
-    "test:vitest:watch": "vitest",
-    "test:e2e": "playwright test",
-    "test:all": "npm run validate && npm run test && npm run test:vitest && npm run test:e2e",
-    "production": "cross-env NODE_ENV=production node server.js",
-    "clean": "node scripts/clean.js",
-    "backup": "node scripts/backup.js",
-    "seed": "node scripts/seed.js",
-    "audit": "npm audit",
-    "audit:fix": "npm audit fix",
-    "outdated": "npm-check-updates",
-    "update": "npm-check-updates -u && npm install"
+  "name": "potgrowhubstore",
+  "version": "1.0.0",
+  "description": "The AI-Powered Cannabis Ecosystem, Botanical Intelligence, 3D/AR Visualization & PWA E-Commerce Suite",
+  "private": false,
+  "homepage": "https://github.com/potgrowhub/potgrowhubstore#readme",
+  "bugs": {
+    "url": "https://github.com/potgrowhub/potgrowhubstore/issues",
+    "email": "support@potgrowhub.local",
+    "remote": "https://github.com/potgrowhub/potgrowhubstore/security/advisories",
+    "discord": "https://discord.gg/potgrowhub",
+    "twitter": "https://twitter.com/potgrowhub"
   },
-
-  "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
-  },
-
-  "dependencies": {
-    "axios": "^1.11.0",
-    "bcryptjs": "^3.0.2",
-    "body-parser": "^2.2.0",
-    "chalk": "^5.6.0",
-    "compression": "^1.8.1",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "date-fns": "^4.1.0",
-    "dotenv": "^16.4.7",
-    "dotenv-expand": "^12.0.2",
-    "eventsource-parser": "^3.0.5",
-    "execa": "^9.6.0",
-    "express": "^5.1.0",
-    "express-rate-limit": "^8.0.1",
-    "express-validator": "^7.2.1",
-    "file-type": "^21.0.0",
-    "form-data": "^4.0.4",
-    "helmet": "^8.1.0",
-    "js-yaml": "^4.1.0",
-    "jsonwebtoken": "^9.0.3",
-    "lodash": "^4.17.21",
-    "lru-cache": "^11.1.0",
-    "marked": "^16.3.0",
-    "mathjs": "^14.0.1",
-    "method-override": "^3.0.0",
-    "mongoose": "^8.18.0",
-    "morgan": "^1.10.0",
-    "multer": "^2.0.2",
-    "nanoid": "^5.1.5",
-    "node-cache": "^5.1.2",
-    "node-fetch": "^3.3.2",
-    "openai": "^5.12.2",
-    "ora": "^8.2.0",
-    "pino": "^9.9.0",
-    "pino-pretty": "^13.1.0",
-    "pg": "^8.16.3",
-    "redis": "^5.8.2",
-    "sanitize-html": "^2.17.0",
-    "sharp": "^0.34.3",
-    "uuid": "^11.1.0",
-    "ws": "^8.18.3",
-    "yaml": "^2.8.1",
-    "zod": "^4.1.5",
-    "better-sqlite3": "^12.2.0"
-  },
-
-  "devDependencies": {
-    "@eslint/js": "^9.35.0",
-    "concurrently": "^9.2.1",
-    "cross-env": "^10.0.0",
-    "dotenv-cli": "^10.0.0",
-    "eslint": "^9.35.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^7.2.1",
-    "jsdom": "^26.1.0",
-    "npm-check-updates": "^18.0.1",
-    "nodemon": "^3.1.7",
-    "playwright": "^1.55.0",
-    "prettier": "^3.6.2",
-    "rimraf": "^6.0.1",
-    "supertest": "^7.1.4",
-    "tsx": "^4.20.5",
-    "typescript": "^5.9.2",
-    "vitest": "^3.2.4"
-  },
-
-  "config": {
-    "application": {
-      "name": "PotGrowHub",
-      "shortName": "PotGrowHub",
-      "brand": "GanjaGroot AI",
-      "version": "2.0.0",
-      "environment": "development",
-      "platform": "web",
-      "language": "en-US",
-      "timezone": "America/New_York",
-      "defaultTheme": "dark",
-      "enableBetaFeatures": false,
-      "enableExperimentalFeatures": false
-    },
-
-    "domain": {
-      "primary": "potgrowhub.store",
-      "www": "www.potgrowhub.store",
-      "protocol": "https",
-      "canonicalUrl": "https://potgrowhub.store",
-      "allowedOrigins": [
-        "https://potgrowhub.store",
-        "https://www.potgrowhub.store"
-      ]
-    },
-
-    "server": {
-      "host": "0.0.0.0",
-      "port": 3000,
-      "trustProxy": false,
-      "compression": true,
-      "requestTimeout": 120000,
-      "keepAliveTimeout": 65000,
-      "headersTimeout": 66000,
-      "bodyLimit": "2mb",
-      "enableCors": true,
-      "enableHealthEndpoint": true,
-      "enableMetrics": true,
-      "enableRequestLogging": true
-    },
-
-    "ai": {
-      "provider": "openai",
-      "model": "${OPENAI_MODEL}",
-      "fallbackModel": "${OPENAI_FALLBACK_MODEL}",
-      "temperature": 0.7,
-      "topP": 1,
-      "maxOutputTokens": 4096,
-      "streaming": true,
-      "streamMode": "delta",
-      "rememberConversation": true,
-      "maximumConversationMessages": 100,
-      "maximumContextMessages": 40,
-      "automaticSummaries": true,
-      "automaticContextCompression": true,
-      "contextWindowManagement": true,
-      "personality": "friendly",
-      "responseStyle": "helpful",
-      "reasoningEnabled": true,
-      "toolCalling": true,
-      "parallelTools": true,
-      "structuredResponses": true,
-      "jsonResponses": true
-    },
-
-    "aiModes": {
-      "default": "general",
-      "general": {
-        "enabled": true,
-        "description": "General GanjaGroot AI assistant"
-      },
-      "expert": {
-        "enabled": true,
-        "description": "Detailed expert-level responses"
-      },
-      "creative": {
-        "enabled": true,
-        "description": "Creative brainstorming and idea generation"
-      },
-      "research": {
-        "enabled": true,
-        "description": "Research-oriented analysis"
-      },
-      "teacher": {
-        "enabled": true,
-        "description": "Explains difficult subjects step-by-step"
-      },
-      "coach": {
-        "enabled": true,
-        "description": "Planning, productivity and guidance"
-      },
-      "technical": {
-        "enabled": true,
-        "description": "Programming and technical assistance"
-      },
-      "concise": {
-        "enabled": true,
-        "description": "Short direct answers"
-      },
-      "deepDive": {
-        "enabled": true,
-        "description": "Extremely detailed analysis"
-      },
-      "brainstorm": {
-        "enabled": true,
-        "description": "Idea generation mode"
-      },
-      "debate": {
-        "enabled": true,
-        "description": "Balanced arguments and counterarguments"
-      },
-      "interviewer": {
-        "enabled": true,
-        "description": "Interactive question and answer mode"
-      },
-      "storyteller": {
-        "enabled": true,
-        "description": "Creative storytelling mode"
-      },
-      "developer": {
-        "enabled": true,
-        "description": "Software engineering mode"
-      },
-      "analyst": {
-        "enabled": true,
-        "description": "Data and decision analysis"
-      }
-    },
-
-    "memory": {
-      "enabled": true,
-      "provider": "local-json",
-      "database": "data/memory.json",
-      "sessionMemory": true,
-      "conversationMemory": true,
-      "longTermMemory": true,
-      "userPreferences": true,
-      "topicMemory": true,
-      "contextMemory": true,
-      "summaryMemory": true,
-      "toolMemory": true,
-      "memorySearch": true,
-      "memoryRanking": true,
-      "memoryDeduplication": true,
-      "automaticMemoryCleanup": true,
-      "maximumStoredMessages": 1000,
-      "maximumStoredSessions": 10000,
-      "summaryAfterMessages": 50,
-      "retentionDays": 365,
-      "encryptMemory": true,
-      "requireAuthentication": true
-    },
-
-    "conversation": {
-      "allowNewChats": true,
-      "allowRenameChats": true,
-      "allowDeleteChats": true,
-      "allowExportChats": true,
-      "allowImportChats": true,
-      "allowSearchChats": true,
-      "allowPinChats": true,
-      "allowArchiveChats": true,
-      "allowConversationFolders": true,
-      "allowConversationTags": true,
-      "allowConversationNotes": true,
-      "showTimestamps": true,
-      "showTypingIndicator": true,
-      "showStreamingCursor": true,
-      "showAIStatus": true,
-      "autoScroll": true,
-      "preserveScrollPosition": true
-    },
-
-    "voice": {
-      "enabled": true,
-      "input": true,
-      "output": true,
-      "continuousListening": false,
-      "pushToTalk": true,
-      "voiceActivation": false,
-      "speechRecognition": true,
-      "speechSynthesis": true,
-      "autoSpeakResponses": false,
-      "interruptSpeaking": true,
-      "pauseSpeaking": true,
-      "resumeSpeaking": true,
-      "volumeControl": true,
-      "speedControl": true,
-      "pitchControl": true,
-      "voiceSelection": true,
-      "languageSelection": true,
-      "defaultLanguage": "en-US",
-      "defaultRate": 1,
-      "defaultPitch": 1,
-      "defaultVolume": 1
-    },
-
-    "voiceModes": {
-      "normal": {
-        "enabled": true,
-        "rate": 1,
-        "pitch": 1
-      },
-      "slow": {
-        "enabled": true,
-        "rate": 0.8,
-        "pitch": 1
-      },
-      "fast": {
-        "enabled": true,
-        "rate": 1.25,
-        "pitch": 1
-      },
-      "deep": {
-        "enabled": true,
-        "rate": 0.9,
-        "pitch": 0.8
-      },
-      "bright": {
-        "enabled": true,
-        "rate": 1.05,
-        "pitch": 1.15
-      }
-    },
-
-    "knowledge": {
-      "enabled": true,
-
-      "categories": {
-        "cannabis": {
-          "enabled": true,
-          "sections": [
-            "Cannabis Basics",
-            "Cannabinoids",
-            "Terpenes",
-            "Cultivars",
-            "Strains",
-            "Indica",
-            "Sativa",
-            "Hybrid",
-            "Ruderalis",
-            "Landraces",
-            "Modern Breeding",
-            "Cannabis History",
-            "Cannabis Culture",
-            "Cannabis Science",
-            "Cannabis Chemistry",
-            "Cannabis Botany",
-            "Cannabis Genetics",
-            "Cannabis Anatomy",
-            "Cannabis Lifecycle",
-            "Cannabis Identification",
-            "Cannabis Storage",
-            "Cannabis Quality",
-            "Cannabis Testing",
-            "Cannabis Labels",
-            "Cannabis Terminology"
-          ]
-        },
-
-        "cultivation": {
-          "enabled": true,
-          "sections": [
-            "Cultivation Basics",
-            "Indoor Growing",
-            "Outdoor Growing",
-            "Greenhouse Growing",
-            "Hydroponics",
-            "Aeroponics",
-            "Living Soil",
-            "Organic Growing",
-            "Soilless Growing",
-            "Container Growing",
-            "Germination",
-            "Seedlings",
-            "Vegetative Growth",
-            "Flowering",
-            "Late Flower",
-            "Harvest Preparation",
-            "Harvesting",
-            "Drying",
-            "Curing",
-            "Long-Term Storage",
-            "Root Health",
-            "Canopy Management",
-            "Training",
-            "Topping",
-            "LST",
-            "SCROG",
-            "Cloning",
-            "Propagation",
-            "Pollination",
-            "Breeding",
-            "Phenotypes",
-            "Genetics",
-            "Environmental Control",
-            "Humidity",
-            "Temperature",
-            "Airflow",
-            "Lighting",
-            "Watering",
-            "Nutrients",
-            "pH",
-            "EC",
-            "PPM",
-            "Deficiencies",
-            "Plant Stress",
-            "Pests",
-            "Mold",
-            "Disease Prevention",
-            "IPM",
-            "Grow Troubleshooting"
-          ]
-        },
-
-        "terpenes": {
-          "enabled": true,
-          "sections": [
-            "Myrcene",
-            "Limonene",
-            "Pinene",
-            "Linalool",
-            "Caryophyllene",
-            "Humulene",
-            "Ocimene",
-            "Terpinolene",
-            "Nerolidol",
-            "Bisabolol",
-            "Camphene",
-            "Borneol",
-            "Geraniol",
-            "Valencene",
-            "Terpene Profiles",
-            "Terpene Combinations",
-            "Aroma Profiles",
-            "Flavor Profiles",
-            "Laboratory Testing",
-            "Terpene Preservation",
-            "Storage Effects",
-            "Extraction Effects"
-          ]
-        },
-
-        "cannabinoids": {
-          "enabled": true,
-          "sections": [
-            "THC",
-            "THCA",
-            "CBD",
-            "CBDA",
-            "CBG",
-            "CBGA",
-            "CBC",
-            "CBN",
-            "THCV",
-            "CBDV",
-            "Minor Cannabinoids",
-            "Acidic Cannabinoids",
-            "Decarboxylation",
-            "Cannabinoid Ratios",
-            "Laboratory Results",
-            "Potency",
-            "Testing Methods",
-            "Extraction"
-          ]
-        },
-
-        "products": {
-          "enabled": true,
-          "sections": [
-            "Flower",
-            "Pre-Rolls",
-            "Concentrates",
-            "Extracts",
-            "Rosin",
-            "Live Rosin",
-            "Resin",
-            "Live Resin",
-            "Hash",
-            "Kief",
-            "Vape Products",
-            "Edibles",
-            "Beverages",
-            "Tinctures",
-            "Topicals",
-            "Capsules",
-            "Transdermal Products",
-            "Accessories",
-            "Storage Products",
-            "Testing Equipment"
-          ]
-        },
-
-        "consumption": {
-          "enabled": true,
-          "sections": [
-            "Consumption Methods",
-            "Smoking",
-            "Vaporizing",
-            "Edibles",
-            "Tinctures",
-            "Topicals",
-            "Beverages",
-            "Dosing Concepts",
-            "Onset",
-            "Duration",
-            "Tolerance",
-            "Responsible Use",
-            "Storage",
-            "Product Selection",
-            "Consumption Safety"
-          ]
-        },
-
-        "science": {
-          "enabled": true,
-          "sections": [
-            "Cannabis Biology",
-            "Plant Physiology",
-            "Endocannabinoid System",
-            "Cannabinoid Receptors",
-            "CB1",
-            "CB2",
-            "Phytochemistry",
-            "Botany",
-            "Genetics",
-            "Plant Metabolism",
-            "Terpene Biosynthesis",
-            "Cannabinoid Biosynthesis",
-            "Laboratory Science",
-            "Analytical Chemistry",
-            "Chromatography",
-            "Research Methods",
-            "Scientific Literature",
-            "Evidence Levels"
-          ]
-        },
-
-        "legal": {
-          "enabled": true,
-          "sections": [
-            "Federal Law",
-            "State Law",
-            "Local Law",
-            "Medical Programs",
-            "Adult-Use Programs",
-            "Possession Rules",
-            "Purchase Rules",
-            "Cultivation Rules",
-            "Transportation",
-            "Employment",
-            "Housing",
-            "Licensing",
-            "Business Regulations",
-            "Compliance",
-            "Taxes",
-            "Packaging Rules",
-            "Labeling Rules",
-            "Testing Requirements",
-            "Advertising Rules",
-            "Legal Updates"
-          ]
-        },
-
-        "business": {
-          "enabled": true,
-          "sections": [
-            "Cannabis Business",
-            "Dispensary Operations",
-            "Cultivation Businesses",
-            "Manufacturing",
-            "Distribution",
-            "Wholesale",
-            "Retail",
-            "Brand Development",
-            "Marketing",
-            "Customer Experience",
-            "Inventory",
-            "Purchasing",
-            "Procurement",
-            "Pricing",
-            "Margins",
-            "Accounting",
-            "Taxes",
-            "Compliance",
-            "Licensing",
-            "Operations",
-            "Staffing",
-            "Training",
-            "Security",
-            "Risk Management",
-            "Business Planning",
-            "Market Research",
-            "Competitor Analysis"
-          ]
-        },
-
-        "technology": {
-          "enabled": true,
-          "sections": [
-            "Artificial Intelligence",
-            "Machine Learning",
-            "LLMs",
-            "Prompt Engineering",
-            "AI Agents",
-            "AI Memory",
-            "AI Tools",
-            "AI Automation",
-            "APIs",
-            "REST APIs",
-            "WebSockets",
-            "SSE Streaming",
-            "JavaScript",
-            "Node.js",
-            "HTML",
-            "CSS",
-            "React",
-            "Frontend Development",
-            "Backend Development",
-            "Databases",
-            "Authentication",
-            "Cybersecurity",
-            "Cloud Computing",
-            "DevOps",
-            "Git",
-            "GitHub",
-            "Testing",
-            "Performance",
-            "Accessibility",
-            "Responsive Design"
-          ]
-        },
-
-        "generalKnowledge": {
-          "enabled": true,
-          "sections": [
-            "History",
-            "Geography",
-            "Science",
-            "Technology",
-            "Mathematics",
-            "Physics",
-            "Chemistry",
-            "Biology",
-            "Psychology",
-            "Economics",
-            "Business",
-            "Finance",
-            "Education",
-            "Literature",
-            "Writing",
-            "Art",
-            "Music",
-            "Film",
-            "Games",
-            "Sports",
-            "Travel",
-            "Food",
-            "Culture",
-            "Philosophy",
-            "Languages"
-          ]
-        }
-      }
-    },
-
-    "tools": {
-      "enabled": true,
-
-      "categories": {
-        "conversation": [
-          "newChat",
-          "clearChat",
-          "renameChat",
-          "saveChat",
-          "deleteChat",
-          "searchChat",
-          "exportChat",
-          "importChat"
-        ],
-
-        "ai": [
-          "askAI",
-          "rewrite",
-          "summarize",
-          "explain",
-          "brainstorm",
-          "compare",
-          "analyze",
-          "generateIdeas",
-          "createPlan",
-          "createChecklist",
-          "createTable",
-          "translate",
-          "proofread"
-        ],
-
-        "research": [
-          "researchTopic",
-          "compareSources",
-          "extractFacts",
-          "summarizeResearch",
-          "buildTimeline",
-          "buildGlossary",
-          "generateQuestions",
-          "factCheck"
-        ],
-
-        "cultivation": [
-          "growPlanner",
-          "environmentCalculator",
-          "wateringPlanner",
-          "nutrientPlanner",
-          "harvestPlanner",
-          "dryingPlanner",
-          "curingPlanner",
-          "strainComparison",
-          "terpeneExplorer",
-          "cannabinoidExplorer",
-          "deficiencyGuide",
-          "pestGuide",
-          "growTroubleshooter"
-        ],
-
-        "business": [
-          "businessPlanner",
-          "inventoryPlanner",
-          "pricingCalculator",
-          "marginCalculator",
-          "procurementPlanner",
-          "operationsPlanner",
-          "marketingPlanner",
-          "brandPlanner",
-          "complianceChecklist",
-          "businessChecklist"
-        ],
-
-        "productivity": [
-          "taskManager",
-          "projectPlanner",
-          "goalPlanner",
-          "calendarPlanner",
-          "meetingPlanner",
-          "noteBuilder",
-          "checklistBuilder",
-          "decisionHelper",
-          "priorityMatrix"
-        ],
-
-        "creative": [
-          "storyGenerator",
-          "characterBuilder",
-          "worldBuilder",
-          "nameGenerator",
-          "logoIdeas",
-          "brandIdeas",
-          "contentIdeas",
-          "socialPostGenerator",
-          "captionGenerator",
-          "headlineGenerator"
-        ],
-
-        "developer": [
-          "codeGenerator",
-          "codeExplainer",
-          "debugger",
-          "refactor",
-          "testGenerator",
-          "apiBuilder",
-          "jsonBuilder",
-          "regexHelper",
-          "sqlHelper",
-          "htmlBuilder",
-          "cssBuilder",
-          "javascriptHelper"
-        ],
-
-        "voice": [
-          "startListening",
-          "stopListening",
-          "speakResponse",
-          "stopSpeaking",
-          "pauseSpeaking",
-          "resumeSpeaking",
-          "changeVoice",
-          "changeSpeed",
-          "changePitch"
-        ]
-      }
-    },
-
-    "ui": {
-      "navigation": {
-        "home": true,
-        "about": true,
-        "faq": true,
-        "design": true,
-        "ai": true,
-        "strains": true,
-        "terpenes": true,
-        "cannabinoids": true,
-        "cultivation": true,
-        "science": true,
-        "legal": true,
-        "business": true,
-        "products": true,
-        "tools": true,
-        "settings": true,
-        "help": true
-      },
-
-      "panels": {
-        "chat": true,
-        "memory": true,
-        "tools": true,
-        "voice": true,
-        "settings": true,
-        "history": true,
-        "status": true,
-        "notifications": true,
-        "help": true
-      },
-
-      "features": {
-        "darkMode": true,
-        "lightMode": true,
-        "systemTheme": true,
-        "animations": true,
-        "reducedMotion": true,
-        "keyboardShortcuts": true,
-        "responsiveLayout": true,
-        "mobileNavigation": true,
-        "desktopNavigation": true,
-        "tooltips": true,
-        "notifications": true,
-        "toastMessages": true,
-        "modalWindows": true,
-        "commandPalette": true,
-        "search": true,
-        "filters": true,
-        "sorting": true,
-        "tabs": true,
-        "accordions": true
-      }
-    },
-
-    "search": {
-      "enabled": true,
-      "globalSearch": true,
-      "chatSearch": true,
-      "knowledgeSearch": true,
-      "toolSearch": true,
-      "fuzzySearch": true,
-      "caseInsensitive": true,
-      "highlightResults": true,
-      "maximumResults": 50,
-      "minimumQueryLength": 2
-    },
-
-    "notifications": {
-      "enabled": true,
-      "browserNotifications": true,
-      "toastNotifications": true,
-      "soundNotifications": false,
-      "aiComplete": true,
-      "errors": true,
-      "warnings": true,
-      "success": true,
-      "system": true
-    },
-
-    "security": {
-      "enabled": true,
-      "apiKeyServerSideOnly": true,
-      "validateRequests": true,
-      "validateSessions": true,
-      "sanitizeInput": true,
-      "sanitizeOutput": true,
-      "rateLimiting": true,
-      "requestLogging": true,
-      "securityHeaders": true,
-      "csrfProtection": true,
-      "authentication": true,
-      "authorization": true,
-      "auditLogging": true,
-      "maxMessageLength": 20000,
-      "maxRequestSize": "2mb"
-    },
-
-    "privacy": {
-      "storeConversations": true,
-      "storeVoiceData": false,
-      "storeAnalytics": false,
-      "storeIPAddresses": false,
-      "anonymousUsage": true,
-      "allowMemoryDeletion": true,
-      "allowConversationDeletion": true,
-      "allowDataExport": true,
-      "retentionDays": 365
-    },
-
-    "analytics": {
-      "enabled": false,
-      "anonymous": true,
-      "trackPageViews": false,
-      "trackToolUsage": false,
-      "trackConversationLength": false,
-      "trackVoiceUsage": false,
-      "trackErrors": true,
-      "trackPerformance": true
-    },
-
-    "performance": {
-      "streamResponses": true,
-      "cacheKnowledge": true,
-      "cacheToolResults": true,
-      "lazyLoadTools": true,
-      "lazyLoadKnowledge": true,
-      "parallelToolExecution": true,
-      "requestTimeout": 120000,
-      "memoryCacheSize": 1000,
-      "enableCompression": true,
-      "enableKeepAlive": true
-    },
-
-    "files": {
-      "enabled": true,
-      "uploads": true,
-      "downloads": true,
-      "documents": true,
-      "images": true,
-      "audio": true,
-      "video": true,
-      "text": true,
-      "json": true,
-      "csv": true,
-      "pdf": true,
-      "maximumFileSize": "25mb",
-      "maximumFilesPerRequest": 10,
-      "scanUploads": true,
-      "validateMimeTypes": true,
-      "sanitizeFilenames": true
-    },
-
-    "export": {
-      "enabled": true,
-      "chat": true,
-      "memory": true,
-      "settings": true,
-      "knowledge": true,
-      "json": true,
-      "txt": true,
-      "markdown": true,
-      "csv": true,
-      "html": true
-    },
-
-    "integrations": {
-      "openai": {
-        "enabled": true,
-        "responsesApi": true,
-        "streaming": true
-      },
-
-      "browser": {
-        "enabled": true,
-        "speechRecognition": true,
-        "speechSynthesis": true,
-        "localStorage": true,
-        "notifications": true
-      },
-
-      "future": {
-        "database": true,
-        "redis": true,
-        "postgresql": true,
-        "mongodb": true,
-        "vectorDatabase": true,
-        "authenticationProvider": true,
-        "cloudStorage": true,
-        "email": true,
-        "calendar": true,
-        "maps": false,
-        "payments": false,
-        "externalSearch": true
-      }
-    },
-
-    "moderation": {
-      "enabled": true,
-      "inputModeration": true,
-      "outputModeration": true,
-      "unsafeContentDetection": true,
-      "spamDetection": true,
-      "abuseDetection": true,
-      "promptInjectionDetection": true,
-      "regulatedTopicAwareness": true,
-      "legalTopicWarnings": true,
-      "medicalTopicWarnings": true
-    },
-
-    "accessibility": {
-      "enabled": true,
-      "keyboardNavigation": true,
-      "screenReaderSupport": true,
-      "ariaLabels": true,
-      "focusManagement": true,
-      "highContrast": true,
-      "reducedMotion": true,
-      "largeText": true,
-      "voiceNavigation": true
-    },
-
-    "developer": {
-      "debugMode": false,
-      "verboseLogging": false,
-      "showApiErrors": false,
-      "showPerformanceMetrics": false,
-      "enableDevTools": false,
-      "enableTestTools": false,
-      "enableExperimentalFeatures": false
-    },
-
-    "commands": {
-      "enabled": true,
-      "builtIn": [
-        "/help",
-        "/clear",
-        "/new",
-        "/memory",
-        "/forget",
-        "/save",
-        "/export",
-        "/search",
-        "/tools",
-        "/voice",
-        "/stop",
-        "/summarize",
-        "/explain",
-        "/research",
-        "/compare",
-        "/plan",
-        "/brainstorm",
-        "/code",
-        "/grow",
-        "/strain",
-        "/terpene",
-        "/cannabinoid",
-        "/legal",
-        "/business",
-        "/settings"
-      ]
-    },
-
-    "shortcuts": {
-      "enabled": true,
-      "keys": {
-        "newChat": "CTRL+N",
-        "search": "CTRL+K",
-        "focusChat": "CTRL+L",
-        "clearChat": "CTRL+SHIFT+BACKSPACE",
-        "toggleVoice": "CTRL+SHIFT+V",
-        "stopSpeaking": "ESC",
-        "openTools": "CTRL+SHIFT+T",
-        "openSettings": "CTRL+,",
-        "sendMessage": "ENTER",
-        "newLine": "SHIFT+ENTER"
-      }
-    },
-
-    "personalization": {
-      "enabled": true,
-      "rememberName": true,
-      "rememberPreferences": true,
-      "rememberTone": true,
-      "rememberTopics": true,
-      "rememberTools": true,
-      "rememberConversationStyle": true,
-      "customInstructions": true,
-      "customPersonality": true,
-      "customResponseLength": true,
-      "customVoice": true,
-      "customTheme": true
-    },
-
-    "response": {
-      "markdown": true,
-      "codeBlocks": true,
-      "tables": true,
-      "lists": true,
-      "headings": true,
-      "links": true,
-      "citations": true,
-      "emojis": true,
-      "syntaxHighlighting": true,
-      "copyButtons": true,
-      "regenerateButton": true,
-      "editMessage": true,
-      "retryMessage": true,
-      "stopGeneration": true,
-      "continueGeneration": true
-    }
-  },
-
-  "keywords": [
-    "ai",
-    "artificial-intelligence",
-    "potgrowhub",
-    "potgrowhub.store",
-    "ganjagroot",
-    "cannabis",
-    "cannabis-ai",
-    "assistant",
-    "chatbot",
-    "voice-ai",
-    "streaming-ai",
-    "conversation-memory",
-    "knowledge-base",
-    "ai-tools",
-    "cultivation",
-    "terpenes",
-    "cannabinoids",
-    "cannabis-science",
-    "cannabis-culture",
-    "cannabis-business",
-    "cannabis-technology"
-  ],
-
-  "author": "GanjaGroot",
-  "license": "UNLICENSED",
-
   "repository": {
     "type": "git",
-    "private": true
+    "url": "git+https://github.com/potgrowhub/potgrowhubstore.git",
+    "directory": "/",
+    "githubUrl": "https://github.com/potgrowhub/potgrowhubstore",
+    "cloneUrl": "https://github.com/potgrowhub/potgrowhubstore.git"
   },
-
-  "bugs": {
-    "enabled": true
+  "main": "script.js",
+  "module": "script.js",
+  "browser": {
+    "./server.js": false,
+    "./config.env": false,
+    "./database.js": false,
+    "./secrets.json": false
+  },
+  "scripts": {
+    "start": "npx serve",
+    "dev": "node server.js",
+    "build": "echo 'Building static PWA bundle...' && mkdir -p dist && cp index.html style.css script.js manifest.json service-worker.js robots.txt sitemap.xml ads.txt seo.txt aeo.txt security.txt dist/",
+    "lint": "eslint script.js service-worker.js server.js",
+    "test": "node --test tests/**/*.test.js",
+    "clean": "rm -rf dist .cache coverage .nyc_output logs/*.log",
+    "docker:build": "docker build -t potgrowhubstore .",
+    "docker:run": "docker run -p 3000:3000 --env-file config.env potgrowhubstore",
+    "format": "prettier --write \"**/*.{js,json,css,html,md}\"",
+    "test:watch": "node --watch --test tests/**/*.test.js",
+    "coverage": "node --experimental-test-coverage --test tests/**/*.test.js",
+    "prebuild": "npm run lint",
+    "postbuild": "echo 'PWA bundle successfully built and verified.'",
+    "prepare": "husky install",
+    "db:migrate": "node scripts/migrate.js",
+    "db:seed": "node scripts/seed.js",
+    "ai:train": "node ai/train_model.js",
+    "security:scan": "npm audit --production && snyk test"
+  },
+ "dependencies": {
+    "lucide": "^1.0.0",
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5",
+    "cors": "^2.8.5",
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0",
+    "three": "^0.162.0",
+    "express-rate-limit": "^7.2.0",
+    "morgan": "^1.10.0",
+    "validator": "^13.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "pg": "^8.11.3",
+    "redis": "^4.6.13",
+    "ws": "^8.16.0",
+    "multer": "^1.4.5-lts.1",
+    "@google/generative-ai": "^0.21.0",
+    "openai": "^4.33.0",
+    "langchain": "^0.1.36",
+    "@tensorflow/tfjs-node": "^4.17.0",
+    "webxr-polyfill": "^2.0.3",
+    "aframe": "^1.5.0",
+    "@react-three/fiber": "^8.15.16",
+    "@react-three/drei": "^9.102.0",
+    "stripe": "^14.21.0",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "shopify-api-node": "^3.15.0",
+    "@woocommerce/woocommerce-rest-api": "^1.0.1",
+    "node-speak-easy": "^0.1.3",
+    "@google-cloud/text-to-speech": "^5.2.0",
+    "@google-cloud/speech": "^6.3.0",
+    "node-record-lpcm16": "^1.0.1",
+    "socket.io": "^4.7.5",
+    "node-geocoder": "^4.4.0",
+    "@turf/turf": "^6.5.0",
+    "fullcalendar": "^6.1.11",
+    "rrule": "^2.8.1",
+    "stl-loader": "^2.0.0",
+    "three-gltf-loader": "^1.111.0",
+    "canvas": "^2.11.2",
+    "printful-api": "^1.2.0",
+    "gelato-api": "^1.0.0",
+    "@anthropic-ai/sdk": "^0.20.0",
+    "huggingface": "^0.0.1",
+    "replicate": "^0.25.2",
+    "xr-lucid": "^1.1.0",
+    "@mediapipe/tasks-vision": "^0.10.3",
+    "babylonjs": "^6.34.0",
+    "babylonjs-loaders": "^6.34.0",
+    "razorpay": "^2.9.2",
+    "square": "^29.0.0",
+    "medusa-core-js": "^1.3.1",
+    "@google-cloud/dialogflow": "^6.3.0",
+    "node-wit": "^6.1.0",
+    "node-geocoder": "^4.4.0",
+    "mapbox-gl": "^3.2.0",
+    "google-maps-services-js": "^3.4.0",
+    "node-cron": "^3.0.3",
+    "bullmq": "^5.3.4",
+    "three-obj-loader": "^1.1.3",
+    "three-stl-exporter": "^1.0.6",
+    "sharp": "^0.33.2",
+    "pdfkit": "^0.14.0",
+    "qrcode": "^1.5.3"
+  }
+  ],
+  "author": "Ray",
+  "contributors": [
+    {
+      "name": "Ray",
+      "email": "ray@potgrowhub.local",
+      "url": "https://github.com/potgrowhub"
+    },
+    {
+      "name": "PotGrowHub AI Engine",
+      "email": "ganjaguru@potgrowhub.local",
+      "url": "https://github.com/potgrowhub/potgrowhubstore/tree/main/ai"
+    },
+    {
+      "name": "Community Contributors",
+      "email": "contributors@potgrowhub.local",
+      "url": "https://github.com/potgrowhub/potgrowhubstore/graphs/contributors"
+    }
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0",
+    "yarn": ">=1.22.0",
+    "pnpm": ">=8.0.0",
+    "docker": ">=24.0.0"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "iOS >= 14",
+    "Chrome >= 90",
+    "Firefox >= 88",
+    "Safari >= 14",
+    "Edge >= 90"
+  ],
+  "dependencies": {
+    "lucide": "^1.0.0",
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5",
+    "cors": "^2.8.5",
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0",
+    "three": "^0.162.0",
+    "express-rate-limit": "^7.2.0",
+    "morgan": "^1.10.0",
+    "validator": "^13.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "pg": "^8.11.3",
+    "redis": "^4.6.13",
+    "ws": "^8.16.0",
+    "multer": "^1.4.5-lts.1",
+    "@google/generative-ai": "^0.21.0",
+    "openai": "^4.33.0",
+    "langchain": "^0.1.36",
+    "@tensorflow/tfjs-node": "^4.17.0",
+    "webxr-polyfill": "^2.0.3",
+    "aframe": "^1.5.0",
+    "@react-three/fiber": "^8.15.16",
+    "@react-three/drei": "^9.102.0",
+    "stripe": "^14.21.0",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "shopify-api-node": "^3.15.0",
+    "@woocommerce/woocommerce-rest-api": "^1.0.1",
+    "node-speak-easy": "^0.1.3",
+    "@google-cloud/text-to-speech": "^5.2.0",
+    "@google-cloud/speech": "^6.3.0",
+    "node-record-lpcm16": "^1.0.1",
+    "socket.io": "^4.7.5",
+    "node-geocoder": "^4.4.0",
+    "@turf/turf": "^6.5.0",
+    "fullcalendar": "^6.1.11",
+    "rrule": "^2.8.1",
+    "stl-loader": "^2.0.0",
+    "three-gltf-loader": "^1.111.0",
+    "canvas": "^2.11.2",
+    "printful-api": "^1.2.0",
+    "gelato-api": "^1.0.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "nodemon": "^3.1.0",
+    "supertest": "^6.3.4",
+    "jest": "^29.7.0",
+    "husky": "^9.0.11",
+    "snyk": "^1.1275.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-node": "^11.1.0"
+  },
+  "peerDependencies": {
+    "three": "^0.162.0",
+    "express": "^4.19.2"
+  },
+  "peerDependenciesMeta": {
+    "three": {
+      "optional": true
+    },
+    "express": {
+      "optional": false
+    }
+  },
+  "resolutions": {
+    "express": "^4.19.2",
+    "cookie": "^0.7.0",
+    "semver": "^7.5.4"
+  },
+  "overrides": {
+    "serve": {
+      "express": "^4.19.2"
+    },
+    "nodemon": {
+      "debug": "^4.3.4"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public",
+    "tag": "latest",
+    "provenance": true
+  },
+  "config": {
+    "port": 3000,
+    "environment": "production",
+    "ai_engine": "GanjaGuru-v1",
+    "cors_origin": "*",
+    "log_level": "combined"
+  },
+  "bundleDependencies": false,
+  "files": [
+    "index.html",
+    "style.css",
+    "script.js",
+    "manifest.json",
+    "service-worker.js",
+    "robots.txt",
+    "sitemap.xml",
+    "ads.txt",
+    "seo.txt",
+    "aeo.txt",
+    "security.txt",
+    "server.js",
+    "ai/",
+    "public/",
+    "utils/"
+  ],
+  "man": [],
+  "os": [
+    "darwin",
+    "linux",
+    "win32",
+    "freebsd"
+  ],
+  "cpu": [
+    "x64",
+    "arm64",
+    "ia32"
+  ],
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/potgrowhub"
+    },
+    {
+      "type": "patreon",
+      "url": "https://patreon.com/potgrowhub"
+    },
+    {
+      "type": "individual",
+      "url": "https://potgrowhub.local/donate"
+    }
+  ],
+  "sideEffects": false,
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
+  "privateMetadata": {
+    "projectOwner": "Ray",
+    "architectureVersion": "2.5",
+    "deploymentTarget": "Render/GitHub Pages/Vercel",
+    "primaryDatabase": "Supabase PostgreSQL",
+    "localAIBackend": "Ollama / DeepSeek-R1"
+  },
+  "types": "types/index.d.ts",
+  "typings": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./script.js",
+      "require": "./server.js",
+      "types": "./types/index.d.ts"
+    },
+    "./client": "./script.js",
+    "./server": "./server.js"
+  },
+  "release": {
+    "branches": ["main", "next"],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "gitHooks": {
+    "pre-commit": "npm run lint",
+    "pre-push": "npm test"
   }
 }
-```
