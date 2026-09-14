@@ -1,6 +1,17 @@
-User-agent: *
+﻿User-agent: *
 
 Allow: /
+Allow: /uploads/public/
+Allow: /assets/
+Allow: /static/
+Allow: /public/
+Allow: /products/
+Allow: /strains/
+Allow: /blog/
+Allow: /kb/
+Allow: /ar/
+Allow: /vr/
+Allow: /3d/
 
 Disallow: /api/
 Disallow: /admin/
@@ -60,4 +71,11 @@ Disallow: /sandbox/
 Disallow: /draft/
 Disallow: /drafts/
 
+Crawl-delay: 10
+Request-rate: 1/5s
+
 Sitemap: https://potgrowhub.store/sitemap.xml
+Sitemap: https://potgrowhub.store/sitemap-products.xml
+Sitemap: https://potgrowhub.store/sitemap-strains.xml
+Sitemap: https://potgrowhub.store/sitemap-3dmodels.xml
+

@@ -1,0 +1,4 @@
+Project: Potgrowhubstore
+Category: AI Cannabis Ecosystem, E-Commerce, PWA, 3D/AR Merch, Strain Discovery
+Repository: https://github.com/potgrowhub/potgrowhubstore
+Target Audience: Adults 21+ / Medical Cannabis Community

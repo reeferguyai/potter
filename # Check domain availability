@@ -1,0 +1,17 @@
+# Check domain availability
+curl -s "https://api.godaddy.com/v3/domains/check-availability?potgrowhub.store" \
+  -H "Authorization: Bearer $GODADDY_PAT"
+
+# Response
+{
+  "domain": "potgrowhub.store",
+  "available": true,
+  "prices": [
+    {
+      "term": "YEAR",
+      "period": 1,
+      "price": { "currencyCode": "USD", "value": 1049 },
+      "renewalPrice": { "currencyCode": "USD", "value": 1499 }
+    }
+  ]
+}

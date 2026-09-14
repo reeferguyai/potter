@@ -1,0 +1,3 @@
+Contact: mailto:security@potgrowhub.local
+Preferred-Languages: en
+Policy: https://github.com/potgrowhub/potgrowhubstore/security/policy

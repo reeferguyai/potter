@@ -1,0 +1,3126 @@
+﻿POTGROWHUB FRONTEND READY
+MASTER FRONTEND ARCHITECTURE, ENGINEERING, PRODUCT, UX, XR, COMMERCE, AI, SECURITY, TESTING, DEPLOYMENT AND RELEASE SPECIFICATION
+
+PROJECT: PotGrowHub
+DOMAIN: potgrowhub.store
+PRIMARY APPLICATION: PotGrowHub
+AI LAYER: GanjaGuru
+AI/AVATAR LAYER: GanjaGroot
+COMMERCE AUTOMATION: Ghost Commerce
+LOGISTICS LAYER: Delivery / Bike2Door
+XR LAYER: AR / VR / XR
+CREATIVE MANUFACTURING: POD / 3DPoD
+OPERATING MODEL: No-Inventory / Automated Sourcing / Dropshipping
+FRONTEND STATUS TARGET: PRODUCTION READY
+
+======================================================================
+01. FRONTEND MISSION
+====================
+
+The frontend is the unified human interface for the entire PotGrowHub ecosystem.
+
+The frontend MUST provide a coherent interface to:
+
+AI
+Agentic AI
+Ghost Commerce
+Product discovery
+Supplier sourcing
+No-inventory commerce
+Dropshipping
+Print-on-Demand
+3D Print-on-Demand
+Marketplace
+Catalog
+Search
+Recommendations
+Checkout
+Orders
+Fulfillment
+Tracking
+Booking
+Delivery
+Bike2Door
+Voice
+AR
+VR
+XR
+3D
+Grow planning
+Strain exploration
+Blueprint generation
+Content
+Blog
+Education
+SEO
+AEO
+GEO
+Creator systems
+Gamification
+Analytics
+Account management
+Administration
+Compliance
+Security
+Notifications
+
+The frontend MUST NOT behave as disconnected applications.
+
+All major experiences MUST share:
+
+Identity
+Navigation
+Design system
+Authentication state
+Authorization state
+User preferences
+Product identity
+Commerce identity
+Agent identity
+Event identity
+Analytics identity
+Accessibility behavior
+Error handling
+Notifications
+Search
+Global AI access
+Global voice access
+Global cart access
+Global account access
+
+The architecture MUST support progressive enhancement.
+
+Required experience levels:
+
+LEVEL 1
+Accessible 2D website
+
+LEVEL 2
+Interactive application
+
+LEVEL 3
+3D enhanced application
+
+LEVEL 4
+AR
+
+LEVEL 5
+VR
+
+LEVEL 6
+Full XR experiences
+
+Users without compatible hardware MUST retain full access to supported 2D functionality.
+
+======================================================================
+02. FRONTEND ARCHITECTURE
+=========================
+
+The frontend MUST use a modular feature architecture.
+
+Primary layers:
+
+APPLICATION
+ROUTING
+LAYOUT
+DESIGN SYSTEM
+FEATURE MODULES
+STATE MANAGEMENT
+DATA ACCESS
+API CLIENT
+REALTIME
+AI CLIENT
+AGENT CLIENT
+COMMERCE CLIENT
+XR CLIENT
+VOICE CLIENT
+ANALYTICS CLIENT
+SECURITY CLIENT
+ERROR HANDLING
+OBSERVABILITY
+
+Recommended conceptual architecture:
+
+frontend
+|
++-- app
+|   +-- bootstrap
+|   +-- providers
+|   +-- configuration
+|   +-- routing
+|   +-- permissions
+|   +-- feature-flags
+|   +-- error-boundaries
+|   +-- telemetry
+|
++-- pages
+|
++-- components
+|
++-- features
+|
++-- services
+|
++-- hooks
+|
++-- state
+|
++-- stores
+|
++-- api
+|
++-- realtime
+|
++-- ai
+|
++-- agents
+|
++-- commerce
+|
++-- xr
+|
++-- voice
+|
++-- analytics
+|
++-- security
+|
++-- content
+|
++-- seo
+|
++-- aeo
+|
++-- geo
+|
++-- assets
+|
++-- styles
+|
++-- types
+|
++-- schemas
+|
++-- tests
+
+Features MUST be independently testable.
+
+Feature modules MUST NOT directly depend on internal implementation details of unrelated feature modules.
+
+Shared functionality MUST reside in shared libraries.
+
+======================================================================
+03. APPLICATION BOOTSTRAP
+=========================
+
+Frontend startup MUST perform:
+
+environment validation
+feature configuration loading
+runtime capability detection
+authentication initialization
+session restoration
+theme initialization
+accessibility initialization
+analytics initialization
+error-monitor initialization
+service-worker initialization
+route initialization
+API client initialization
+realtime initialization
+AI capability initialization
+XR capability initialization
+voice capability initialization
+commerce state initialization
+notification state initialization
+
+Startup MUST degrade gracefully when optional services are unavailable.
+
+A failed optional service MUST NOT prevent the base website from loading.
+
+======================================================================
+04. ROUTING ARCHITECTURE
+========================
+
+Required route families:
+
+/
+/about
+/ai
+/ganjaguru
+/ganjagroot
+/studio
+/ar
+/vr
+/xr
+/3d
+/strains
+/grow
+/grow-planner
+/blueprints
+/store
+/products
+/categories
+/category/hydroponic-supplies
+/category/grow-lights
+/category/cannabis-cultivation-equipment
+/category/pot-growing-supplies
+/category/pod
+/category/3dpod
+/sourcing
+/dropshipping
+/ghost-commerce
+/creators
+/booking
+/delivery
+/bike2door
+/voice
+/blog
+/guides
+/faq
+/legal
+/account
+/login
+/register
+/profile
+/orders
+/orders/:id
+/tracking
+/cart
+/checkout
+/search
+/compare
+/wishlist
+/support
+/contact
+/privacy
+/terms
+/cookies
+
+Routes MUST support:
+
+lazy loading
+loading states
+error states
+not-found states
+metadata
+canonical URLs
+breadcrumbs
+analytics
+authorization
+feature flags
+
+Protected routes MUST enforce frontend authorization checks while treating backend authorization as authoritative.
+
+======================================================================
+05. GLOBAL APPLICATION SHELL
+============================
+
+The application shell MUST provide:
+
+global navigation
+responsive navigation
+global search
+AI launcher
+voice launcher
+cart indicator
+account menu
+notification center
+breadcrumb system
+global command interface
+accessibility controls
+theme controls
+XR launcher where supported
+context-sensitive actions
+
+Navigation MUST remain understandable without requiring users to understand PotGrowHub's internal architecture.
+
+Primary navigation concepts:
+
+GROW
+AI
+STRAINS
+STUDIO
+STORE
+CREATE
+LEGAL
+DELIVERY
+LEARN
+
+Secondary navigation MAY expose advanced modules.
+
+======================================================================
+06. DESIGN SYSTEM
+=================
+
+The frontend MUST implement a centralized design system.
+
+Design tokens MUST define:
+
+colors
+typography
+spacing
+sizing
+radius
+shadows
+borders
+elevation
+motion
+durations
+breakpoints
+z-index
+focus states
+icons
+component states
+
+Core visual identity:
+
+neon green
+deep black
+dark charcoal
+gold accents
+purple accents
+pink accents
+glass surfaces
+soft glow
+controlled gradients
+high contrast text
+futuristic spatial elements
+
+Primary brand accent:
+
+#39ff14
+
+The color system MUST remain accessible and MUST NOT depend on neon colors alone to communicate state.
+
+Required component states:
+
+default
+hover
+focus
+active
+selected
+disabled
+loading
+success
+warning
+error
+offline
+restricted
+pending
+
+======================================================================
+07. BRANDING SYSTEM
+===================
+
+PotGrowHub is the ecosystem/platform identity.
+
+GanjaGuru is the intelligence layer.
+
+GanjaGroot is an AI/avatar/character interface layer.
+
+Brand architecture MUST remain consistent.
+
+Primary brand messaging SHOULD support:
+
+Born of Earth. Forged in Code.
+Grow. Create. Evolve.
+Where Roots Run Deep and Data Runs Green.
+The Journey Is the High.
+
+Brand voice:
+
+streetwise
+technical
+educational
+confident
+creative
+playful
+direct
+not preachy
+
+The frontend MUST NOT allow random components to introduce conflicting brand language.
+
+Brand assets MUST have centralized registries.
+
+Logo usage MUST support:
+
+light
+dark
+monochrome
+small-scale
+favicon
+social
+XR environment
+3D
+animated
+
+======================================================================
+08. UI COMPONENT SYSTEM
+=======================
+
+Required reusable components:
+
+Button
+IconButton
+Link
+Navigation
+Breadcrumbs
+Tabs
+Accordion
+Modal
+Drawer
+Popover
+Tooltip
+Toast
+Alert
+Badge
+Avatar
+Card
+ProductCard
+ProductGallery
+ProductViewer
+Price
+Rating
+Review
+SearchBox
+CommandPalette
+DataTable
+Pagination
+FilterPanel
+SortMenu
+Form
+Input
+Textarea
+Select
+MultiSelect
+Checkbox
+Radio
+Switch
+Slider
+DatePicker
+Calendar
+TimePicker
+Map
+Timeline
+Progress
+Skeleton
+Spinner
+EmptyState
+ErrorState
+OfflineState
+ConfirmationDialog
+FileUploader
+VoiceControl
+AIChat
+AgentStatus
+Cart
+Checkout
+OrderSummary
+OrderStatus
+TrackingMap
+BookingCalendar
+3DViewer
+ARLauncher
+VRLauncher
+XRStatus
+NotificationCenter
+AccessibilityMenu
+
+All components MUST have typed props and consistent states.
+
+======================================================================
+09. RESPONSIVE DESIGN
+=====================
+
+Required supported classes:
+
+mobile
+small tablet
+tablet
+laptop
+desktop
+large desktop
+ultrawide
+XR viewport
+
+The frontend MUST support:
+
+portrait
+landscape
+touch
+mouse
+keyboard
+controller
+gamepad
+voice
+spatial input
+
+Critical interactions MUST remain usable without hover.
+
+Touch targets MUST remain appropriately sized.
+
+Horizontal overflow MUST NOT occur unintentionally.
+
+======================================================================
+10. ACCESSIBILITY
+=================
+
+The frontend MUST target WCAG-aligned accessible behavior.
+
+Required:
+
+semantic HTML
+ARIA where appropriate
+keyboard navigation
+visible focus
+screen-reader labels
+reduced-motion support
+high contrast support
+text scaling
+captions
+transcripts
+alternative text
+accessible form validation
+accessible dialogs
+accessible navigation landmarks
+error announcements
+voice alternatives
+non-XR fallback
+
+XR experiences MUST provide equivalent 2D alternatives whenever practical.
+
+======================================================================
+11. AI INTERFACE
+================
+
+The AI interface MUST expose GanjaGuru as a platform intelligence system.
+
+Required capabilities:
+
+chat
+context
+conversation history
+file interaction
+voice
+structured outputs
+tool execution
+product discovery
+grow planning
+blueprint generation
+product comparison
+commerce assistance
+education
+content navigation
+recommendations
+booking assistance
+delivery assistance
+
+The frontend MUST clearly distinguish:
+
+AI suggestion
+verified platform data
+user data
+supplier data
+system action
+pending action
+completed action
+
+The frontend MUST NOT imply that an AI action has occurred when the backend has not confirmed it.
+
+AI actions MUST provide status:
+
+queued
+processing
+awaiting approval
+completed
+failed
+cancelled
+
+======================================================================
+12. GANJAGROOT INTERFACE
+========================
+
+GanjaGroot MAY function as:
+
+avatar
+3D character
+AI gateway
+voice interface
+navigation guide
+agent status display
+XR guide
+
+Required frontend states:
+
+idle
+listening
+thinking
+speaking
+processing
+working
+warning
+error
+offline
+
+The avatar MUST NOT obscure critical UI.
+
+The interface MUST support a minimal non-avatar mode.
+
+======================================================================
+13. AGENTIC ARCHITECTURE
+========================
+
+The frontend MUST support agent orchestration without exposing internal complexity unnecessarily.
+
+Core agent states:
+
+idle
+available
+queued
+running
+blocked
+awaiting approval
+completed
+failed
+cancelled
+
+Required agent UI:
+
+agent registry
+agent activity
+task history
+task detail
+tool activity
+approval requests
+agent logs where permitted
+agent errors
+agent confidence/uncertainty where appropriate
+human override
+agent permissions
+
+The frontend MUST display when an action requires user approval.
+
+Agents MUST NOT receive unrestricted frontend authority.
+
+Frontend agent actions MUST be validated by backend authorization and business rules.
+
+======================================================================
+14. GHOST COMMERCE FRONTEND
+===========================
+
+Ghost Commerce MUST appear to users as a seamless commerce system.
+
+Internal agent complexity MAY be visualized through advanced dashboards.
+
+Required customer-facing features:
+
+product discovery
+product comparison
+recommendation
+cart
+checkout
+order confirmation
+tracking
+returns
+support
+
+Required operator-facing features:
+
+supplier catalog
+product ingestion
+source validation
+listing generation
+pricing
+inventory
+orders
+fulfillment
+exceptions
+agent activity
+supplier performance
+margin
+commission
+reconciliation
+
+Ghost Commerce MUST support the lifecycle:
+
+DISCOVER
+|
+VALIDATE
+|
+NORMALIZE
+|
+MATCH
+|
+MERCHANDISE
+|
+PRICE
+|
+PUBLISH
+|
+MONITOR
+|
+ORDER
+|
+ROUTE
+|
+FULFILL
+|
+TRACK
+|
+RECONCILE
+|
+LEARN
+
+======================================================================
+15. PRODUCT DATA CONTRACT
+=========================
+
+Every product MUST have a canonical identity.
+
+Required conceptual attributes:
+
+productId
+variantId
+supplierId
+categoryId
+title
+description
+images
+media
+price
+cost
+currency
+availability
+inventoryStatus
+shipping
+dimensions
+weight
+attributes
+compliance
+seo
+aeo
+geo
+3D asset
+AR asset
+VR asset
+creator attribution
+timestamps
+
+The frontend MUST NOT independently invent authoritative commerce values.
+
+Canonical values MUST originate from backend APIs.
+
+======================================================================
+16. NO-INVENTORY ARCHITECTURE
+=============================
+
+The frontend MUST support products that are fulfilled externally.
+
+Customer-facing states:
+
+available
+limited
+preorder
+supplier confirmation required
+temporarily unavailable
+discontinued
+
+The interface MUST accurately communicate availability.
+
+The frontend MUST NOT imply PotGrowHub physically holds inventory when it does not.
+
+Supplier fulfillment status MUST be mapped into understandable customer-facing states.
+
+======================================================================
+17. AUTOMATED SOURCING
+======================
+
+Required sourcing interfaces:
+
+search sources
+supplier discovery
+supplier profile
+product matching
+duplicate detection
+source quality
+pricing comparison
+shipping comparison
+supplier score
+inventory synchronization
+approval workflow
+
+Advanced operator view MUST support:
+
+source candidate
+validation score
+risk
+margin
+availability
+shipping
+quality
+approval state
+
+No source MUST be published as production inventory solely because an external crawler discovered it.
+
+======================================================================
+18. DROPSHIPPING
+================
+
+Required frontend capabilities:
+
+supplier selection
+product mapping
+pricing
+inventory synchronization
+order routing
+fulfillment status
+tracking
+returns
+exceptions
+supplier performance
+
+The UI MUST distinguish:
+
+PotGrowHub order status
+supplier order status
+shipment status
+delivery status
+
+======================================================================
+19. POD
+=======
+
+Print-on-Demand frontend MUST support:
+
+design creation
+template selection
+mockups
+variants
+colors
+sizes
+materials
+pricing
+provider selection
+preview
+approval
+order
+fulfillment
+tracking
+
+Design workflow:
+
+IDEA
+|
+DESIGN
+|
+PREVIEW
+|
+VALIDATE
+|
+PRICE
+|
+APPROVE
+|
+PUBLISH
+|
+ORDER
+|
+PRINT
+|
+SHIP
+
+======================================================================
+20. 3DPOD
+=========
+
+3D Print-on-Demand frontend MUST support:
+
+3D upload
+3D preview
+model rotation
+scale
+dimensions
+material selection
+color selection
+print resolution
+estimated production
+estimated cost
+printability validation
+support structures where applicable
+preview
+approval
+print job status
+fulfillment
+tracking
+
+Supported concepts:
+
+STL
+OBJ
+GLB
+GLTF
+other supported model formats
+
+The frontend MUST never represent a failed printability check as a production-ready asset.
+
+======================================================================
+21. 3D ASSET MANAGEMENT
+=======================
+
+Required asset states:
+
+uploaded
+processing
+optimized
+validated
+published
+archived
+failed
+
+Required metadata:
+
+assetId
+productId
+modelFormat
+dimensions
+polycount
+texture references
+material references
+file size
+LOD
+preview
+AR capable
+VR capable
+license status
+
+======================================================================
+22. AR ARCHITECTURE
+===================
+
+AR MUST be designed as a useful interface rather than only decoration.
+
+Required capabilities:
+
+AR capability detection
+camera permission workflow
+surface detection where supported
+anchor handling
+object placement
+rotation
+scaling
+measurement
+spatial visualization
+product visualization
+grow-room visualization
+commerce integration
+
+Primary AR experience:
+
+AR GROW ROOM DESIGNER
+
+Workflow:
+
+SCAN
+|
+MEASURE
+|
+DESIGN
+|
+PLACE
+|
+CONFIGURE
+|
+VALIDATE
+|
+SAVE
+|
+SHOP
+
+Every placed commerce object MUST retain its canonical product identity.
+
+Users MUST be able to move between AR and standard product pages.
+
+======================================================================
+23. VR ARCHITECTURE
+===================
+
+VR MUST support:
+
+world loading
+environment selection
+navigation
+teleportation where appropriate
+controller input
+hand input where supported
+spatial interaction
+product inspection
+marketplace
+grow lab
+strain lab
+AI hub
+social experiences
+commerce
+
+VR MUST gracefully handle:
+
+unsupported hardware
+permissions
+failed sessions
+low performance
+asset loading failure
+
+======================================================================
+24. XR ABSTRACTION
+==================
+
+AR and VR MUST share an XR abstraction where practical.
+
+Common services:
+
+XR capability detection
+session management
+input management
+spatial objects
+interaction events
+asset loading
+performance management
+analytics
+fallback rendering
+
+The frontend MUST NOT hard-code business logic directly into XR rendering code.
+
+======================================================================
+25. VOICE
+=========
+
+Voice MUST support:
+
+microphone permission
+speech recognition
+transcription
+command interpretation
+response generation
+text-to-speech
+voice state
+interruptions
+mute
+audio output selection
+transcript history
+
+Required states:
+
+idle
+listening
+processing
+speaking
+error
+permission denied
+unsupported
+
+Voice MUST have keyboard and touch alternatives.
+
+Voice commands MUST NOT automatically execute irreversible commerce operations without the required confirmation.
+
+======================================================================
+26. BOOKING
+===========
+
+Booking frontend MUST support:
+
+service discovery
+provider discovery
+availability
+calendar
+time zones
+appointment creation
+rescheduling
+cancellation
+confirmation
+reminders
+payment state
+appointment history
+
+Booking data MUST be obtained from authoritative backend availability.
+
+The frontend MUST prevent stale availability from being presented as confirmed availability.
+
+======================================================================
+27. DELIVERY
+============
+
+Delivery frontend MUST support:
+
+delivery address
+address validation
+delivery options
+ETA
+tracking
+status
+driver/provider information when appropriate
+proof of delivery
+notifications
+exceptions
+
+======================================================================
+28. BIKE2DOOR
+=============
+
+Bike2Door MUST be modeled as the last-mile intelligence layer.
+
+Frontend concepts:
+
+origin
+destination
+access point
+building
+entrance
+parking
+delivery zone
+indoor/near-door routing where supported
+handoff
+delivery instructions
+rider/driver state
+customer state
+ETA
+
+The frontend MUST support a map-first and simplified-list fallback.
+
+Sensitive location information MUST be handled according to backend privacy and authorization rules.
+
+======================================================================
+29. SEARCH
+==========
+
+Global search MUST support:
+
+products
+categories
+content
+strains
+guides
+tools
+AI
+creators
+suppliers where authorized
+locations where authorized
+
+Search states:
+
+idle
+loading
+results
+no results
+error
+offline
+
+Search MUST support:
+
+filters
+sorting
+pagination/infinite scrolling
+suggestions
+recent searches
+semantic results where available
+
+======================================================================
+30. SEO
+=======
+
+Each indexable route MUST support dynamic:
+
+title
+description
+canonical
+robots directives
+Open Graph
+Twitter/social metadata
+structured data
+breadcrumbs
+image metadata
+
+Required SEO concepts:
+
+keyword intent
+topic clusters
+internal linking
+canonicalization
+duplicate prevention
+semantic HTML
+crawlability
+indexability
+page performance
+image optimization
+
+SEO MUST be generated from canonical route/product/content data where practical.
+
+======================================================================
+31. AEO
+=======
+
+AEO MUST optimize content for answer engines.
+
+Required concepts:
+
+question intent
+answer blocks
+FAQ
+definitions
+comparison content
+how-to content
+entity relationships
+structured facts
+citations
+source attribution where available
+
+Pages SHOULD expose concise answerable sections without sacrificing normal human readability.
+
+======================================================================
+32. GEO
+=======
+
+GEO MUST support location-aware content where legitimate and useful.
+
+Required concepts:
+
+location entities
+business entities
+local services
+local pages
+regional availability
+delivery zones
+booking locations
+maps
+location metadata
+
+The frontend MUST NOT fabricate location availability.
+
+======================================================================
+33. CONTENT SYSTEM
+==================
+
+Required content types:
+
+blog
+guides
+FAQs
+strain profiles
+education
+product guides
+comparisons
+blueprints
+knowledge articles
+creator content
+help documentation
+
+Content MUST support:
+
+draft
+review
+approved
+published
+archived
+
+Content MUST have metadata suitable for:
+
+SEO
+AEO
+sharing
+search
+recommendation
+analytics
+
+======================================================================
+34. STRAIN EXPERIENCE
+=====================
+
+Strain interfaces MUST support structured information rather than unstructured cards only.
+
+Potential fields:
+
+name
+type
+lineage
+attributes
+aroma
+flavor
+growth characteristics
+flowering information
+environmental preferences
+cultivation information
+references
+related products
+related guides
+
+Any health, legal, regulatory, or scientific claims MUST use appropriately sourced and controlled content.
+
+======================================================================
+35. GROW PLANNER
+================
+
+Grow Planner MUST support:
+
+room/project creation
+dimensions
+environment
+equipment
+lighting
+ventilation
+hydroponics
+containers
+accessories
+budgets
+notes
+layouts
+product mapping
+blueprint generation
+saving
+sharing where authorized
+
+The planner SHOULD allow:
+
+2D
+3D
+AR
+
+The same plan MUST retain consistent state across presentation modes.
+
+======================================================================
+36. BLUEPRINT STUDIO
+====================
+
+Blueprint Studio MUST support:
+
+idea input
+structured requirements
+AI assistance
+components
+spatial layout
+product mapping
+cost estimate
+materials
+steps
+export
+save
+revision history
+
+Blueprints MUST have versioning.
+
+======================================================================
+37. CREATOR SYSTEM
+==================
+
+Creators MUST be able to manage:
+
+profile
+content
+collections
+product recommendations
+blueprints
+affiliate attribution
+commission status
+analytics
+
+Creator attribution MUST persist through supported commerce flows.
+
+======================================================================
+38. GAMIFICATION
+================
+
+Optional gamification modules MAY support:
+
+points
+badges
+quests
+achievements
+leaderboards
+streaks
+learning progress
+
+Gamification MUST NOT obscure commerce or critical user controls.
+
+======================================================================
+39. ACCOUNT SYSTEM
+==================
+
+Required account areas:
+
+profile
+preferences
+security
+orders
+bookings
+saved products
+wishlists
+grow plans
+blueprints
+AI conversations
+notifications
+creator data where applicable
+privacy controls
+
+======================================================================
+40. AUTHENTICATION
+==================
+
+Frontend MUST support:
+
+signed-out
+signed-in
+session-expired
+refreshing
+locked/restricted
+verification-required
+
+Authentication state MUST be centralized.
+
+Frontend MUST NOT store secrets intended only for backend use.
+
+======================================================================
+41. AUTHORIZATION
+=================
+
+Frontend roles MAY include:
+
+guest
+customer
+creator
+supplier
+operator
+administrator
+
+Frontend visibility MAY depend on roles.
+
+Backend authorization MUST remain authoritative.
+
+UI controls MUST be hidden or disabled when actions are not authorized.
+
+======================================================================
+42. SECURITY
+============
+
+Required frontend security practices:
+
+input validation
+output escaping
+safe URL handling
+secure storage practices
+CSRF strategy where applicable
+XSS mitigation
+content-security strategy
+dependency hygiene
+safe file handling
+secure iframe policy
+permission handling
+privacy-preserving analytics
+secure error messages
+
+Never expose:
+
+API secret keys
+database passwords
+private tokens
+supplier credentials
+payment secrets
+server-only configuration
+
+======================================================================
+43. FILES AND MEDIA
+===================
+
+Uploader MUST support configured file types only.
+
+Required:
+
+drag and drop
+file picker
+progress
+validation
+size limits
+type validation
+upload cancellation
+retry
+preview
+failure state
+
+Potential supported content:
+
+images
+documents
+PDF
+CSV
+JSON
+TXT
+MD
+3D assets
+audio
+video
+
+All server-side processing MUST validate content independently.
+
+======================================================================
+44. PAYMENTS
+============
+
+Frontend payment functionality MUST use approved payment provider integrations.
+
+Required states:
+
+ready
+processing
+requires-action
+success
+failure
+cancelled
+refunded
+partially refunded
+
+The frontend MUST NOT collect or persist sensitive payment information outside approved provider mechanisms.
+
+======================================================================
+45. CART
+========
+
+Cart MUST support:
+
+products
+variants
+quantities
+pricing
+discounts
+shipping
+tax presentation where supplied
+availability
+supplier-backed fulfillment indicators
+POD items
+3DPoD items
+bundles where supported
+
+Cart state MUST reconcile with backend state.
+
+======================================================================
+46. CHECKOUT
+============
+
+Checkout sequence:
+
+CART
+|
+CUSTOMER
+|
+ADDRESS
+|
+FULFILLMENT
+|
+PAYMENT
+|
+REVIEW
+|
+CONFIRMATION
+
+No frontend-only checkout completion is allowed.
+
+Final order state MUST be confirmed by backend.
+
+======================================================================
+47. ORDER EXPERIENCE
+====================
+
+Required statuses:
+
+pending
+confirmed
+processing
+supplier-confirmation
+in-production
+fulfilled
+shipped
+out-for-delivery
+delivered
+cancelled
+returned
+refunded
+exception
+
+Customer-facing wording MAY simplify internal states but MUST preserve factual accuracy.
+
+======================================================================
+48. NOTIFICATIONS
+=================
+
+Support:
+
+in-app
+email
+SMS where integrated
+push where integrated
+voice where appropriate
+
+Notification categories:
+
+AI
+orders
+shipping
+booking
+delivery
+security
+account
+creator
+system
+
+Users MUST have preference controls where supported.
+
+======================================================================
+49. REALTIME
+============
+
+Realtime MAY be used for:
+
+agent progress
+AI streaming
+order status
+delivery status
+inventory changes
+notifications
+booking changes
+XR shared state
+operator dashboards
+
+Realtime connections MUST handle:
+
+connect
+disconnect
+reconnect
+backoff
+stale state
+authentication
+authorization
+
+======================================================================
+50. OFFLINE AND DEGRADED EXPERIENCE
+===================================
+
+Frontend MUST distinguish:
+
+online
+offline
+degraded
+reconnecting
+
+Offline behavior MUST NOT falsely indicate successful commerce actions.
+
+Cacheable experiences MAY include:
+
+static assets
+previously viewed content
+local UI state
+non-sensitive preferences
+
+Commerce confirmations MUST originate from server state.
+
+======================================================================
+51. PWA
+=======
+
+PWA support SHOULD provide:
+
+manifest
+service worker
+install metadata
+offline shell
+cache strategy
+icons
+splash configuration where supported
+
+Service worker MUST NOT cache sensitive authenticated responses indiscriminately.
+
+======================================================================
+52. PERFORMANCE
+===============
+
+Frontend MUST prioritize:
+
+fast initial render
+lazy loading
+code splitting
+asset optimization
+image optimization
+3D asset optimization
+XR asset optimization
+font optimization
+minimal blocking JavaScript
+
+3D/XR applications MUST include performance safeguards.
+
+Possible safeguards:
+
+LOD
+compressed textures
+progressive loading
+asset pooling
+scene culling
+frame-rate monitoring
+adaptive quality
+
+======================================================================
+53. STATE MANAGEMENT
+====================
+
+Global state SHOULD be limited to shared concerns.
+
+Candidate global state:
+
+authentication
+user preferences
+cart
+notifications
+AI session
+agent session
+XR session
+voice session
+feature flags
+
+Server state MUST remain synchronized with backend APIs.
+
+Local state MUST NOT become an accidental source of truth for commerce.
+
+======================================================================
+54. API CLIENT
+==============
+
+Central API client MUST support:
+
+base URL
+authentication
+timeouts
+retry rules
+request IDs
+error normalization
+serialization
+schema validation
+cancellation
+logging where appropriate
+
+All API responses SHOULD be runtime validated for critical domains.
+
+Critical domains include:
+
+authentication
+products
+prices
+inventory
+orders
+payments
+booking
+delivery
+agents
+permissions
+
+======================================================================
+55. ERROR HANDLING
+==================
+
+Every major feature MUST define:
+
+loading
+success
+empty
+error
+permission denied
+offline
+timeout
+retry
+
+Global error boundary MUST prevent one component failure from destroying the entire application.
+
+Errors MUST be:
+
+human-readable
+actionable
+non-sensitive
+
+Internal details MUST NOT be exposed to customers.
+
+======================================================================
+56. OBSERVABILITY
+=================
+
+Frontend observability MUST support:
+
+errors
+performance
+navigation
+API failures
+agent failures
+XR failures
+voice failures
+checkout failures
+booking failures
+delivery failures
+
+Each important interaction SHOULD carry a correlation/request ID where supported.
+
+======================================================================
+57. ANALYTICS
+=============
+
+Analytics MUST be event-based.
+
+Required event families:
+
+page_view
+search
+product_view
+product_compare
+add_to_cart
+remove_from_cart
+checkout_started
+payment_started
+order_completed
+booking_started
+booking_completed
+delivery_viewed
+AI_started
+AI_message
+AI_tool_action
+agent_started
+agent_completed
+agent_failed
+AR_started
+AR_object_placed
+VR_started
+XR_session
+voice_started
+voice_command
+blueprint_created
+grow_plan_created
+POD_design_created
+3DPoD_design_created
+creator_link_clicked
+content_viewed
+
+Events MUST avoid unnecessary personal or sensitive information.
+
+======================================================================
+58. FEATURE FLAGS
+=================
+
+Feature flags MUST control experimental systems.
+
+Potential flags:
+
+AR
+VR
+XR
+VOICE
+GHOST_COMMERCE
+AUTOMATED_SOURCING
+DROPSHIPPING
+POD
+3DPOD
+CREATOR
+BIKE2DOOR
+ADVANCED_AI
+AGENT_AUTOMATION
+GAMIFICATION
+
+Flags MUST support:
+
+development
+staging
+production
+
+Critical safety/compliance flags SHOULD provide immediate disable capability.
+
+======================================================================
+59. INTEGRATIONS
+================
+
+Frontend integration boundaries MUST be centralized.
+
+Potential integrations include:
+
+AI provider
+authentication provider
+database APIs
+Supabase
+PostgreSQL backend
+Redis-backed services
+payment processor
+shipping providers
+supplier APIs
+product feeds
+maps
+geocoding
+calendar
+voice services
+speech-to-text
+text-to-speech
+analytics
+error monitoring
+search
+storage
+3D asset services
+XR APIs
+email
+SMS
+push notifications
+
+Third-party integrations MUST NOT be embedded throughout individual UI components.
+
+======================================================================
+60. DATABASE CONTRACT
+=====================
+
+Frontend MUST treat database access as backend responsibility.
+
+Frontend models MUST correspond to controlled API schemas.
+
+Expected domains:
+
+users
+profiles
+sessions
+permissions
+products
+variants
+categories
+suppliers
+supplier_products
+inventory
+pricing
+carts
+cart_items
+orders
+order_items
+payments
+fulfillments
+shipments
+returns
+agents
+agent_runs
+agent_tasks
+agent_events
+AI conversations
+AI messages
+AI memory references
+3D assets
+XR sessions
+grow plans
+rooms
+spatial objects
+blueprints
+POD products
+3DPoD jobs
+bookings
+delivery
+locations
+creators
+attribution
+content
+SEO
+AEO
+analytics
+notifications
+legal/compliance
+
+Frontend MUST NOT assume that every database table is directly exposed to clients.
+
+======================================================================
+61. DATA SCHEMAS
+================
+
+Typed schemas MUST exist for critical API data.
+
+Required validation domains:
+
+auth
+products
+cart
+checkout
+orders
+agents
+AI
+XR
+booking
+delivery
+voice
+content
+SEO
+AEO
+
+Schemas MUST handle:
+
+missing fields
+nullability
+version changes
+unknown fields
+invalid values
+unexpected API responses
+
+======================================================================
+62. AI DATA PRESENTATION
+========================
+
+AI-generated data MUST be visually distinguishable where necessary.
+
+The interface SHOULD identify:
+
+Generated
+Verified
+User-provided
+Supplier-provided
+System-calculated
+
+AI-generated product descriptions MUST NOT be represented as supplier-verified facts unless verified.
+
+======================================================================
+63. COMPLIANCE UX
+=================
+
+Compliance interfaces MUST support:
+
+age gate where legally required
+consent
+restricted categories
+jurisdiction-specific restrictions
+terms acceptance
+privacy controls
+cookie controls
+policy acknowledgments
+
+Compliance checks MUST be server-authoritative.
+
+Frontend MUST provide clear explanations when functionality is unavailable because of restrictions.
+
+======================================================================
+64. ADMIN/OPERATOR EXPERIENCE
+=============================
+
+Operator dashboard MUST support:
+
+system status
+orders
+products
+suppliers
+agents
+agent tasks
+exceptions
+inventory
+pricing
+sourcing
+content
+SEO
+AEO
+analytics
+delivery
+bookings
+users
+permissions
+feature flags
+security events
+
+Administrative tools MUST be protected by strong authentication and backend authorization.
+
+======================================================================
+65. GHOST AGENT CONTROL CENTER
+==============================
+
+Required dashboard concepts:
+
+agent list
+agent health
+queue
+active jobs
+completed jobs
+failed jobs
+approval requests
+tool usage
+task history
+supplier actions
+commerce actions
+exception queue
+
+Operators MUST be able to:
+
+pause supported agents
+resume supported agents
+retry jobs
+cancel jobs where safe
+inspect failures
+approve queued actions
+review source candidates
+
+Irreversible actions MUST have appropriate confirmation controls.
+
+======================================================================
+66. SOURCING CONTROL CENTER
+===========================
+
+Required:
+
+source registry
+supplier registry
+source health
+feed status
+connector status
+candidate products
+duplicate products
+validation results
+pricing comparison
+shipping comparison
+approval queue
+
+======================================================================
+67. SEO CONTROL CENTER
+======================
+
+Required:
+
+page metadata
+keywords
+content clusters
+internal links
+schema status
+crawl status
+indexability status
+canonical status
+sitemap status
+
+======================================================================
+68. AEO CONTROL CENTER
+======================
+
+Required:
+
+question inventory
+answer inventory
+FAQ
+entity mappings
+answer quality
+source references
+schema
+coverage
+content gaps
+
+======================================================================
+69. GEO CONTROL CENTER
+======================
+
+Required:
+
+locations
+local content
+business entities
+service regions
+delivery zones
+location metadata
+
+======================================================================
+70. TRAINING SYSTEM
+===================
+
+Frontend MUST support administrative visibility into training resources.
+
+Training domains:
+
+AI
+agents
+commerce
+sourcing
+dropshipping
+POD
+3DPoD
+AR
+VR
+voice
+booking
+delivery
+SEO
+AEO
+GEO
+security
+branding
+
+Training UI MAY display:
+
+dataset versions
+evaluation status
+training runs
+prompt versions
+policy versions
+agent versions
+
+Training data MUST NOT be exposed to ordinary users unless intentionally published.
+
+======================================================================
+71. KNOWLEDGE SYSTEM
+====================
+
+Knowledge frontend MUST support:
+
+search
+categories
+sources
+versions
+approval state
+timestamps
+relationships
+content references
+
+The frontend SHOULD support AI retrieval context visualization for authorized users.
+
+======================================================================
+72. VERSIONING
+==============
+
+Versionable systems MUST include:
+
+AI prompts
+agent definitions
+agent tools
+product data
+blueprints
+grow plans
+content
+3D assets
+branding
+configuration
+schemas
+
+Users MUST be protected against accidental loss of previous saved versions.
+
+======================================================================
+73. SECURITY TESTING
+====================
+
+Required frontend security tests:
+
+XSS
+unsafe URL
+file upload validation
+authorization UI
+session expiration
+token handling
+CSRF where applicable
+dependency vulnerabilities
+content injection
+iframe/security policy
+sensitive logging
+privacy leakage
+
+======================================================================
+74. UNIT TESTING
+================
+
+Unit tests MUST cover:
+
+utilities
+validators
+hooks
+stores
+services
+data transformations
+pricing presentation
+status mapping
+permission mapping
+SEO metadata
+schema generation
+XR capability detection
+voice state
+agent state
+commerce state
+
+======================================================================
+75. INTEGRATION TESTING
+=======================
+
+Integration tests MUST cover:
+
+authentication
+API client
+product retrieval
+cart
+checkout
+orders
+AI
+agents
+sourcing
+booking
+delivery
+voice
+AR
+VR
+analytics
+
+======================================================================
+76. END-TO-END TESTING
+======================
+
+Critical E2E journeys:
+
+guest landing
+registration
+login
+search
+product view
+add to cart
+checkout
+order confirmation
+order tracking
+AI conversation
+AI product discovery
+grow planner
+blueprint
+AR product placement
+XR fallback
+POD workflow
+3DPoD workflow
+booking
+delivery tracking
+creator attribution
+
+======================================================================
+77. ACCESSIBILITY TESTING
+=========================
+
+Required:
+
+keyboard testing
+focus testing
+screen-reader testing
+contrast testing
+zoom testing
+reduced-motion testing
+touch testing
+form accessibility testing
+dialog accessibility testing
+
+======================================================================
+78. VISUAL REGRESSION
+=====================
+
+Critical pages SHOULD have visual regression coverage:
+
+homepage
+store
+product
+cart
+checkout
+AI
+studio
+grow planner
+AR fallback
+VR fallback
+booking
+delivery
+account
+admin
+
+======================================================================
+79. XR TESTING
+==============
+
+XR tests MUST include:
+
+unsupported device
+permission denied
+session failure
+asset load failure
+tracking failure
+low-performance device
+controller/input failure
+session exit
+orientation changes
+fallback to 2D
+
+======================================================================
+80. VOICE TESTING
+=================
+
+Voice tests MUST include:
+
+permission denied
+unsupported browser
+recognition timeout
+silence
+wrong transcription
+command ambiguity
+interruption
+audio failure
+network failure
+
+======================================================================
+81. COMMERCE RELEASE TESTING
+============================
+
+Before production:
+
+product values verified
+pricing verified
+inventory behavior verified
+cart totals verified
+checkout state verified
+payment state verified
+order creation verified
+supplier routing verified
+fulfillment state verified
+tracking verified
+
+======================================================================
+82. DEPLOYMENT ARCHITECTURE
+===========================
+
+Frontend MUST support:
+
+local
+development
+staging
+production
+
+Production deployment MUST use controlled builds.
+
+Required build outputs:
+
+static assets
+application bundle
+manifest
+robots
+sitemap where generated statically
+service worker where enabled
+
+======================================================================
+83. ENVIRONMENT CONFIGURATION
+=============================
+
+Frontend configuration MUST separate:
+
+development
+staging
+production
+
+Public configuration MAY include:
+
+API base URL
+public analytics ID
+public application ID
+feature flag identifiers
+
+Secret configuration MUST remain server-side.
+
+======================================================================
+84. NETLIFY DEPLOYMENT
+======================
+
+Frontend MUST support Netlify-compatible deployment.
+
+Deployment requirements:
+
+build command
+publish directory
+redirects
+headers
+SPA routing
+asset caching
+security headers
+environment configuration
+
+The frontend MUST NOT depend on local filesystem paths.
+
+======================================================================
+85. CDN AND ASSETS
+==================
+
+Static assets SHOULD be cacheable.
+
+Required asset categories:
+
+icons
+fonts
+images
+3D models
+textures
+audio
+video
+
+Large 3D/XR assets MUST use appropriate caching and loading strategies.
+
+======================================================================
+86. BACKUPS
+===========
+
+Frontend source and configuration MUST be recoverable through:
+
+Git
+release artifacts
+deployment history
+configuration backups
+documentation backups
+
+Frontend MUST NOT be the sole storage location for critical production data.
+
+======================================================================
+87. DISASTER RECOVERY
+=====================
+
+Frontend recovery MUST support:
+
+fresh environment
+dependency installation
+configuration restoration
+build
+test
+deployment
+rollback
+
+Recovery documentation MUST exist.
+
+======================================================================
+88. RELEASE MANAGEMENT
+======================
+
+Every production release MUST have:
+
+version
+build identifier
+source revision
+environment
+deployment timestamp
+test status
+known issues
+rollback target
+
+======================================================================
+89. RELEASE GATES
+=================
+
+RELEASE GATE 01
+Application builds successfully.
+
+RELEASE GATE 02
+Type checking passes.
+
+RELEASE GATE 03
+Linting passes.
+
+RELEASE GATE 04
+Unit tests pass.
+
+RELEASE GATE 05
+Integration tests pass.
+
+RELEASE GATE 06
+Critical E2E tests pass.
+
+RELEASE GATE 07
+Accessibility tests pass.
+
+RELEASE GATE 08
+Security checks pass.
+
+RELEASE GATE 09
+Critical performance budgets pass.
+
+RELEASE GATE 10
+SEO validation passes.
+
+RELEASE GATE 11
+AEO validation passes.
+
+RELEASE GATE 12
+GEO validation passes where applicable.
+
+RELEASE GATE 13
+Navigation and routes verified.
+
+RELEASE GATE 14
+Authentication verified.
+
+RELEASE GATE 15
+Authorization verified.
+
+RELEASE GATE 16
+API contracts verified.
+
+RELEASE GATE 17
+Commerce workflows verified.
+
+RELEASE GATE 18
+Payment workflows verified.
+
+RELEASE GATE 19
+Order workflows verified.
+
+RELEASE GATE 20
+Supplier synchronization verified.
+
+RELEASE GATE 21
+Ghost Agent workflows verified.
+
+RELEASE GATE 22
+Agent approval/guardrail behavior verified.
+
+RELEASE GATE 23
+AR fallback verified.
+
+RELEASE GATE 24
+VR fallback verified.
+
+RELEASE GATE 25
+Voice fallback verified.
+
+RELEASE GATE 26
+Booking verified.
+
+RELEASE GATE 27
+Delivery verified.
+
+RELEASE GATE 28
+POD verified.
+
+RELEASE GATE 29
+3DPoD verified.
+
+RELEASE GATE 30
+No-inventory workflows verified.
+
+RELEASE GATE 31
+Dropshipping workflows verified.
+
+RELEASE GATE 32
+Analytics events verified.
+
+RELEASE GATE 33
+Error monitoring verified.
+
+RELEASE GATE 34
+Production environment verified.
+
+RELEASE GATE 35
+Rollback tested.
+
+======================================================================
+90. PRODUCTION BLOCKERS
+=======================
+
+Production MUST be blocked when any critical condition exists:
+
+broken build
+type errors
+critical security vulnerability
+broken authentication
+broken authorization
+incorrect checkout totals
+unconfirmed order creation
+unverified payment state
+false inventory availability
+broken supplier routing
+broken fulfillment tracking
+critical accessibility regression
+critical data leakage
+missing legal controls
+fatal API mismatch
+unrecoverable migration mismatch
+critical AI safety/control failure
+critical agent authorization failure
+
+======================================================================
+91. FRONTEND DEFINITION OF DONE
+===============================
+
+The frontend is NOT considered ready merely because the page renders.
+
+Frontend READY means:
+
+application renders
+routes work
+navigation works
+responsive behavior works
+accessibility works
+authentication works
+authorization works
+API contracts work
+database-backed data displays correctly
+AI interface works
+agent interface works
+Ghost Commerce works
+sourcing works
+no-inventory flow works
+dropshipping flow works
+POD works
+3DPoD works
+AR works where supported
+VR works where supported
+XR fallback works
+voice works where supported
+booking works
+delivery works
+Bike2Door interfaces work
+SEO works
+AEO works
+GEO works
+analytics works
+security controls work
+testing passes
+deployment succeeds
+rollback succeeds
+documentation exists
+
+======================================================================
+92. FRONTEND/API CONTRACT
+=========================
+
+The frontend MUST treat these as authoritative backend domains:
+
+authentication
+authorization
+products
+inventory
+pricing
+suppliers
+orders
+payments
+fulfillment
+delivery
+booking
+agents
+AI
+content
+analytics
+compliance
+
+The frontend MUST never fabricate successful backend operations.
+
+======================================================================
+93. FRONTEND EVENT CONTRACT
+===========================
+
+All major user and system interactions SHOULD produce normalized events.
+
+Each event SHOULD include:
+
+eventName
+timestamp
+sessionId
+userId where authorized
+anonymousId where applicable
+source
+route
+feature
+entityId where appropriate
+metadata
+requestId where available
+
+Events MUST minimize sensitive information.
+
+======================================================================
+94. FRONTEND PERFORMANCE BUDGETS
+================================
+
+Critical pages MUST have explicit performance budgets.
+
+Measure:
+
+initial load
+largest content render
+interaction latency
+JavaScript payload
+CSS payload
+image payload
+3D payload
+API latency
+realtime latency
+XR initialization
+voice initialization
+
+Heavy features MUST load on demand.
+
+======================================================================
+95. FRONTEND DOCUMENTATION
+==========================
+
+Documentation MUST cover:
+
+architecture
+routing
+components
+design system
+branding
+state
+API
+authentication
+authorization
+AI
+agents
+Ghost Commerce
+sourcing
+no-inventory
+dropshipping
+POD
+3DPoD
+AR
+VR
+XR
+voice
+booking
+delivery
+Bike2Door
+SEO
+AEO
+GEO
+analytics
+security
+testing
+deployment
+backup
+rollback
+release
+
+======================================================================
+96. CODING STANDARDS
+====================
+
+Code MUST favor:
+
+typed interfaces
+small modules
+single responsibility
+reusable components
+explicit dependencies
+clear naming
+predictable state
+validated input
+defensive error handling
+testability
+maintainability
+
+Avoid:
+
+giant components
+duplicate business logic
+hard-coded production URLs
+hard-coded secrets
+hidden side effects
+frontend-only commerce truth
+uncontrolled global state
+duplicate API clients
+duplicate design tokens
+
+======================================================================
+97. ARCHITECTURAL BOUNDARIES
+============================
+
+Presentation layer MUST remain separate from:
+
+business logic
+database logic
+supplier credentials
+payment secrets
+agent execution
+server-side compliance enforcement
+
+Frontend communicates through approved contracts.
+
+======================================================================
+98. FUTURE EXTENSIBILITY
+========================
+
+Architecture MUST allow future modules:
+
+IoT
+smart grow sensors
+environmental monitoring
+wearables
+additional AI agents
+additional supplier networks
+additional payment providers
+additional fulfillment providers
+advanced robotics interfaces
+spatial computing
+shared XR environments
+creator marketplaces
+digital assets
+additional manufacturing providers
+internationalization
+multi-currency
+multi-region
+advanced recommendations
+predictive analytics
+
+New capabilities MUST be added as modules rather than destabilizing the application core.
+
+======================================================================
+99. MASTER FRONTEND FLOW
+========================
+
+DISCOVER
+|
+SEARCH
+|
+ASK
+|
+DESIGN
+|
+VISUALIZE
+|
+COMPARE
+|
+CONFIGURE
+|
+SOURCE
+|
+VALIDATE
+|
+PRICE
+|
+ADD TO CART
+|
+CHECKOUT
+|
+ORDER
+|
+FULFILL
+|
+SHIP
+|
+DELIVER
+|
+TRACK
+|
+LEARN
+|
+RETURN
+|
+REPEAT
+
+AR / VR / XR
+AI
+VOICE
+GHOST AGENTS
+COMMERCE
+SOURCING
+POD
+3DPOD
+DELIVERY
+CONTENT
+ANALYTICS
+
+MUST ALL PARTICIPATE IN THIS SHARED ECOSYSTEM WITHOUT CREATING ISOLATED PARALLEL SYSTEMS.
+
+======================================================================
+100. MASTER PRODUCT PRINCIPLE
+=============================
+
+PotGrowHub frontend is an intent-to-experience-to-transaction interface.
+
+USER INTENT
+|
+GANJAGURU
+|
+AGENT ORCHESTRATION
+|
+KNOWLEDGE
+|
+DESIGN
+|
+AR / VR / XR
+|
+PRODUCT DISCOVERY
+|
+GHOST SOURCING
+|
+VALIDATION
+|
+PRICING
+|
+COMMERCE
+|
+FULFILLMENT
+|
+DELIVERY
+|
+ANALYTICS
+|
+LEARNING
+
+The frontend MUST make this complex ecosystem feel simple.
+
+Complexity belongs behind the interface.
+
+The customer sees:
+
+ASK
+EXPLORE
+DESIGN
+VISUALIZE
+CHOOSE
+BUY
+TRACK
+
+The platform handles:
+
+AI
+AGENTS
+SOURCING
+SUPPLIERS
+INVENTORY
+PRICING
+ORDERS
+FULFILLMENT
+SEO
+AEO
+GEO
+ANALYTICS
+COMPLIANCE
+AUTOMATION
+
+======================================================================
+101. FINAL READY STATE
+======================
+
+FRONTEND_READY = TRUE ONLY WHEN ALL REQUIRED RELEASE GATES PASS.
+
+Required final state:
+
+BUILD_READY
+TYPE_READY
+LINT_READY
+TEST_READY
+ACCESSIBILITY_READY
+SECURITY_READY
+API_READY
+DATABASE_CONTRACT_READY
+AUTH_READY
+AUTHORIZATION_READY
+AI_READY
+AGENT_READY
+GHOST_COMMERCE_READY
+SOURCING_READY
+NO_INVENTORY_READY
+DROPSHIPPING_READY
+POD_READY
+3DPOD_READY
+AR_READY
+VR_READY
+XR_READY
+VOICE_READY
+BOOKING_READY
+DELIVERY_READY
+BIKE2DOOR_READY
+SEO_READY
+AEO_READY
+GEO_READY
+ANALYTICS_READY
+INTEGRATIONS_READY
+TRAINING_READY
+KNOWLEDGE_READY
+BACKUP_READY
+DEPLOYMENT_READY
+ROLLBACK_READY
+RELEASE_READY
+
+FINAL STATUS:
+
+# FRONTEND_READY = TRUE
+
+# END OF FRONTEND READY SPECIFICATION
