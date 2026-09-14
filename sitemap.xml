@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://github.com/potgrowhub/potgrowhubstore</loc>
-        <lastmod>2026-09-14</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
+<url><loc>https://potgrowhub.store/</loc></url>
+<url><loc>https://potgrowhub.store/ai/</loc></url>
+<url><loc>https://potgrowhub.store/knowledge/</loc></url>
+<url><loc>https://potgrowhub.store/cultivation/</loc></url>
+<url><loc>https://potgrowhub.store/marketplace/</loc></url>
+<url><loc>https://potgrowhub.store/ghost-commerce/</loc></url>
+<url><loc>https://potgrowhub.store/design-studio/</loc></url>
+<url><loc>https://potgrowhub.store/blog/</loc></url>
 </urlset>
