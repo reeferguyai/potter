@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <!-- SEO, AEO & Meta Tags -->
@@ -79,7 +78,7 @@
     <meta name="hosting-provider" content="GitHub Pages">
     <meta name="github-repository" content="https://github.com/potgrowhub/potgrowhubstore">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potgrowhubstore</title>
+    <title>Potgrowhubstore | AI-Powered Cannabis Ecosystem</title>
     
     <!-- PWA & Valuable File Links -->
     <link rel="manifest" href="/manifest.json">
@@ -135,7 +134,7 @@
         }
 
         /* Focus Ring Standard */
-        button:focus-visible, a:focus-visible, textarea:focus-visible {
+        button:focus-visible, a:focus-visible, textarea:focus-visible, input:focus-visible {
             outline: none;
             box-shadow: var(--focus-ring);
         }
@@ -173,7 +172,7 @@
             height: 100vh;
             background: rgba(13, 15, 18, 0.92);
             backdrop-filter: blur(12px);
-            z-index: 1000;
+            z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -238,6 +237,61 @@
 
         .modal-btn.secondary:hover {
             background: var(--bg-tertiary);
+        }
+
+        /* Feature Modals / Drawers */
+        .feature-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(13, 15, 18, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1500;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .feature-modal.active {
+            display: flex;
+        }
+
+        .feature-modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 24px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+            position: relative;
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        .close-modal-btn:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
         }
 
         /* Cookie Warning Banner */
@@ -364,6 +418,9 @@
             color: var(--text-muted);
             text-decoration: none;
             transition: color 0.2s;
+            cursor: pointer;
+            background: transparent;
+            border: none;
         }
         .nav-icon-link:hover {
             color: var(--accent-green);
@@ -409,6 +466,7 @@
             flex-direction: column;
             position: relative;
             background: radial-gradient(circle at center, #13171f 0%, #0d0f12 100%);
+            overflow: hidden;
         }
 
         .viewport-hero {
@@ -419,6 +477,49 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+        }
+
+        /* Live Chat Stream Overlay Area (Powered by GanjaGuru AI) */
+        .chat-stream-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 15, 18, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 5;
+            display: none;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .chat-stream-container.active {
+            display: flex;
+        }
+        .message-bubble {
+            max-width: 680px;
+            margin: 12px auto;
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .message-bubble.user {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            align-self: flex-end;
+        }
+        .message-bubble.ai {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(56, 211, 159, 0.3);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .message-bubble.ai h4 {
+            color: var(--accent-green);
+            margin-bottom: 8px;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Stage Container for Orbit & Groot Visual */
@@ -567,6 +668,7 @@
             max-width: 760px;
             margin: 0 auto 30px auto;
             padding: 0 20px;
+            z-index: 6;
         }
 
         .file-status-pill {
@@ -693,330 +795,460 @@
             }
         }
     </style>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MW3MB134F"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-9MW3MB134F');
-    </script> 
 </head>
 <body>
 
-    <!-- Skip Navigation for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="offline-banner" class="offline-banner">Network Connection Lost. Operating in Offline PWA Cache Mode.</div>
 
-    <!-- Offline Status Indicator -->
-    <div id="offlineBanner" class="offline-banner" role="alert">
-        You are currently offline. Potgrowhubstore is running in local cached PWA mode.
+    <!-- Age Verification Modal -->
+    <div id="age-modal" class="modal-overlay">
+        <div class="modal-card">
+            <h2>Age Verification Required</h2>
+            <p>Welcome to Potgrowhubstore. You must be at least 21 years of age (or the legal age in your jurisdiction) to enter this botanical AI and eco-commerce ecosystem.</p>
+            <div class="modal-actions">
+                <button class="modal-btn secondary" onclick="window.location.href='https://google.com'">I am Under 21</button>
+                <button class="modal-btn primary" onclick="verifyAge()">I am 21 or Older</button>
+            </div>
+        </div>
     </div>
 
-    <!-- Mobile Header Navigation Bar -->
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use encrypted session tokens and <span>eco-friendly cookies</span> to optimize your AI budtender memory and 3D print-on-demand workflow.</p>
+        <button class="modal-btn primary" style="padding: 8px 16px; font-size: 12px;" onclick="acceptCookies()">Accept</button>
+    </div>
+
+    <!-- Interactive Feature Modals (3D Studio, Strains, Store, Telemetry, AR/VR, Community, Settings) -->
+    <div id="feature-modal" class="feature-modal" onclick="closeFeatureModal(event)">
+        <div class="feature-modal-content" id="feature-modal-body" onclick="event.stopPropagation()">
+            <button class="close-modal-btn" onclick="closeFeatureModalExplicit()"><i data-lucide="x"></i></button>
+            <div id="dynamic-modal-inner"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Header Bar -->
     <header class="mobile-header-bar">
-        <button class="mobile-menu-toggle" id="sidebarToggleBtn" aria-label="Toggle navigation menu">
-            <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+        <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+            <i data-lucide="menu"></i>
         </button>
-        <span style="font-weight: 700; color: var(--accent-green); font-size: 16px;">Potgrowhubstore</span>
-        <a href="#account" class="nav-icon-link" aria-label="Account Settings"><i data-lucide="settings" style="width: 20px;"></i></a>
+        <div style="font-weight: 700; color: var(--accent-green); font-family: 'Poppins', sans-serif;">POTGROWHUB</div>
+        <div style="width: 24px;"></div>
     </header>
 
-    <!-- Mobile Sidebar Backdrop Overlay -->
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <!-- Sidebar Backdrop -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 
-    <!-- Age Verification Gate Modal -->
-    <div id="ageGateModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ageGateHeading">
-        <div class="modal-card">
-            <h2 id="ageGateHeading">Age Verification Required</h2>
-            <p>Welcome to <strong>Potgrowhubstore</strong>. You must be at least 21 years of age (or 18+ with valid medical recommendation depending on your jurisdiction) to enter this botanical sanctuary.</p>
-            <div class="modal-actions">
-                <button class="modal-btn primary" onclick="verifyAge(true)">I am 21 or Older</button>
-                <button class="modal-btn secondary" onclick="verifyAge(false)">Exit</button>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div>
+            <button class="new-chat-btn" onclick="startNewSession()">
+                <i data-lucide="plus" style="width: 18px; height: 18px;"></i>
+                New Botanical Session
+            </button>
+            <div class="chat-history" id="chat-history">
+                <a href="#" class="history-item active" onclick="loadSession(1)"><i data-lucide="message-square" style="width: 15px;"></i> GanjaGuru Strain Match</a>
+                <a href="#" class="history-item" onclick="loadSession(2)"><i data-lucide="box" style="width: 15px;"></i> 3D Custom Bong CAD</a>
+                <a href="#" class="history-item" onclick="loadSession(3)"><i data-lucide="cpu" style="width: 15px;"></i> IoT Grow Telemetry</a>
+                <a href="#" class="history-item" onclick="loadSession(4)"><i data-lucide="truck" style="width: 15px;"></i> Zero-Inventory POD Hub</a>
             </div>
         </div>
-    </div>
-
-    <!-- Cookie Warning Banner -->
-    <div id="cookieBanner" class="cookie-banner" style="display: none;" role="region" aria-label="Cookie consent banner">
-        <p>We use encrypted cookies and session storage linked to our secure <span>pothub</span> database to optimize your AI budtender experience and geo-compliance tracking.</p>
-        <button class="modal-btn primary" style="padding: 8px 16px; font-size: 12px; white-space: nowrap;" onclick="acceptCookies()">Got It</button>
-    </div>
-
-    <aside class="sidebar" id="appSidebar" aria-label="Main Navigation">
-        <div>
-            <button class="new-chat-btn" aria-label="Start New Chat Session">
-                <i data-lucide="plus" style="width: 18px;"></i>
-                New Chat
-            </button>
-            <nav class="chat-history" aria-label="Chat History">
-                <a href="#hydroponics" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Hydroponic Strain Profiles</a>
-                <a href="#legal-compliance" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Legal Compliance Checklist</a>
-                <a href="#blueprint-v2" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Dispensary Blueprint V2</a>
-            </nav>
-        </div>
-
         <div class="user-profile">
             <div class="user-profile-left">
-                <div class="avatar" aria-hidden="true">CG</div>
-                <div style="font-size: 14px; font-weight: 500;">potgrowhub.store</div>
+                <div class="avatar">R</div>
+                <div style="font-size: 13px; font-weight: 600;">Ray (Master)</div>
             </div>
-            <a href="#account" class="nav-icon-link" title="Account Settings" aria-label="Account Settings"><i data-lucide="settings" style="width: 18px;"></i></a>
+            <button class="nav-icon-link" aria-label="Settings" onclick="openSettingsModal()"><i data-lucide="settings" style="width: 18px; height: 18px;"></i></button>
         </div>
-    </aside>
+    </nav>
 
+    <!-- Main Workspace Container -->
     <main class="main-container" id="main-content">
         <div class="viewport-hero">
-            <div class="stage" aria-label="Interactive Orbital System Showcase">
-                
-                <div class="groot-wrapper">
-                    <svg class="groot-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated Cannabis Female Botanical Mascot">
-                        <defs>
-                            <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#2d5a27"/>
-                                <stop offset="50%" stop-color="#1e3c1a"/>
-                                <stop offset="100%" stop-color="#0f200e"/>
-                            </linearGradient>
-                            <linearGradient id="budGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#52b788"/>
-                                <stop offset="50%" stop-color="#2d6a4f"/>
-                                <stop offset="100%" stop-color="#1b4332"/>
-                            </linearGradient>
-                            <radialGradient id="trichomeGlow" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" stop-color="#d8f3dc" stop-opacity="0.8"/>
-                                <stop offset="100%" stop-color="#74c69d" stop-opacity="0"/>
-                            </radialGradient>
-                        </defs>
+            <!-- Active Chat Stream Container (Appears when interacting with GanjaGuru) -->
+            <div class="chat-stream-container" id="chat-stream">
+                <div style="max-width: 680px; margin: 20px auto 10px auto; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="color: var(--accent-green); font-family: 'Poppins', sans-serif;">GanjaGuru AI Live Stream</h3>
+                    <button class="modal-btn secondary" style="padding: 6px 12px; font-size: 12px;" onclick="returnToOrbit()">Back to Orbit</button>
+                </div>
+                <div id="chat-messages" style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 30px;">
+                    <div class="message-bubble ai">
+                        <h4>🌱 GanjaGuru Sentient AI</h4>
+                        <p>Greetings, cultivator. I am online and synced with your localized Ollama and web ecosystem. Ask me anything regarding strain profiles, micro-climate VPD targets, or 3D print-on-demand parameters.</p>
+                    </div>
+                </div>
+            </div>
 
-                        <path d="M75,280 C65,220 55,170 70,120 C75,100 80,80 100,50 C120,80 125,100 130,120 C145,170 135,220 125,280 Z" fill="url(#stemGrad)" stroke="#122613" stroke-width="2"/>
-                        
-                        <circle cx="90" cy="140" r="14" fill="url(#budGrad)"/>
-                        <circle cx="110" cy="140" r="14" fill="url(#budGrad)"/>
-                        <circle cx="100" cy="125" r="18" fill="url(#budGrad)"/>
-                        <circle cx="85" cy="170" r="16" fill="url(#budGrad)"/>
-                        <circle cx="115" cy="170" r="16" fill="url(#budGrad)"/>
-                        <circle cx="100" cy="190" r="22" fill="url(#budGrad)"/>
-                        
-                        <path d="M80,60 Q50,40 30,50 Q55,65 75,70 Z" fill="#40916c"/>
-                        <path d="M85,50 Q60,20 45,25 Q65,45 80,55 Z" fill="#52b788"/>
-                        <path d="M120,60 Q150,40 170,50 Q145,65 125,70 Z" fill="#40916c"/>
-                        <path d="M115,50 Q140,20 155,25 Q135,45 120,55 Z" fill="#52b788"/>
-                        <path d="M100,45 Q100,10 100,5 Q105,25 105,45 Z" fill="#74c69d"/>
-
-                        <ellipse cx="88" cy="92" rx="5" ry="7" fill="#0d0f12"/>
-                        <ellipse cx="112" cy="92" rx="5" ry="7" fill="#0d0f12"/>
-                        <circle cx="89" cy="90" r="2" fill="#38d39f"/>
-                        <circle cx="113" cy="90" r="2" fill="#38d39f"/>
-                        
-                        <path d="M92,108 Q100,114 108,108" fill="none" stroke="#122613" stroke-width="2"/>
-
-                        <g transform="rotate(-15, 110, 108)">
-                            <rect x="110" y="105" width="35" height="5" rx="1" fill="#c29b38"/>
-                            <rect x="107" y="105" width="5" height="5" fill="#8c6a1d"/>
-                            <circle class="blunt-tip" cx="146" cy="107.5" r="3.5"/>
-                        </g>
-
-                        <circle cx="85" cy="130" r="8" fill="url(#trichomeGlow)"/>
-                        <circle cx="115" cy="160" r="10" fill="url(#trichomeGlow)"/>
-                        <circle cx="100" cy="80" r="6" fill="url(#trichomeGlow)"/>
-                    </svg>
+            <!-- Stage & Orbit Node System -->
+            <div class="stage" id="orbit-stage">
+                <!-- Orbiting Navigation Node System -->
+                <div class="orbit-system">
+                    <a class="orbit-node node-1" onclick="openFeature('ai-hub')" aria-label="AI Budtender">
+                        <div class="node-counter-rotate">
+                            <i data-lucide="bot" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
+                            <span>GURU AI</span>
+                        </div>
+                    </a>
+                    <a class="orbit-node node-2" onclick="openFeature('studio-3d')" aria-label="3D CAD Studio">
+                        <div class="node-counter-rotate">
+                            <i data-lucide="box" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
+                            <span>3D POD</span>
+                        </div>
+                    </a>
+                    <a class="orbit-node node-3" onclick="openFeature('strains')" aria-label="Strain Finder">
+                        <div class="node-counter-rotate">
+                            <i data-lucide="flower-2" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
+                            <span>STRAINS</span>
+                        </div>
+                    </a>
+                    <a class="orbit-node node-4" onclick="openFeature('store')" aria-label="Eco-Store">
+                        <div class="node-counter-rotate">
+                            <i data-lucide="shopping-bag" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
+                            <span>STORE</span>
+                        </div>
+                    </a>
+                    <a class="orbit-node node-5" onclick="openFeature('telemetry')" aria-label="Grow Telemetry">
+                        <div class="node-counter-rotate">
+                            <i data-lucide="activity" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
+                            <span>GROW</span>
+                        </div>
+                    </a>
+                    <a class="orbit-node node-6" onclick="openFeature('ar-vr')" aria-label="AR/VR Studio">
+                        <div class="node-counter-rotate">
+                            <i data-lucide="glasses" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
+                            <span>AR/VR</span>
+                        </div>
+                    </a>
+                    <a class="orbit-node node-7" onclick="openFeature('community')" aria-label="Smoke Circle Community">
+                        <div class="node-counter-rotate">
+                            <i data-lucide="users" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
+                            <span>CIRCLE</span>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="smoke-puff" aria-hidden="true"></div>
-                <div class="smoke-puff" style="animation-delay: 1.3s;" aria-hidden="true"></div>
-                <div class="smoke-puff" style="animation-delay: 2.6s;" aria-hidden="true"></div>
+                <!-- Central Ganja Groot SVG Artwork -->
+                <div class="groot-wrapper">
+                    <!-- Smoke Puff Emitters -->
+                    <div class="smoke-puff" style="animation-delay: 0s;"></div>
+                    <div class="smoke-puff" style="animation-delay: 1.3s;"></div>
+                    <div class="smoke-puff" style="animation-delay: 2.6s;"></div>
 
-                <div class="orbit-system">
-                    
-                    <a href="#design-studio" class="orbit-node node-1" aria-label="Design Studio Section">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="palette" style="width:20px; stroke: #38d39f;"></i>
-                            <span>Studio</span>
-                        </div>
-                    </a>
+                    <svg class="groot-svg" viewBox="0 0 240 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Roots & Base -->
+                        <path d="M70 290C70 270 90 260 120 260C150 260 170 270 170 290C170 305 150 315 120 315C90 315 70 305 70 290Z" fill="#1b3a27" stroke="#38d39f" stroke-width="2"/>
+                        <path d="M50 305L75 285" stroke="#38d39f" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M190 305L165 285" stroke="#38d39f" stroke-width="3" stroke-linecap="round"/>
 
-                    <a href="#ai" class="orbit-node node-2" aria-label="AI Engine Section">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="sparkles" style="width:20px; stroke: #38d39f;"></i>
-                            <span>AI Engine</span>
-                        </div>
-                    </a>
+                        <!-- Stem / Torso -->
+                        <path d="M95 180C90 220 95 265 120 275C145 265 150 220 145 180" fill="#16191e" stroke="#38d39f" stroke-width="2.5"/>
+                        <path d="M105 200C115 220 125 220 135 200" stroke="#38d39f" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M102 230C115 245 125 245 138 230" stroke="#38d39f" stroke-width="1.5" stroke-linecap="round"/>
 
-                    <a href="#strain-creation" class="orbit-node node-3" aria-label="Strains Section">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="dna" style="width:20px; stroke: #38d39f;"></i>
-                            <span>Strains</span>
-                        </div>
-                    </a>
+                        <!-- Head / Crown -->
+                        <circle cx="120" cy="115" r="55" fill="#16191e" stroke="#38d39f" stroke-width="2.5"/>
 
-                    <a href="#e-commerce" class="orbit-node node-4" aria-label="E-Commerce Store Section">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="shopping-bag" style="width:20px; stroke: #38d39f;"></i>
-                            <span>Store</span>
-                        </div>
-                    </a>
+                        <!-- Cannabis Fan Leaves as Crown / Hair -->
+                        <path d="M120 60C120 40 100 20 80 15C100 35 110 50 120 60Z" fill="#2d5a3f" stroke="#38d39f" stroke-width="1.5"/>
+                        <path d="M120 60C130 35 150 20 170 15C150 35 135 50 120 60Z" fill="#2d5a3f" stroke="#38d39f" stroke-width="1.5"/>
+                        <path d="M120 60C120 30 135 10 120 0C105 10 120 30 120 60Z" fill="#38d39f" stroke="#38d39f" stroke-width="1.5"/>
+                        <path d="M85 85C65 75 45 75 35 85C55 95 70 95 85 85Z" fill="#2d5a3f" stroke="#38d39f" stroke-width="1.5"/>
+                        <path d="M155 85C175 75 195 75 205 85C185 95 170 95 155 85Z" fill="#2d5a3f" stroke="#38d39f" stroke-width="1.5"/>
 
-                    <a href="#legal" class="orbit-node node-5" aria-label="Legal Compliance Section">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="scale" style="width:20px; stroke: #38d39f;"></i>
-                            <span>Legal</span>
-                        </div>
-                    </a>
+                        <!-- Glowing Eyes (Sentient AI Vibe) -->
+                        <circle cx="100" cy="110" r="6" fill="#38d39f" filter="drop-shadow(0 0 6px #38d39f)"/>
+                        <circle cx="140" cy="110" r="6" fill="#38d39f" filter="drop-shadow(0 0 6px #38d39f)"/>
 
-                    <a href="#blueprint" class="orbit-node node-6" aria-label="Dispensary Blueprint Section">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="compass" style="width:20px; stroke: #38d39f;"></i>
-                            <span>Blueprint</span>
-                        </div>
-                    </a>
-
-                    <a href="#procurement" class="orbit-node node-7" aria-label="Logistics Section">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="truck" style="width:20px; stroke: #38d39f;"></i>
-                            <span>Logistics</span>
-                        </div>
-                    </a>
-
+                        <!-- Smiling Botanist Mouth & Blunt -->
+                        <path d="M105 135C112 143 128 143 135 135" stroke="#38d39f" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Hand holding blunt -->
+                        <path d="M130 155C140 155 150 145 155 135" stroke="#38d39f" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Joint / Blunt stick -->
+                        <rect x="145" y="128" width="30" height="7" rx="3" transform="rotate(-15 145 128)" fill="#d4a373" stroke="#8e95a5" stroke-width="1"/>
+                        <!-- Glowing Cherry Tip -->
+                        <circle cx="172" cy="120" r="3.5" class="blunt-tip"/>
+                    </svg>
                 </div>
             </div>
         </div>
 
+        <!-- Input Dock Area -->
         <div class="input-container">
-            <div id="fileStatusPill" class="file-status-pill">
-                <i data-lucide="file-check" style="width:14px;"></i>
-                <span id="fileCountText">0 files attached</span>
+            <div id="file-status-pill" class="file-status-pill">
+                <i data-lucide="paperclip" style="width: 12px; height: 12px;"></i>
+                <span id="file-status-text">Attached 3D Model / Strain Spec</span>
+                <i data-lucide="x" style="width: 12px; height: 12px; cursor: pointer;" onclick="clearAttachment()"></i>
             </div>
             <div class="input-box">
-                <!-- Database Link / Integration Indicator & File Upload -->
-                <a href="#database-pothub-config" title="Connected to Database: pothub (User: potgrowhub)" aria-label="Connected to Database pothub" style="color: var(--accent-green); display: flex; align-items: center;"><i data-lucide="database" style="width: 18px;"></i></a>
-                <label for="fileUploadInput" style="cursor: pointer; display: flex; align-items: center;" title="Upload files for AI analysis" aria-label="Upload files for AI analysis">
-                    <i data-lucide="paperclip" style="color: var(--text-muted);"></i>
-                </label>
-                <input type="file" id="fileUploadInput" style="display: none;" multiple accept=".txt,.md,.csv,.pdf,.json,.doc">
-                <textarea id="chatInputArea" placeholder="Ask Potgrowhub anything about strains, legal, or designs..." aria-label="Chat Input Message"></textarea>
-                <button class="send-btn" id="sendBtn" title="Send message" aria-label="Send message">
-                    <i data-lucide="arrow-up" style="width: 18px;"></i>
+                <button class="nav-icon-link" aria-label="Attach File" onclick="triggerFileUpload()">
+                    <i data-lucide="paperclip" style="width: 20px; height: 20px;"></i>
+                </button>
+                <input type="file" id="hidden-file-input" style="display:none;" onchange="handleFileSelected(event)">
+                <textarea id="prompt-textarea" placeholder="Ask GanjaGuru AI anything about strains, custom 3D bongs, or grow room VPD..." rows="1" oninput="autoResizeTextarea(this)"></textarea>
+                <button class="send-btn" aria-label="Send Prompt" onclick="submitPrompt()">
+                    <i data-lucide="arrow-up" style="width: 16px; height: 16px;"></i>
                 </button>
             </div>
         </div>
     </main>
 
     <script>
-        // Initialize Lucide Icons safely
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-        // Age Verification Gate Logic
-        function verifyAge(isOfAge) {
-            if (isOfAge) {
-                localStorage.setItem('potgrowhub_age_verified', 'true');
-                document.getElementById('ageGateModal').style.display = 'none';
-                if (!localStorage.getItem('potgrowhub_cookies_accepted')) {
-                    document.getElementById('cookieBanner').style.display = 'flex';
-                }
-            } else {
-                window.location.href = 'https://www.google.com';
-            }
+        // Age Verification & Cookie Handlers
+        function verifyAge() {
+            localStorage.setItem('potgrowhub_age_verified', 'true');
+            document.getElementById('age-modal').style.display = 'none';
         }
 
         function acceptCookies() {
             localStorage.setItem('potgrowhub_cookies_accepted', 'true');
-            document.getElementById('cookieBanner').style.display = 'none';
+            document.getElementById('cookie-banner').style.display = 'none';
         }
 
         window.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('potgrowhub_age_verified') === 'true') {
-                document.getElementById('ageGateModal').style.display = 'none';
-                if (!localStorage.getItem('potgrowhub_cookies_accepted')) {
-                    document.getElementById('cookieBanner').style.display = 'flex';
-                }
+                document.getElementById('age-modal').style.display = 'none';
+            }
+            if (localStorage.getItem('potgrowhub_cookies_accepted') === 'true') {
+                document.getElementById('cookie-banner').style.display = 'none';
             }
         });
 
-        // Auto-expanding textarea & Keyboard Event Listener (Enter to send, Shift+Enter for newline)
-        const tx = document.getElementById("chatInputArea");
-        if (tx) {
-            tx.addEventListener("input", OnInput, false);
-            tx.addEventListener("keydown", (e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                    e.preventDefault();
-                    triggerSendMessage();
-                }
-            });
+        // Mobile Sidebar Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            sidebarBackdrop.classList.toggle('open');
+        });
+
+        sidebarBackdrop.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarBackdrop.classList.remove('open');
+        });
+
+        // Textarea Auto-Resize
+        function autoResizeTextarea(el) {
+            el.style.height = 'auto';
+            el.style.height = Math.min(el.scrollHeight, 150) + 'px';
         }
 
-        function OnInput() {
-            this.style.height = "auto";
-            this.style.height = (this.scrollHeight - 16) + "px";
+        // File Attachment Simulation
+        function triggerFileUpload() {
+            document.getElementById('hidden-file-input').click();
         }
 
-        // File upload attachment UI update handler
-        const fileInput = document.getElementById('fileUploadInput');
-        const fileStatusPill = document.getElementById('fileStatusPill');
-        const fileCountText = document.getElementById('fileCountText');
-
-        if (fileInput) {
-            fileInput.addEventListener('change', () => {
-                if (fileInput.files && fileInput.files.length > 0) {
-                    fileStatusPill.style.display = 'inline-flex';
-                    fileCountText.textContent = `${fileInput.files.length} file(s) attached: ${fileInput.files[0].name}`;
-                } else {
-                    fileStatusPill.style.display = 'none';
-                }
-            });
-        }
-
-        // Send Button Action Handler
-        const sendBtn = document.getElementById('sendBtn');
-        if (sendBtn) {
-            sendBtn.addEventListener('click', triggerSendMessage);
-        }
-
-        function triggerSendMessage() {
-            const query = tx.value.trim();
-            if (query.length > 0) {
-                console.log("Sending query to GanjaGuru AI Engine:", query);
-                tx.value = "";
-                tx.style.height = "24px";
-                if (fileInput) fileInput.value = "";
-                if (fileStatusPill) fileStatusPill.style.display = "none";
+        function handleFileSelected(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const pill = document.getElementById('file-status-pill');
+                const text = document.getElementById('file-status-text');
+                text.textContent = file.name;
+                pill.style.display = 'flex';
             }
         }
 
-        // Mobile Navigation Drawer Toggle Handler
-        const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
-        const appSidebar = document.getElementById('appSidebar');
-        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
-
-        if (sidebarToggleBtn && appSidebar && sidebarBackdrop) {
-            sidebarToggleBtn.addEventListener('click', () => {
-                appSidebar.classList.toggle('open');
-                sidebarBackdrop.classList.toggle('open');
-            });
-
-            sidebarBackdrop.addEventListener('click', () => {
-                appSidebar.classList.remove('open');
-                sidebarBackdrop.classList.remove('open');
-            });
+        function clearAttachment() {
+            document.getElementById('hidden-file-input').value = '';
+            document.getElementById('file-status-pill').style.display = 'none';
         }
 
-        // Online / Offline Detection
+        // Feature Modals System
+        function openFeature(type) {
+            const modal = document.getElementById('feature-modal');
+            const inner = document.getElementById('dynamic-modal-inner');
+            modal.classList.add('active');
+
+            if (type === 'ai-hub') {
+                inner.innerHTML = `
+                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">🌿 GanjaGuru AI Budtender & Bot</h3>
+                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Chat live with GanjaGuru, your sentient botanical copilot connected to local Ollama and cloud vector memory.</p>
+                    <div style="background:var(--bg-tertiary); padding:16px; border-radius:12px; border:1px solid var(--border-color);">
+                        <p style="font-size:13px; margin-bottom:10px;"><b>Active Model:</b> deepseek-r1 (Local Modelfile)</p>
+                        <button class="modal-btn primary" style="width:100%; font-size:13px;" onclick="openChatStream()">Launch Full-Screen Chat Stream</button>
+                    </div>
+                `;
+            } else if (type === 'studio-3d') {
+                inner.innerHTML = `
+                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">📦 3D Print-on-Demand CAD Studio</h3>
+                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Inspect custom bongs, grinder housings, and grow accessories in 3D & AR.</p>
+                    <div style="background:var(--bg-tertiary); border-radius:12px; overflow:hidden; border:1px solid var(--border-color); height:300px; display:flex; align-items:center; justify-content:center;">
+                        <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" alt="3D POD Preview" auto-rotate camera-controls style="width:100%; height:100%;"></model-viewer>
+                    </div>
+                `;
+            } else if (type === 'strains') {
+                inner.innerHTML = `
+                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">🧬 Strain Discovery & Terpene Finder</h3>
+                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Explore curated profiles based on THC/CBD ratio, myrcene, limonene, and caryophyllene.</p>
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                            <div><b>OG Kush (Indica)</b><br><span style="font-size:12px; color:var(--text-muted);">Terpenes: Myrcene, Limonene</span></div>
+                            <span style="color:var(--accent-green); font-weight:600;">28.4% THC</span>
+                        </div>
+                        <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                            <div><b>Super Lemon Haze (Sativa)</b><br><span style="font-size:12px; color:var(--text-muted);">Terpenes: Terpinolene, Caryophyllene</span></div>
+                            <span style="color:var(--accent-green); font-weight:600;">25.1% THC</span>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'store') {
+                inner.innerHTML = `
+                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">🛍️ Eco-Friendly Zero-Inventory Store</h3>
+                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Order print-on-demand merchandise and sustainable gardening kits.</p>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                        <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; border:1px solid var(--border-color);">
+                            <b>PotGrowHub Organic Tee</b><br><span style="font-size:12px; color:var(--accent-green);">$29.99</span>
+                        </div>
+                        <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; border:1px solid var(--border-color);">
+                            <b>Smart VPD Sensor Kit</b><br><span style="font-size:12px; color:var(--accent-green);">$89.99</span>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'telemetry') {
+                inner.innerHTML = `
+                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">📊 IoT Grow Room Telemetry</h3>
+                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Real-time climate monitoring for your indoor grow setup.</p>
+                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; text-align:center;">
+                        <div style="background:var(--bg-tertiary); padding:14px; border-radius:8px;"><span style="font-size:11px; color:var(--text-muted);">TEMPERATURE</span><br><b style="color:var(--accent-green); font-size:18px;">76.4°F</b></div>
+                        <div style="background:var(--bg-tertiary); padding:14px; border-radius:8px;"><span style="font-size:11px; color:var(--text-muted);">HUMIDITY</span><br><b style="color:var(--accent-green); font-size:18px;">58.2%</b></div>
+                        <div style="background:var(--bg-tertiary); padding:14px; border-radius:8px;"><span style="font-size:11px; color:var(--text-muted);">VPD TARGET</span><br><b style="color:var(--accent-green); font-size:18px;">1.25 kPa</b></div>
+                    </div>
+                `;
+            } else if (type === 'ar-vr') {
+                inner.innerHTML = `
+                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">👓 AR/VR Spatial Viewer</h3>
+                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Project custom bongs and grow tent layouts into your physical room using WebXR.</p>
+                    <button class="modal-btn primary" style="width:100%;" onclick="alert('Launching WebXR AR Session...')">Activate AR Camera</button>
+                `;
+            } else if (type === 'community') {
+                inner.innerHTML = `
+                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">🔥 Smoke Circle Community</h3>
+                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Connect with fellow growers, share harvest photos, and discuss breeding projects.</p>
+                    <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; font-size:13px; color:var(--text-muted);">
+                        <b>Recent Thread:</b> Best organic nutrient blends for vegetative growth? (14 replies)
+                    </div>
+                `;
+            }
+            lucide.createIcons();
+        }
+
+        function closeFeatureModal(event) {
+            document.getElementById('feature-modal').classList.remove('active');
+        }
+
+        function closeFeatureModalExplicit() {
+            document.getElementById('feature-modal').classList.remove('active');
+        }
+
+        function openSettingsModal() {
+            const modal = document.getElementById('feature-modal');
+            const inner = document.getElementById('dynamic-modal-inner');
+            modal.classList.add('active');
+            inner.innerHTML = `
+                <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">⚙️ Master Settings</h3>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Configure your Ollama endpoint, PWA cache settings, and local database sync.</p>
+                <div style="display:flex; flex-direction:column; gap:10px; font-size:13px;">
+                    <label>Ollama Endpoint: <input type="text" value="http://localhost:11434" style="width:100%; padding:8px; background:var(--bg-tertiary); border:1px solid var(--border-color); color:var(--text-main); border-radius:6px; margin-top:4px;"></label>
+                    <label>Active Local Model: <input type="text" value="deepseek-r1" style="width:100%; padding:8px; background:var(--bg-tertiary); border:1px solid var(--border-color); color:var(--text-main); border-radius:6px; margin-top:4px;"></label>
+                    <button class="modal-btn primary" style="margin-top:10px;" onclick="alert('Settings saved successfully!'); closeFeatureModalExplicit();">Save Configuration</button>
+                </div>
+            `;
+        }
+
+        function openChatStream() {
+            closeFeatureModalExplicit();
+            document.getElementById('chat-stream').classList.add('active');
+            document.getElementById('orbit-stage').style.display = 'none';
+        }
+
+        function returnToOrbit() {
+            document.getElementById('chat-stream').classList.remove('active');
+            document.getElementById('orbit-stage').style.display = 'flex';
+        }
+
+        function startNewSession() {
+            openChatStream();
+            const container = document.getElementById('chat-messages');
+            container.innerHTML = `
+                <div class="message-bubble ai">
+                    <h4>🌱 GanjaGuru Sentient AI</h4>
+                    <p>New botanical session initialized. What shall we design, grow, or explore today?</p>
+                </div>
+            `;
+        }
+
+        function loadSession(id) {
+            openChatStream();
+            const titles = {
+                1: "GanjaGuru Strain Match",
+                2: "3D Custom Bong CAD",
+                3: "IoT Grow Telemetry",
+                4: "Zero-Inventory POD Hub"
+            };
+            const container = document.getElementById('chat-messages');
+            container.innerHTML = `
+                <div class="message-bubble ai">
+                    <h4>🌱 GanjaGuru Sentient AI</h4>
+                    <p>Loaded previous session: <b>${titles[id] || 'Botanical Session'}</b>. How can I assist you further?</p>
+                </div>
+            `;
+        }
+
+        // Submit Prompt Action
+        function submitPrompt() {
+            const textarea = document.getElementById('prompt-textarea');
+            const val = textarea.value.trim();
+            if (!val) return;
+            
+            openChatStream();
+            const container = document.getElementById('chat-messages');
+            
+            // Append User Message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message-bubble user';
+            userMsg.textContent = val;
+            container.appendChild(userMsg);
+            
+            textarea.value = '';
+            textarea.style.height = '24px';
+            clearAttachment();
+
+            // Simulate AI Response
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'message-bubble ai';
+                aiMsg.innerHTML = `<h4>🌱 GanjaGuru Sentient AI</h4><p>Analyzing query: "<em>${val}</em>"... Optimal parameters computed across your 3D POD and strain databases. Everything is fully optimized.</p>`;
+                container.appendChild(aiMsg);
+                container.scrollTop = container.scrollHeight;
+            }, 800);
+        }
+
+        // Offline PWA Detection
         window.addEventListener('online', updateOnlineStatus);
         window.addEventListener('offline', updateOnlineStatus);
 
         function updateOnlineStatus() {
-            const banner = document.getElementById('offlineBanner');
-            if (banner) {
-                banner.style.display = navigator.onLine ? 'none' : 'block';
+            const banner = document.getElementById('offline-banner');
+            if (!navigator.onLine) {
+                banner.style.display = 'block';
+            } else {
+                banner.style.display = 'none';
             }
         }
         updateOnlineStatus();
 
-        // Service Worker Registration for PWA support
+        // Register Service Worker for PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed: ', err));
+                navigator.serviceWorker.register('/sw.js').then(reg => {
+                    console.log('ServiceWorker registered with scope:', reg.scope);
+                }).catch(err => {
+                    console.log('ServiceWorker registration failed:', err);
+                });
             });
         }
     </script>
