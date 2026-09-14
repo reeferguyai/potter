@@ -1,180 +1,97 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <!-- ================================================================
-         POTGROWHUB.STORE — DOMAIN / SITE IDENTITY
-         ================================================================ -->
-    <meta name="application-name" content="PotGrowHub">
-    <meta name="apple-mobile-web-app-title" content="PotGrowHub">
+    <!-- SEO, AEO & Meta Tags -->
+    <meta name="description" content="Potgrowhubstore is the ultimate AI-powered cannabis ecosystem, offering 3D/AR/VR product design, print-on-demand merch, automated eco-friendly dropshipping, intelligent budtender AI, and strain discovery.">
+    <meta name="keywords" content="cannabis, potgrowhub, ganjaguru, ganja goddess ai, 3dpod, print on demand, weed, marijuana, strain finder, ai budtender, pwa, e-commerce, eco-friendly">
+    <meta name="author" content="Ray">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Expanded PWA & Mobile Web App Meta -->
+    <meta name="theme-color" content="#0d0f12">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-    <!-- Primary Domain -->
-    <meta name="domain" content="potgrowhub.store">
-    <meta name="site-domain" content="potgrowhub.store">
-    <meta name="site-url" content="https://potgrowhub.store/">
-    <meta name="canonical-domain" content="potgrowhub.store">
-    <meta name="protocol" content="https">
-    <meta name="site-name" content="PotGrowHub">
-
-    <!-- Site Description -->
-    <meta
-        name="description"
-        content="PotGrowHub is an advanced cannabis-focused digital platform for strain knowledge, AI tools, design, commerce, legal resources, logistics, and cultivation information."
-    >
-
-    <meta
-        name="keywords"
-        content="PotGrowHub, potgrowhub.store, cannabis, cannabis strains, strain profiles, cultivation, grow information, hydroponic cannabis, cannabis AI, cannabis design, cannabis marketplace, dispensary blueprint, cannabis logistics"
-    >
-
-    <meta name="author" content="PotGrowHub">
-    <meta name="publisher" content="PotGrowHub">
-    <meta name="creator" content="PotGrowHub">
-
-    <!-- Search Engine / Crawler Directives -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
-    <!-- Geographic / Language Signals -->
-    <meta name="language" content="English">
-    <meta name="content-language" content="en-US">
-
-    <!-- Theme -->
-    <meta name="theme-color" content="#0d0f12">
-    <meta name="msapplication-TileColor" content="#0d0f12">
-    <meta name="color-scheme" content="dark">
-
-    <!-- ================================================================
-         CANONICAL / DOMAIN URLS
-         ================================================================ -->
-    <link rel="canonical" href="https://potgrowhub.store/">
-
-    <link rel="alternate" href="https://potgrowhub.store/" hreflang="en-us">
-    <link rel="alternate" href="https://potgrowhub.store/" hreflang="x-default">
-
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://potgrowhub.store/sitemap.xml">
-
-    <!-- ================================================================
-         ICONS / BRANDING
-         ================================================================ -->
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48x48.png">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-
-    <link rel="manifest" href="/manifest.webmanifest">
-
-    <!-- ================================================================
-         OPEN GRAPH — FACEBOOK / LINKEDIN / SOCIAL SHARING
-         ================================================================ -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="PotGrowHub">
-    <meta property="og:title" content="PotGrowHub — Cannabis Intelligence, Tools & Resources">
-    <meta
-        property="og:description"
-        content="Explore PotGrowHub for strain intelligence, AI tools, cultivation resources, design, commerce, legal information, and logistics."
-    >
-    <meta property="og:url" content="https://potgrowhub.store/">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Replace with the actual branded image when available -->
-    <meta property="og:image" content="https://potgrowhub.store/assets/social/potgrowhub-og.jpg">
-    <meta property="og:image:secure_url" content="https://potgrowhub.store/assets/social/potgrowhub-og.jpg">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="PotGrowHub">
-
-    <!-- ================================================================
-         X / TWITTER CARD
-         ================================================================ -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PotGrowHub">
-    <meta
-        name="twitter:description"
-        content="Cannabis intelligence, AI tools, strain resources, design, commerce, legal resources, and logistics."
-    >
-    <meta name="twitter:image" content="https://potgrowhub.store/assets/social/potgrowhub-og.jpg">
-    <meta name="twitter:image:alt" content="PotGrowHub">
-
-    <!-- Add the official account when one exists -->
-    <!-- <meta name="twitter:site" content="@PotGrowHub"> -->
-    <!-- <meta name="twitter:creator" content="@PotGrowHub"> -->
-
-    <!-- ================================================================
-         DOMAIN / BRAND VERIFICATION HOOKS
-         ================================================================ -->
-    <!-- Add provider verification tokens here when issued -->
-    <!-- <meta name="google-site-verification" content="YOUR_TOKEN"> -->
-    <!-- <meta name="msvalidate.01" content="YOUR_TOKEN"> -->
-    <!-- <meta name="yandex-verification" content="YOUR_TOKEN"> -->
-
-    <!-- ================================================================
-         SECURITY / BROWSER BEHAVIOR
-         ================================================================ -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-
-    <!-- ================================================================
-         NETLIFY HOSTING
-         ================================================================ -->
-    <!-- This site is hosted on Netlify. Anyone can build and deploy a site
-         like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=144bd917-e9b6-46ad-afc2-3388b8cadf79
-         Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
-    <meta name="hosting-provider" content="Netlify">
-    <meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=144bd917-e9b6-46ad-afc2-3388b8cadf79">
-    <meta name="netlify-domain" content="potgrowhub.store">
-
-    <!-- ================================================================
-         DOMAIN PROPERTIES
-         ================================================================ -->
-    <meta name="domain-primary" content="potgrowhub.store">
-    <meta name="domain-www" content="www.potgrowhub.store">
-    <meta name="domain-scheme" content="https">
-    <meta name="domain-port" content="443">
-    <meta name="domain-status" content="production">
-
-    <!-- ================================================================
-         STANDARD VIEWPORT
-         ================================================================ -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ================================================================
-         TITLE
-         ================================================================ -->
-    <title>PotGrowHub | Cannabis Intelligence, AI & Resources</title>
-
-    <!-- ================================================================
-         PRECONNECT / PERFORMANCE
-         ================================================================ -->
+    <meta name="apple-mobile-web-app-title" content="Potgrowhub">
+    
+    <!-- Canonical & Resource Hints -->
+    <link rel="canonical" href="https://github.com/potgrowhub/potgrowhubstore">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    
+    <!-- Open Graph / Social Media AEO & SEO -->
+    <meta property="og:title" content="Potgrowhubstore | The AI-Powered Cannabis Ecosystem">
+    <meta property="og:description" content="Explore strain profiles, design custom 3D bongs in AR/VR, and chat with GanjaGuru—the sentient botanical AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/potgrowhub/potgrowhubstore">
+    <meta property="og:site_name" content="Potgrowhubstore">
+    <meta property="og:image" content="https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Potgrowhubstore | The AI-Powered Cannabis Ecosystem">
+    <meta name="twitter:description" content="Explore strain profiles, design custom 3D bongs in AR/VR, and chat with GanjaGuru—the sentient botanical AI.">
+    <meta name="twitter:image" content="https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png">
 
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//unpkg.com">
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-
-    <!-- ================================================================
-         EXTERNAL LIBRARIES
-         ================================================================ -->
+    <!-- Schema.org JSON-LD Structured Data for Answer Engine Optimization (AEO) -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Potgrowhubstore",
+        "url": "https://github.com/potgrowhub/potgrowhubstore",
+        "description": "The back-porch smoke circle of the web—powered by AI, interactive design tools, and a gamified marketplace.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://github.com/potgrowhub/potgrowhubstore/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Potgrowhubstore",
+        "url": "https://github.com/potgrowhub/potgrowhubstore",
+        "logo": "https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png",
+        "sameAs": [
+          "https://github.com/potgrowhub/potgrowhubstore"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "GanjaGuru AI & 3D POD Ecosystem",
+        "operatingSystem": "All",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+    </script>
+    
+    <meta name="hosting-provider" content="GitHub Pages">
+    <meta name="github-repository" content="https://github.com/potgrowhub/potgrowhubstore">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potgrowhubstore</title>
+    
+    <!-- PWA & Valuable File Links -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    
+    <!-- Font Links & 3D/AR Model Viewer Import -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- ================================================================
-         EXISTING STYLES — PRESERVED
-         ================================================================ -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-primary: #0d0f12;
@@ -188,13 +105,39 @@
             --blunt-amber: #ff7b00;
             --smoke-white: rgba(220, 235, 225, 0.7);
             --sidebar-width: 260px;
+            --focus-ring: 0 0 0 3px rgba(56, 211, 159, 0.4);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* Accessibility Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 10px;
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 10px 16px;
+            font-weight: 700;
+            z-index: 10001;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+            outline: none;
+        }
+
+        /* Focus Ring Standard */
+        button:focus-visible, a:focus-visible, textarea:focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
         }
 
         body {
@@ -203,6 +146,128 @@
             display: flex;
             height: 100vh;
             overflow: hidden;
+        }
+
+        /* Custom Dark Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-green);
+        }
+
+        /* Age Gate & Cookie Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(13, 15, 18, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            max-width: 480px;
+            width: 100%;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px var(--accent-glow);
+        }
+
+        .modal-card h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--accent-green);
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .modal-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .modal-btn.primary {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+        }
+
+        .modal-btn.primary:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 15px var(--accent-green);
+        }
+
+        .modal-btn.secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .modal-btn.secondary:hover {
+            background: var(--bg-tertiary);
+        }
+
+        /* Cookie Warning Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 16px 24px;
+            z-index: 900;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .cookie-banner p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .cookie-banner span {
+            color: var(--accent-green);
         }
 
         /* Sidebar Styling */
@@ -215,6 +280,7 @@
             justify-content: space-between;
             padding: 12px;
             z-index: 10;
+            transition: transform 0.3s ease;
         }
 
         .new-chat-btn {
@@ -228,6 +294,7 @@
             gap: 10px;
             cursor: pointer;
             font-weight: 500;
+            width: 100%;
             transition: all 0.2s ease;
         }
 
@@ -257,9 +324,11 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        .history-item:hover {
+        .history-item:hover, .history-item.active {
             background-color: var(--bg-tertiary);
             color: var(--text-main);
         }
@@ -267,6 +336,12 @@
         .user-profile {
             border-top: 1px solid var(--border-color);
             padding-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .user-profile-left {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -283,6 +358,48 @@
             justify-content: center;
             font-weight: bold;
             color: var(--accent-green);
+        }
+
+        .nav-icon-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-icon-link:hover {
+            color: var(--accent-green);
+        }
+
+        /* Mobile Header Controls */
+        .mobile-header-bar {
+            display: none;
+            height: 50px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 15;
+        }
+
+        .mobile-menu-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Sidebar Backdrop Overlay */
+        .sidebar-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            z-index: 9;
         }
 
         /* Main Workspace */
@@ -373,7 +490,7 @@
             width: 440px;
             height: 440px;
             border-radius: 50%;
-            border: 1px stroke rgba(56, 211, 159, 0.1);
+            border: 1px solid rgba(56, 211, 159, 0.1);
             animation: rotateOrbit 35s linear infinite;
             transform-style: preserve-3d;
         }
@@ -423,7 +540,7 @@
         .orbit-node:hover {
             border-color: var(--accent-green);
             box-shadow: 0 0 20px var(--accent-green);
-            scale: 1.15;
+            transform: scale(1.15);
             background: rgba(30, 34, 41, 0.95);
         }
 
@@ -435,7 +552,7 @@
             text-transform: uppercase;
         }
 
-        /* Positioning Nodes Along Circular Path (7 Icons = 360/7 ≈ 51.4 deg) */
+        /* Positioning Nodes Along Circular Path */
         .node-1 { transform: rotate(0deg) translate(210px); }
         .node-2 { transform: rotate(51.4deg) translate(210px); }
         .node-3 { transform: rotate(102.8deg) translate(210px); }
@@ -450,6 +567,20 @@
             max-width: 760px;
             margin: 0 auto 30px auto;
             padding: 0 20px;
+        }
+
+        .file-status-pill {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            width: fit-content;
         }
 
         .input-box {
@@ -498,265 +629,174 @@
             opacity: 0.85;
         }
 
-        /* ================================================================
-           DOMAIN-AWARE / RESPONSIVE ADDITIONS
-           ================================================================ */
-
-        html {
-            background-color: var(--bg-primary);
-            scroll-behavior: smooth;
+        /* Offline Banner */
+        .offline-banner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #e63946;
+            color: #ffffff;
+            text-align: center;
+            padding: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10000;
         }
 
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        button,
-        textarea {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        @media (max-width: 900px) {
-            :root {
-                --sidebar-width: 220px;
-            }
-
-            .stage {
-                transform: scale(0.85);
-            }
-
-            .input-container {
-                max-width: 95%;
-            }
-        }
-
-        @media (max-width: 700px) {
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
             body {
-                height: 100dvh;
+                flex-direction: column;
             }
-
+            .mobile-header-bar {
+                display: flex;
+            }
             .sidebar {
-                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                transform: translateX(-100%);
+                box-shadow: 10px 0 30px rgba(0,0,0,0.8);
             }
-
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .sidebar-backdrop.open {
+                display: block;
+            }
             .stage {
-                width: 430px;
-                height: 430px;
-                transform: scale(0.72);
+                width: 340px;
+                height: 340px;
             }
-
-            .input-container {
-                margin-bottom: 18px;
-                padding: 0 12px;
+            .orbit-system {
+                width: 300px;
+                height: 300px;
             }
-
-            .input-box {
-                border-radius: 14px;
+            .node-1 { transform: rotate(0deg) translate(140px); }
+            .node-2 { transform: rotate(51.4deg) translate(140px); }
+            .node-3 { transform: rotate(102.8deg) translate(140px); }
+            .node-4 { transform: rotate(154.2deg) translate(140px); }
+            .node-5 { transform: rotate(205.6deg) translate(140px); }
+            .node-6 { transform: rotate(257deg) translate(140px); }
+            .node-7 { transform: rotate(308.4deg) translate(140px); }
+            .orbit-node {
+                width: 52px;
+                height: 52px;
+                margin-top: -26px;
+                margin-left: -26px;
             }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
+            .orbit-node span {
+                font-size: 7px;
             }
         }
     </style>
-
-    <!-- ================================================================
-         STRUCTURED DATA — ORGANIZATION
-         ================================================================ -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://potgrowhub.store/#organization",
-        "name": "PotGrowHub",
-        "url": "https://potgrowhub.store/",
-        "description": "PotGrowHub is a digital cannabis-focused platform providing strain information, AI tools, design resources, commerce, legal resources, and logistics information.",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://potgrowhub.store/icons/icon-512.png"
-        },
-        "sameAs": []
-    }
-    </script>
-
-    <!-- ================================================================
-         STRUCTURED DATA — WEBSITE
-         ================================================================ -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://potgrowhub.store/#website",
-        "url": "https://potgrowhub.store/",
-        "name": "PotGrowHub",
-        "description": "Cannabis intelligence, AI tools, strain resources, design, commerce, legal resources, and logistics.",
-        "publisher": {
-            "@id": "https://potgrowhub.store/#organization"
-        },
-        "inLanguage": "en-US"
-    }
-    </script>
-
-    <!-- ================================================================
-         STRUCTURED DATA — SEARCH ACTION
-         ================================================================ -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://potgrowhub.store/",
-        "name": "PotGrowHub",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://potgrowhub.store/search?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-
-    <!-- ================================================================
-         GOOGLE ANALYTICS
-         ================================================================ -->
+    
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MW3MB134F"></script>
-
     <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'G-9MW3MB134F', {
-            'linker': {
-                'domains': [
-                    'potgrowhub.store',
-                    'www.potgrowhub.store',
-                    'api.potgrowhub.store',
-                    'admin.potgrowhub.store'
-                ]
-            }
-        });
-    </script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9MW3MB134F');
+    </script> 
 </head>
-
 <body>
 
-    <!-- ================================================================
-         EXISTING APPLICATION UI — PRESERVED
-         ================================================================ -->
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <aside class="sidebar">
+    <!-- Offline Status Indicator -->
+    <div id="offlineBanner" class="offline-banner" role="alert">
+        You are currently offline. Potgrowhubstore is running in local cached PWA mode.
+    </div>
+
+    <!-- Mobile Header Navigation Bar -->
+    <header class="mobile-header-bar">
+        <button class="mobile-menu-toggle" id="sidebarToggleBtn" aria-label="Toggle navigation menu">
+            <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+        </button>
+        <span style="font-weight: 700; color: var(--accent-green); font-size: 16px;">Potgrowhubstore</span>
+        <a href="#account" class="nav-icon-link" aria-label="Account Settings"><i data-lucide="settings" style="width: 20px;"></i></a>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Age Verification Gate Modal -->
+    <div id="ageGateModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ageGateHeading">
+        <div class="modal-card">
+            <h2 id="ageGateHeading">Age Verification Required</h2>
+            <p>Welcome to <strong>Potgrowhubstore</strong>. You must be at least 21 years of age (or 18+ with valid medical recommendation depending on your jurisdiction) to enter this botanical sanctuary.</p>
+            <div class="modal-actions">
+                <button class="modal-btn primary" onclick="verifyAge(true)">I am 21 or Older</button>
+                <button class="modal-btn secondary" onclick="verifyAge(false)">Exit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Warning Banner -->
+    <div id="cookieBanner" class="cookie-banner" style="display: none;" role="region" aria-label="Cookie consent banner">
+        <p>We use encrypted cookies and session storage linked to our secure <span>pothub</span> database to optimize your AI budtender experience and geo-compliance tracking.</p>
+        <button class="modal-btn primary" style="padding: 8px 16px; font-size: 12px; white-space: nowrap;" onclick="acceptCookies()">Got It</button>
+    </div>
+
+    <aside class="sidebar" id="appSidebar" aria-label="Main Navigation">
         <div>
-            <button class="new-chat-btn">
+            <button class="new-chat-btn" aria-label="Start New Chat Session">
                 <i data-lucide="plus" style="width: 18px;"></i>
                 New Chat
             </button>
-
-            <div class="chat-history">
-                <div class="history-item">
-                    <i data-lucide="message-square" style="width: 16px;"></i>
-                    Hydroponic Strain Profiles
-                </div>
-
-                <div class="history-item">
-                    <i data-lucide="message-square" style="width: 16px;"></i>
-                    Legal Compliance Checklist
-                </div>
-
-                <div class="history-item">
-                    <i data-lucide="message-square" style="width: 16px;"></i>
-                    Dispensary Blueprint V2
-                </div>
-            </div>
+            <nav class="chat-history" aria-label="Chat History">
+                <a href="#hydroponics" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Hydroponic Strain Profiles</a>
+                <a href="#legal-compliance" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Legal Compliance Checklist</a>
+                <a href="#blueprint-v2" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Dispensary Blueprint V2</a>
+            </nav>
         </div>
 
         <div class="user-profile">
-            <div class="avatar">CG</div>
-
-            <div style="font-size: 14px; font-weight: 500;">
-                CannaStudio Pro
+            <div class="user-profile-left">
+                <div class="avatar" aria-hidden="true">CG</div>
+                <div style="font-size: 14px; font-weight: 500;">potgrowhub.store</div>
             </div>
+            <a href="#account" class="nav-icon-link" title="Account Settings" aria-label="Account Settings"><i data-lucide="settings" style="width: 18px;"></i></a>
         </div>
     </aside>
 
-    <main class="main-container">
-
+    <main class="main-container" id="main-content">
         <div class="viewport-hero">
-
-            <div class="stage">
-
+            <div class="stage" aria-label="Interactive Orbital System Showcase">
+                
                 <div class="groot-wrapper">
-
-                    <svg
-                        class="groot-svg"
-                        viewBox="0 0 200 300"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-
+                    <svg class="groot-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated Cannabis Female Botanical Mascot">
                         <defs>
-
-                            <linearGradient
-                                id="stemGrad"
-                                x1="0%"
-                                y1="0%"
-                                x2="100%"
-                                y2="100%"
-                            >
+                            <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#2d5a27"/>
                                 <stop offset="50%" stop-color="#1e3c1a"/>
                                 <stop offset="100%" stop-color="#0f200e"/>
                             </linearGradient>
-
-                            <linearGradient
-                                id="budGrad"
-                                x1="0%"
-                                y1="0%"
-                                x2="0%"
-                                y2="100%"
-                            >
+                            <linearGradient id="budGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                                 <stop offset="0%" stop-color="#52b788"/>
                                 <stop offset="50%" stop-color="#2d6a4f"/>
                                 <stop offset="100%" stop-color="#1b4332"/>
                             </linearGradient>
-
-                            <radialGradient
-                                id="trichomeGlow"
-                                cx="50%"
-                                cy="50%"
-                                r="50%"
-                            >
+                            <radialGradient id="trichomeGlow" cx="50%" cy="50%" r="50%">
                                 <stop offset="0%" stop-color="#d8f3dc" stop-opacity="0.8"/>
                                 <stop offset="100%" stop-color="#74c69d" stop-opacity="0"/>
                             </radialGradient>
-
                         </defs>
 
-                        <path
-                            d="M75,280 C65,220 55,170 70,120 C75,100 80,80 100,50 C120,80 125,100 130,120 C145,170 135,220 125,280 Z"
-                            fill="url(#stemGrad)"
-                            stroke="#122613"
-                            stroke-width="2"
-                        />
-
+                        <path d="M75,280 C65,220 55,170 70,120 C75,100 80,80 100,50 C120,80 125,100 130,120 C145,170 135,220 125,280 Z" fill="url(#stemGrad)" stroke="#122613" stroke-width="2"/>
+                        
                         <circle cx="90" cy="140" r="14" fill="url(#budGrad)"/>
                         <circle cx="110" cy="140" r="14" fill="url(#budGrad)"/>
                         <circle cx="100" cy="125" r="18" fill="url(#budGrad)"/>
                         <circle cx="85" cy="170" r="16" fill="url(#budGrad)"/>
                         <circle cx="115" cy="170" r="16" fill="url(#budGrad)"/>
                         <circle cx="100" cy="190" r="22" fill="url(#budGrad)"/>
-
+                        
                         <path d="M80,60 Q50,40 30,50 Q55,65 75,70 Z" fill="#40916c"/>
                         <path d="M85,50 Q60,20 45,25 Q65,45 80,55 Z" fill="#52b788"/>
                         <path d="M120,60 Q150,40 170,50 Q145,65 125,70 Z" fill="#40916c"/>
@@ -765,140 +805,74 @@
 
                         <ellipse cx="88" cy="92" rx="5" ry="7" fill="#0d0f12"/>
                         <ellipse cx="112" cy="92" rx="5" ry="7" fill="#0d0f12"/>
-
                         <circle cx="89" cy="90" r="2" fill="#38d39f"/>
                         <circle cx="113" cy="90" r="2" fill="#38d39f"/>
-
-                        <path
-                            d="M92,108 Q100,114 108,108"
-                            fill="none"
-                            stroke="#122613"
-                            stroke-width="2"
-                        />
+                        
+                        <path d="M92,108 Q100,114 108,108" fill="none" stroke="#122613" stroke-width="2"/>
 
                         <g transform="rotate(-15, 110, 108)">
-                            <rect
-                                x="110"
-                                y="105"
-                                width="35"
-                                height="5"
-                                rx="1"
-                                fill="#c29b38"
-                            />
-
-                            <rect
-                                x="107"
-                                y="105"
-                                width="5"
-                                height="5"
-                                fill="#8c6a1d"
-                            />
-
-                            <circle
-                                class="blunt-tip"
-                                cx="146"
-                                cy="107.5"
-                                r="3.5"
-                            />
+                            <rect x="110" y="105" width="35" height="5" rx="1" fill="#c29b38"/>
+                            <rect x="107" y="105" width="5" height="5" fill="#8c6a1d"/>
+                            <circle class="blunt-tip" cx="146" cy="107.5" r="3.5"/>
                         </g>
 
-                        <circle
-                            cx="85"
-                            cy="130"
-                            r="8"
-                            fill="url(#trichomeGlow)"
-                        />
-
-                        <circle
-                            cx="115"
-                            cy="160"
-                            r="10"
-                            fill="url(#trichomeGlow)"
-                        />
-
-                        <circle
-                            cx="100"
-                            cy="80"
-                            r="6"
-                            fill="url(#trichomeGlow)"
-                        />
-
+                        <circle cx="85" cy="130" r="8" fill="url(#trichomeGlow)"/>
+                        <circle cx="115" cy="160" r="10" fill="url(#trichomeGlow)"/>
+                        <circle cx="100" cy="80" r="6" fill="url(#trichomeGlow)"/>
                     </svg>
-
                 </div>
 
-                <div class="smoke-puff"></div>
-                <div class="smoke-puff" style="animation-delay: 1.3s;"></div>
-                <div class="smoke-puff" style="animation-delay: 2.6s;"></div>
+                <div class="smoke-puff" aria-hidden="true"></div>
+                <div class="smoke-puff" style="animation-delay: 1.3s;" aria-hidden="true"></div>
+                <div class="smoke-puff" style="animation-delay: 2.6s;" aria-hidden="true"></div>
 
                 <div class="orbit-system">
-
-                    <a href="#design-studio" class="orbit-node node-1">
+                    
+                    <a href="#design-studio" class="orbit-node node-1" aria-label="Design Studio Section">
                         <div class="node-counter-rotate">
-                            <i
-                                data-lucide="palette"
-                                style="width:20px; stroke: #38d39f;"
-                            ></i>
+                            <i data-lucide="palette" style="width:20px; stroke: #38d39f;"></i>
                             <span>Studio</span>
                         </div>
                     </a>
 
-                    <a href="#ai" class="orbit-node node-2">
+                    <a href="#ai" class="orbit-node node-2" aria-label="AI Engine Section">
                         <div class="node-counter-rotate">
-                            <i
-                                data-lucide="sparkles"
-                                style="width:20px; stroke: #38d39f;"
-                            ></i>
+                            <i data-lucide="sparkles" style="width:20px; stroke: #38d39f;"></i>
                             <span>AI Engine</span>
                         </div>
                     </a>
 
-                    <a href="#strain-creation" class="orbit-node node-3">
+                    <a href="#strain-creation" class="orbit-node node-3" aria-label="Strains Section">
                         <div class="node-counter-rotate">
-                            <i
-                                data-lucide="dna"
-                                style="width:20px; stroke: #38d39f;"
-                            ></i>
+                            <i data-lucide="dna" style="width:20px; stroke: #38d39f;"></i>
                             <span>Strains</span>
                         </div>
                     </a>
 
-                    <a href="#e-commerce" class="orbit-node node-4">
+                    <a href="#e-commerce" class="orbit-node node-4" aria-label="E-Commerce Store Section">
                         <div class="node-counter-rotate">
-                            <i
-                                data-lucide="shopping-bag"
-                                style="width:20px; stroke: #38d39f;"
-                            ></i>
+                            <i data-lucide="shopping-bag" style="width:20px; stroke: #38d39f;"></i>
                             <span>Store</span>
                         </div>
                     </a>
 
-                    <a href="#legal" class="orbit-node node-5">
+                    <a href="#legal" class="orbit-node node-5" aria-label="Legal Compliance Section">
                         <div class="node-counter-rotate">
-                            <i
-                                data-lucide="scale"
-                                style="width:20px; stroke: #38d39f;"
-                            ></i>
+                            <i data-lucide="scale" style="width:20px; stroke: #38d39f;"></i>
                             <span>Legal</span>
                         </div>
                     </a>
 
-                    <a href="#blueprint" class="orbit-node node-6">
+                    <a href="#blueprint" class="orbit-node node-6" aria-label="Dispensary Blueprint Section">
                         <div class="node-counter-rotate">
-                            <i
-                                data-lucide="compass"
-                                style="width:20px; stroke: #38d39f;"
-                            ></i>
+                            <i data-lucide="compass" style="width:20px; stroke: #38d39f;"></i>
                             <span>Blueprint</span>
                         </div>
                     </a>
 
-                    <a href="#procurement" class="orbit-node node-7">
+                    <a href="#procurement" class="orbit-node node-7" aria-label="Logistics Section">
                         <div class="node-counter-rotate">
-                            <i
-                                data-lucide="truck"
-                                style="width:20px; stroke: #38d39f;"
-                            ></i>
+                            <i data-lucide="truck" style="width:20px; stroke: #38d39f;"></i>
                             <span>Logistics</span>
                         </div>
                     </a>
@@ -908,134 +882,143 @@
         </div>
 
         <div class="input-container">
+            <div id="fileStatusPill" class="file-status-pill">
+                <i data-lucide="file-check" style="width:14px;"></i>
+                <span id="fileCountText">0 files attached</span>
+            </div>
             <div class="input-box">
-
-                <i
-                    data-lucide="paperclip"
-                    style="color: var(--text-muted); cursor: pointer;"
-                ></i>
-
-                <textarea
-                    placeholder="Ask Potgrowhub anything about strains, legal, or designs..."
-                    aria-label="Ask PotGrowHub"
-                    autocomplete="off"
-                    spellcheck="true"
-                ></textarea>
-
-                <button
-                    class="send-btn"
-                    type="button"
-                    aria-label="Send message"
-                >
-                    <i
-                        data-lucide="arrow-up"
-                        style="width: 18px;"
-                    ></i>
+                <!-- Database Link / Integration Indicator & File Upload -->
+                <a href="#database-pothub-config" title="Connected to Database: pothub (User: potgrowhub)" aria-label="Connected to Database pothub" style="color: var(--accent-green); display: flex; align-items: center;"><i data-lucide="database" style="width: 18px;"></i></a>
+                <label for="fileUploadInput" style="cursor: pointer; display: flex; align-items: center;" title="Upload files for AI analysis" aria-label="Upload files for AI analysis">
+                    <i data-lucide="paperclip" style="color: var(--text-muted);"></i>
+                </label>
+                <input type="file" id="fileUploadInput" style="display: none;" multiple accept=".txt,.md,.csv,.pdf,.json,.doc">
+                <textarea id="chatInputArea" placeholder="Ask Potgrowhub anything about strains, legal, or designs..." aria-label="Chat Input Message"></textarea>
+                <button class="send-btn" id="sendBtn" title="Send message" aria-label="Send message">
+                    <i data-lucide="arrow-up" style="width: 18px;"></i>
                 </button>
-
             </div>
         </div>
-
     </main>
 
-    <!-- ================================================================
-         APPLICATION JAVASCRIPT — EXISTING FUNCTIONALITY PRESERVED
-         ================================================================ -->
     <script>
+        // Initialize Lucide Icons safely
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
-        // Initialize Icons
-        lucide.createIcons();
+        // Age Verification Gate Logic
+        function verifyAge(isOfAge) {
+            if (isOfAge) {
+                localStorage.setItem('potgrowhub_age_verified', 'true');
+                document.getElementById('ageGateModal').style.display = 'none';
+                if (!localStorage.getItem('potgrowhub_cookies_accepted')) {
+                    document.getElementById('cookieBanner').style.display = 'flex';
+                }
+            } else {
+                window.location.href = 'https://www.google.com';
+            }
+        }
 
-        // Auto-expanding textarea
-        const tx = document.getElementsByTagName("textarea")[0];
+        function acceptCookies() {
+            localStorage.setItem('potgrowhub_cookies_accepted', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
 
-        tx.addEventListener("input", OnInput, false);
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('potgrowhub_age_verified') === 'true') {
+                document.getElementById('ageGateModal').style.display = 'none';
+                if (!localStorage.getItem('potgrowhub_cookies_accepted')) {
+                    document.getElementById('cookieBanner').style.display = 'flex';
+                }
+            }
+        });
+
+        // Auto-expanding textarea & Keyboard Event Listener (Enter to send, Shift+Enter for newline)
+        const tx = document.getElementById("chatInputArea");
+        if (tx) {
+            tx.addEventListener("input", OnInput, false);
+            tx.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    triggerSendMessage();
+                }
+            });
+        }
 
         function OnInput() {
             this.style.height = "auto";
             this.style.height = (this.scrollHeight - 16) + "px";
         }
 
-        // ================================================================
-        // POTGROWHUB DOMAIN RUNTIME CONFIG
-        // ================================================================
+        // File upload attachment UI update handler
+        const fileInput = document.getElementById('fileUploadInput');
+        const fileStatusPill = document.getElementById('fileStatusPill');
+        const fileCountText = document.getElementById('fileCountText');
 
-        window.PotGrowHub = window.PotGrowHub || {};
-
-        window.PotGrowHub.config = {
-            brand: "PotGrowHub",
-
-            domain: "potgrowhub.store",
-
-            canonicalUrl: "https://potgrowhub.store/",
-
-            wwwUrl: "https://www.potgrowhub.store/",
-
-            apiUrl: "https://api.potgrowhub.store/",
-
-            adminUrl: "https://admin.potgrowhub.store/",
-
-            authUrl: "https://auth.potgrowhub.store/",
-
-            cdnUrl: "https://cdn.potgrowhub.store/",
-
-            environment: "production",
-
-            protocol: "https:",
-
-            hostname: window.location.hostname,
-
-            port: window.location.port || "443",
-
-            locale: "en-US",
-
-            timezone: "America/New_York",
-
-            currency: "USD"
-        };
-
-        // ================================================================
-        // FORCE HTTPS ON PRODUCTION DOMAIN
-        // ================================================================
-
-        if (
-            window.location.protocol !== "https:" &&
-            window.location.hostname === "potgrowhub.store"
-        ) {
-            window.location.replace(
-                "https://potgrowhub.store" +
-                window.location.pathname +
-                window.location.search +
-                window.location.hash
-            );
+        if (fileInput) {
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files && fileInput.files.length > 0) {
+                    fileStatusPill.style.display = 'inline-flex';
+                    fileCountText.textContent = `${fileInput.files.length} file(s) attached: ${fileInput.files[0].name}`;
+                } else {
+                    fileStatusPill.style.display = 'none';
+                }
+            });
         }
 
-        // ================================================================
-        // NORMALIZE WWW → ROOT DOMAIN
-        // ================================================================
-
-        if (window.location.hostname === "www.potgrowhub.store") {
-            window.location.replace(
-                "https://potgrowhub.store" +
-                window.location.pathname +
-                window.location.search +
-                window.location.hash
-            );
+        // Send Button Action Handler
+        const sendBtn = document.getElementById('sendBtn');
+        if (sendBtn) {
+            sendBtn.addEventListener('click', triggerSendMessage);
         }
 
+        function triggerSendMessage() {
+            const query = tx.value.trim();
+            if (query.length > 0) {
+                console.log("Sending query to GanjaGuru AI Engine:", query);
+                tx.value = "";
+                tx.style.height = "24px";
+                if (fileInput) fileInput.value = "";
+                if (fileStatusPill) fileStatusPill.style.display = "none";
+            }
+        }
+
+        // Mobile Navigation Drawer Toggle Handler
+        const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+        const appSidebar = document.getElementById('appSidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+        if (sidebarToggleBtn && appSidebar && sidebarBackdrop) {
+            sidebarToggleBtn.addEventListener('click', () => {
+                appSidebar.classList.toggle('open');
+                sidebarBackdrop.classList.toggle('open');
+            });
+
+            sidebarBackdrop.addEventListener('click', () => {
+                appSidebar.classList.remove('open');
+                sidebarBackdrop.classList.remove('open');
+            });
+        }
+
+        // Online / Offline Detection
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        function updateOnlineStatus() {
+            const banner = document.getElementById('offlineBanner');
+            if (banner) {
+                banner.style.display = navigator.onLine ? 'none' : 'block';
+            }
+        }
+        updateOnlineStatus();
+
+        // Service Worker Registration for PWA support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed: ', err));
+            });
+        }
     </script>
-
 </body>
-
-<!-- ================================================================
-     NETLIFY HUD
-     ================================================================ -->
-<script
-    async
-    src="/.netlify/scripts/hud?variant=public"
-    data-nf-variant="public"
-    data-netlify-site-id="144bd917-e9b6-46ad-afc2-3388b8cadf79"
-    data-app-host="app.netlify.com"
-></script>
-
 </html>
