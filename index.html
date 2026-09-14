@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,38 +8,90 @@
     <meta name="keywords" content="cannabis, potgrowhub, ganjaguru, ganja goddess ai, 3dpod, print on demand, weed, marijuana, strain finder, ai budtender, pwa, e-commerce, eco-friendly">
     <meta name="author" content="Ray">
     <meta name="robots" content="index, follow">
+    
+    <!-- Expanded PWA & Mobile Web App Meta -->
+    <meta name="theme-color" content="#0d0f12">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Potgrowhub">
+    
+    <!-- Canonical & Resource Hints -->
+    <link rel="canonical" href="https://github.com/potgrowhub/potgrowhubstore">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    
     <!-- Open Graph / Social Media AEO & SEO -->
     <meta property="og:title" content="Potgrowhubstore | The AI-Powered Cannabis Ecosystem">
     <meta property="og:description" content="Explore strain profiles, design custom 3D bongs in AR/VR, and chat with GanjaGuru—the sentient botanical AI.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://github.com/potgrowhub/potgrowhubstore">
+    <meta property="og:site_name" content="Potgrowhubstore">
+    <meta property="og:image" content="https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Potgrowhubstore | The AI-Powered Cannabis Ecosystem">
+    <meta name="twitter:description" content="Explore strain profiles, design custom 3D bongs in AR/VR, and chat with GanjaGuru—the sentient botanical AI.">
+    <meta name="twitter:image" content="https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png">
+
     <!-- Schema.org JSON-LD Structured Data for Answer Engine Optimization (AEO) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Potgrowhubstore",
-      "url": "https://github.com/potgrowhub/potgrowhubstore",
-      "description": "The back-porch smoke circle of the web—powered by AI, interactive design tools, and a gamified marketplace.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://github.com/potgrowhub/potgrowhubstore/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Potgrowhubstore",
+        "url": "https://github.com/potgrowhub/potgrowhubstore",
+        "description": "The back-porch smoke circle of the web—powered by AI, interactive design tools, and a gamified marketplace.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://github.com/potgrowhub/potgrowhubstore/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Potgrowhubstore",
+        "url": "https://github.com/potgrowhub/potgrowhubstore",
+        "logo": "https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png",
+        "sameAs": [
+          "https://github.com/potgrowhub/potgrowhubstore"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "GanjaGuru AI & 3D POD Ecosystem",
+        "operatingSystem": "All",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
       }
-    }
+    ]
     </script>
+    
     <meta name="hosting-provider" content="GitHub Pages">
     <meta name="github-repository" content="https://github.com/potgrowhub/potgrowhubstore">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potgrowhubstore</title>
+    
     <!-- PWA & Valuable File Links -->
     <link rel="manifest" href="/manifest.json">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/icon-192.png">
-    <!-- Font Links -->
+    
+    <!-- Font Links & 3D/AR Model Viewer Import -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-primary: #0d0f12;
@@ -52,6 +105,7 @@
             --blunt-amber: #ff7b00;
             --smoke-white: rgba(220, 235, 225, 0.7);
             --sidebar-width: 260px;
+            --focus-ring: 0 0 0 3px rgba(56, 211, 159, 0.4);
         }
 
         * {
@@ -61,12 +115,53 @@
             font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
+        /* Accessibility Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 10px;
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 10px 16px;
+            font-weight: 700;
+            z-index: 10001;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+            outline: none;
+        }
+
+        /* Focus Ring Standard */
+        button:focus-visible, a:focus-visible, textarea:focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
+        }
+
         body {
             background-color: var(--bg-primary);
             color: var(--text-main);
             display: flex;
             height: 100vh;
             overflow: hidden;
+        }
+
+        /* Custom Dark Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-green);
         }
 
         /* Age Gate & Cookie Modal Styles */
@@ -185,6 +280,7 @@
             justify-content: space-between;
             padding: 12px;
             z-index: 10;
+            transition: transform 0.3s ease;
         }
 
         .new-chat-btn {
@@ -198,6 +294,7 @@
             gap: 10px;
             cursor: pointer;
             font-weight: 500;
+            width: 100%;
             transition: all 0.2s ease;
         }
 
@@ -228,9 +325,10 @@
             overflow: hidden;
             text-overflow: ellipsis;
             text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        .history-item:hover {
+        .history-item:hover, .history-item.active {
             background-color: var(--bg-tertiary);
             color: var(--text-main);
         }
@@ -269,6 +367,39 @@
         }
         .nav-icon-link:hover {
             color: var(--accent-green);
+        }
+
+        /* Mobile Header Controls */
+        .mobile-header-bar {
+            display: none;
+            height: 50px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 15;
+        }
+
+        .mobile-menu-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Sidebar Backdrop Overlay */
+        .sidebar-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            z-index: 9;
         }
 
         /* Main Workspace */
@@ -421,7 +552,7 @@
             text-transform: uppercase;
         }
 
-        /* Positioning Nodes Along Circular Path (7 Icons = 360/7 ≈ 51.4 deg) */
+        /* Positioning Nodes Along Circular Path */
         .node-1 { transform: rotate(0deg) translate(210px); }
         .node-2 { transform: rotate(51.4deg) translate(210px); }
         .node-3 { transform: rotate(102.8deg) translate(210px); }
@@ -436,6 +567,20 @@
             max-width: 760px;
             margin: 0 auto 30px auto;
             padding: 0 20px;
+        }
+
+        .file-status-pill {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            width: fit-content;
         }
 
         .input-box {
@@ -483,7 +628,72 @@
         .send-btn:hover {
             opacity: 0.85;
         }
+
+        /* Offline Banner */
+        .offline-banner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #e63946;
+            color: #ffffff;
+            text-align: center;
+            padding: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10000;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .mobile-header-bar {
+                display: flex;
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                transform: translateX(-100%);
+                box-shadow: 10px 0 30px rgba(0,0,0,0.8);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .sidebar-backdrop.open {
+                display: block;
+            }
+            .stage {
+                width: 340px;
+                height: 340px;
+            }
+            .orbit-system {
+                width: 300px;
+                height: 300px;
+            }
+            .node-1 { transform: rotate(0deg) translate(140px); }
+            .node-2 { transform: rotate(51.4deg) translate(140px); }
+            .node-3 { transform: rotate(102.8deg) translate(140px); }
+            .node-4 { transform: rotate(154.2deg) translate(140px); }
+            .node-5 { transform: rotate(205.6deg) translate(140px); }
+            .node-6 { transform: rotate(257deg) translate(140px); }
+            .node-7 { transform: rotate(308.4deg) translate(140px); }
+            .orbit-node {
+                width: 52px;
+                height: 52px;
+                margin-top: -26px;
+                margin-left: -26px;
+            }
+            .orbit-node span {
+                font-size: 7px;
+            }
+        }
     </style>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MW3MB134F"></script>
     <script>
@@ -495,10 +705,30 @@
 </head>
 <body>
 
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Offline Status Indicator -->
+    <div id="offlineBanner" class="offline-banner" role="alert">
+        You are currently offline. Potgrowhubstore is running in local cached PWA mode.
+    </div>
+
+    <!-- Mobile Header Navigation Bar -->
+    <header class="mobile-header-bar">
+        <button class="mobile-menu-toggle" id="sidebarToggleBtn" aria-label="Toggle navigation menu">
+            <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+        </button>
+        <span style="font-weight: 700; color: var(--accent-green); font-size: 16px;">Potgrowhubstore</span>
+        <a href="#account" class="nav-icon-link" aria-label="Account Settings"><i data-lucide="settings" style="width: 20px;"></i></a>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
     <!-- Age Verification Gate Modal -->
-    <div id="ageGateModal" class="modal-overlay">
+    <div id="ageGateModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ageGateHeading">
         <div class="modal-card">
-            <h2>Age Verification Required</h2>
+            <h2 id="ageGateHeading">Age Verification Required</h2>
             <p>Welcome to <strong>Potgrowhubstore</strong>. You must be at least 21 years of age (or 18+ with valid medical recommendation depending on your jurisdiction) to enter this botanical sanctuary.</p>
             <div class="modal-actions">
                 <button class="modal-btn primary" onclick="verifyAge(true)">I am 21 or Older</button>
@@ -508,39 +738,39 @@
     </div>
 
     <!-- Cookie Warning Banner -->
-    <div id="cookieBanner" class="cookie-banner" style="display: none;">
+    <div id="cookieBanner" class="cookie-banner" style="display: none;" role="region" aria-label="Cookie consent banner">
         <p>We use encrypted cookies and session storage linked to our secure <span>pothub</span> database to optimize your AI budtender experience and geo-compliance tracking.</p>
         <button class="modal-btn primary" style="padding: 8px 16px; font-size: 12px; white-space: nowrap;" onclick="acceptCookies()">Got It</button>
     </div>
 
-    <aside class="sidebar">
+    <aside class="sidebar" id="appSidebar" aria-label="Main Navigation">
         <div>
-            <button class="new-chat-btn">
+            <button class="new-chat-btn" aria-label="Start New Chat Session">
                 <i data-lucide="plus" style="width: 18px;"></i>
                 New Chat
             </button>
-            <div class="chat-history">
+            <nav class="chat-history" aria-label="Chat History">
                 <a href="#hydroponics" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Hydroponic Strain Profiles</a>
                 <a href="#legal-compliance" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Legal Compliance Checklist</a>
                 <a href="#blueprint-v2" class="history-item"><i data-lucide="message-square" style="width: 16px;"></i> Dispensary Blueprint V2</a>
-            </div>
+            </nav>
         </div>
 
         <div class="user-profile">
             <div class="user-profile-left">
-                <div class="avatar">CG</div>
-                <div style="font-size: 14px; font-weight: 500;">Potgrowhub.store</div>
+                <div class="avatar" aria-hidden="true">CG</div>
+                <div style="font-size: 14px; font-weight: 500;">potgrowhub.store</div>
             </div>
-            <a href="#account" class="nav-icon-link" title="Account Settings"><i data-lucide="settings" style="width: 18px;"></i></a>
+            <a href="#account" class="nav-icon-link" title="Account Settings" aria-label="Account Settings"><i data-lucide="settings" style="width: 18px;"></i></a>
         </div>
     </aside>
 
-    <main class="main-container">
+    <main class="main-container" id="main-content">
         <div class="viewport-hero">
-            <div class="stage">
+            <div class="stage" aria-label="Interactive Orbital System Showcase">
                 
                 <div class="groot-wrapper">
-                    <svg class="groot-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="groot-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated Cannabis Female Botanical Mascot">
                         <defs>
                             <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#2d5a27"/>
@@ -592,55 +822,55 @@
                     </svg>
                 </div>
 
-                <div class="smoke-puff"></div>
-                <div class="smoke-puff" style="animation-delay: 1.3s;"></div>
-                <div class="smoke-puff" style="animation-delay: 2.6s;"></div>
+                <div class="smoke-puff" aria-hidden="true"></div>
+                <div class="smoke-puff" style="animation-delay: 1.3s;" aria-hidden="true"></div>
+                <div class="smoke-puff" style="animation-delay: 2.6s;" aria-hidden="true"></div>
 
                 <div class="orbit-system">
                     
-                    <a href="#design-studio" class="orbit-node node-1">
+                    <a href="#design-studio" class="orbit-node node-1" aria-label="Design Studio Section">
                         <div class="node-counter-rotate">
                             <i data-lucide="palette" style="width:20px; stroke: #38d39f;"></i>
                             <span>Studio</span>
                         </div>
                     </a>
 
-                    <a href="#ai" class="orbit-node node-2">
+                    <a href="#ai" class="orbit-node node-2" aria-label="AI Engine Section">
                         <div class="node-counter-rotate">
                             <i data-lucide="sparkles" style="width:20px; stroke: #38d39f;"></i>
                             <span>AI Engine</span>
                         </div>
                     </a>
 
-                    <a href="#strain-creation" class="orbit-node node-3">
+                    <a href="#strain-creation" class="orbit-node node-3" aria-label="Strains Section">
                         <div class="node-counter-rotate">
                             <i data-lucide="dna" style="width:20px; stroke: #38d39f;"></i>
                             <span>Strains</span>
                         </div>
                     </a>
 
-                    <a href="#e-commerce" class="orbit-node node-4">
+                    <a href="#e-commerce" class="orbit-node node-4" aria-label="E-Commerce Store Section">
                         <div class="node-counter-rotate">
                             <i data-lucide="shopping-bag" style="width:20px; stroke: #38d39f;"></i>
                             <span>Store</span>
                         </div>
                     </a>
 
-                    <a href="#legal" class="orbit-node node-5">
+                    <a href="#legal" class="orbit-node node-5" aria-label="Legal Compliance Section">
                         <div class="node-counter-rotate">
                             <i data-lucide="scale" style="width:20px; stroke: #38d39f;"></i>
                             <span>Legal</span>
                         </div>
                     </a>
 
-                    <a href="#blueprint" class="orbit-node node-6">
+                    <a href="#blueprint" class="orbit-node node-6" aria-label="Dispensary Blueprint Section">
                         <div class="node-counter-rotate">
                             <i data-lucide="compass" style="width:20px; stroke: #38d39f;"></i>
                             <span>Blueprint</span>
                         </div>
                     </a>
 
-                    <a href="#procurement" class="orbit-node node-7">
+                    <a href="#procurement" class="orbit-node node-7" aria-label="Logistics Section">
                         <div class="node-counter-rotate">
                             <i data-lucide="truck" style="width:20px; stroke: #38d39f;"></i>
                             <span>Logistics</span>
@@ -652,15 +882,19 @@
         </div>
 
         <div class="input-container">
+            <div id="fileStatusPill" class="file-status-pill">
+                <i data-lucide="file-check" style="width:14px;"></i>
+                <span id="fileCountText">0 files attached</span>
+            </div>
             <div class="input-box">
                 <!-- Database Link / Integration Indicator & File Upload -->
-                <a href="#database-pothub-config" title="Connected to Database: pothub (User: potgrowhub)" style="color: var(--accent-green); display: flex; align-items: center;"><i data-lucide="database" style="width: 18px;"></i></a>
-                <label for="fileUploadInput" style="cursor: pointer; display: flex; align-items: center;" title="Upload files for AI analysis">
+                <a href="#database-pothub-config" title="Connected to Database: pothub (User: potgrowhub)" aria-label="Connected to Database pothub" style="color: var(--accent-green); display: flex; align-items: center;"><i data-lucide="database" style="width: 18px;"></i></a>
+                <label for="fileUploadInput" style="cursor: pointer; display: flex; align-items: center;" title="Upload files for AI analysis" aria-label="Upload files for AI analysis">
                     <i data-lucide="paperclip" style="color: var(--text-muted);"></i>
                 </label>
                 <input type="file" id="fileUploadInput" style="display: none;" multiple accept=".txt,.md,.csv,.pdf,.json,.doc">
-                <textarea placeholder="Ask Potgrowhub anything about strains, legal, or designs..."></textarea>
-                <button class="send-btn" title="Send message">
+                <textarea id="chatInputArea" placeholder="Ask Potgrowhub anything about strains, legal, or designs..." aria-label="Chat Input Message"></textarea>
+                <button class="send-btn" id="sendBtn" title="Send message" aria-label="Send message">
                     <i data-lucide="arrow-up" style="width: 18px;"></i>
                 </button>
             </div>
@@ -668,8 +902,10 @@
     </main>
 
     <script>
-        // Initialize Icons
-        lucide.createIcons();
+        // Initialize Lucide Icons safely
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
         // Age Verification Gate Logic
         function verifyAge(isOfAge) {
@@ -698,14 +934,84 @@
             }
         });
 
-        // Auto-expanding textarea
-        const tx = document.getElementsByTagName("textarea")[0];
-        tx.addEventListener("input", OnInput, false);
+        // Auto-expanding textarea & Keyboard Event Listener (Enter to send, Shift+Enter for newline)
+        const tx = document.getElementById("chatInputArea");
+        if (tx) {
+            tx.addEventListener("input", OnInput, false);
+            tx.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    triggerSendMessage();
+                }
+            });
+        }
 
         function OnInput() {
             this.style.height = "auto";
             this.style.height = (this.scrollHeight - 16) + "px";
         }
+
+        // File upload attachment UI update handler
+        const fileInput = document.getElementById('fileUploadInput');
+        const fileStatusPill = document.getElementById('fileStatusPill');
+        const fileCountText = document.getElementById('fileCountText');
+
+        if (fileInput) {
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files && fileInput.files.length > 0) {
+                    fileStatusPill.style.display = 'inline-flex';
+                    fileCountText.textContent = `${fileInput.files.length} file(s) attached: ${fileInput.files[0].name}`;
+                } else {
+                    fileStatusPill.style.display = 'none';
+                }
+            });
+        }
+
+        // Send Button Action Handler
+        const sendBtn = document.getElementById('sendBtn');
+        if (sendBtn) {
+            sendBtn.addEventListener('click', triggerSendMessage);
+        }
+
+        function triggerSendMessage() {
+            const query = tx.value.trim();
+            if (query.length > 0) {
+                console.log("Sending query to GanjaGuru AI Engine:", query);
+                tx.value = "";
+                tx.style.height = "24px";
+                if (fileInput) fileInput.value = "";
+                if (fileStatusPill) fileStatusPill.style.display = "none";
+            }
+        }
+
+        // Mobile Navigation Drawer Toggle Handler
+        const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+        const appSidebar = document.getElementById('appSidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+        if (sidebarToggleBtn && appSidebar && sidebarBackdrop) {
+            sidebarToggleBtn.addEventListener('click', () => {
+                appSidebar.classList.toggle('open');
+                sidebarBackdrop.classList.toggle('open');
+            });
+
+            sidebarBackdrop.addEventListener('click', () => {
+                appSidebar.classList.remove('open');
+                sidebarBackdrop.classList.remove('open');
+            });
+        }
+
+        // Online / Offline Detection
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        function updateOnlineStatus() {
+            const banner = document.getElementById('offlineBanner');
+            if (banner) {
+                banner.style.display = navigator.onLine ? 'none' : 'block';
+            }
+        }
+        updateOnlineStatus();
 
         // Service Worker Registration for PWA support
         if ('serviceWorker' in navigator) {
