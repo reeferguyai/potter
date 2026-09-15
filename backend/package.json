@@ -1,0 +1,7 @@
+{
+  "name": "potgrowhub-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {"dev":"node --watch server/index.js","start":"node server/index.js","check":"node --check server/index.js"},
+  "dependencies": {"cors":"^2.8.5","dotenv":"^16.4.7","express":"^5.1.0","openai":"^7.15.0","pg":"^8.16.3"}
+}

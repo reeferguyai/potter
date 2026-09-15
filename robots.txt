@@ -1,81 +1,23 @@
-﻿User-agent: *
-
+User-agent: *
 Allow: /
-Allow: /uploads/public/
 Allow: /assets/
-Allow: /static/
 Allow: /public/
 Allow: /products/
 Allow: /strains/
 Allow: /blog/
-Allow: /kb/
-Allow: /ar/
-Allow: /vr/
-Allow: /3d/
-
+Allow: /knowledge/
+Allow: /category/
 Disallow: /api/
 Disallow: /admin/
-Disallow: /administrator/
 Disallow: /auth/
 Disallow: /login/
-Disallow: /logout/
-Disallow: /register/
 Disallow: /account/
-Disallow: /user/
-Disallow: /users/
-Disallow: /profile/
-Disallow: /settings/
 Disallow: /dashboard/
-Disallow: /private/
 Disallow: /internal/
-Disallow: /server/
-Disallow: /serverless/
-Disallow: /functions/
-Disallow: /webhooks/
-
-Disallow: /health
-Disallow: /health/
-Disallow: /metrics
-Disallow: /metrics/
-Disallow: /debug/
-Disallow: /dev/
-Disallow: /development/
-Disallow: /test/
-Disallow: /tests/
-Disallow: /testing/
-
-Disallow: /tmp/
-Disallow: /temp/
-Disallow: /cache/
-Disallow: /logs/
-Disallow: /backup/
-Disallow: /backups/
-Disallow: /sessions/
-
-Disallow: /node_modules/
+Disallow: /backend/
+Disallow: /database/
+Disallow: /training/
 Disallow: /.git/
 Disallow: /.github/
 Disallow: /.env
-Disallow: /.env.*
-Disallow: /config/
-Disallow: /storage/
-
-Disallow: /uploads/private/
-Disallow: /uploads/temp/
-
-Disallow: /preview/
-Disallow: /previews/
-Disallow: /staging/
-Disallow: /stage/
-Disallow: /sandbox/
-Disallow: /draft/
-Disallow: /drafts/
-
-Crawl-delay: 10
-Request-rate: 1/5s
-
 Sitemap: https://potgrowhub.store/sitemap.xml
-Sitemap: https://potgrowhub.store/sitemap-products.xml
-Sitemap: https://potgrowhub.store/sitemap-strains.xml
-Sitemap: https://potgrowhub.store/sitemap-3dmodels.xml
-
