@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "potgrowhubstore",
   "version": "1.0.0",
   "description": "The AI-Powered Cannabis Ecosystem, Botanical Intelligence, 3D/AR Visualization & PWA E-Commerce Suite",
@@ -111,8 +111,7 @@
     "sharp": "^0.33.2",
     "pdfkit": "^0.14.0",
     "qrcode": "^1.5.3"
-  }
-  ],
+  },
   "author": "Ray",
   "contributors": [
     {
