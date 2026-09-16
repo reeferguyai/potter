@@ -1,0 +1,812 @@
+Below is the **first-page / Home page** for the PotGrowHub GitHub Wiki, written as GitHub-compatible Markdown. It uses headings, tables, badges, alerts, collapsible sections, emojis, navigation, status indicators, hashtags, and GitHub-supported formatting. ([GitHub Docs][1])
+
+# 🌱 PotGrowHub
+
+## 🚀 The Intelligent Growing & Cannabis Knowledge Ecosystem
+
+> **PotGrowHub** is a next-generation digital platform centered around cultivation knowledge, grower tools, intelligent assistance, community experiences, analytics, education, and connected technology — powered through **[potgrowhub.store](https://potgrowhub.store)**.
+
+<p align="center">
+  <strong>🌿 GROW • LEARN • TRACK • CONNECT • OPTIMIZE • INNOVATE 🌿</strong>
+</p>
+
+---
+
+> [!IMPORTANT]
+> **PotGrowHub is being engineered as a complete platform ecosystem rather than a simple website.** This Wiki serves as the central technical, product, operational, architectural, and documentation hub for the project.
+
+> [!TIP]
+> Start with **[Platform Overview](#-platform-overview)**, then explore **[Architecture](#-system-architecture)**, **[Core Systems](#-core-platform-systems)**, and **[Development Roadmap](#-development-roadmap)**.
+
+---
+
+# 🧭 Wiki Navigation
+
+| Section                  | Purpose                                             |
+| ------------------------ | --------------------------------------------------- |
+| 🏠 **Home**              | Platform introduction and project orientation       |
+| 🌱 **Platform Overview** | Product vision, mission, scope, and ecosystem       |
+| 🏗️ **Architecture**     | High-level technical architecture                   |
+| 🧩 **Core Systems**      | Major platform components                           |
+| 🤖 **GanjaGroot AI**     | Intelligent assistant and AI ecosystem              |
+| 🔐 **Security**          | Identity, access, security, privacy, and protection |
+| 🗄️ **Data Platform**    | PostgreSQL, Redis, storage, and data services       |
+| ⚡ **Real-Time Systems**  | WebSockets, events, notifications, and live updates |
+| 🎨 **Frontend**          | UI, UX, accessibility, responsive design, and PWA   |
+| 🔌 **Backend & APIs**    | Services, APIs, business logic, and integrations    |
+| 📊 **Analytics**         | Metrics, telemetry, reporting, and insights         |
+| 🛠️ **DevOps**           | CI/CD, infrastructure, deployment, observability    |
+| 🧪 **Testing & QA**      | Automated testing and quality assurance             |
+| 📚 **Documentation**     | Developer, user, API, and operational documentation |
+| 🗺️ **Roadmap**          | Current priorities and future development           |
+| 🤝 **Contributing**      | Contribution standards and workflow                 |
+| 🆘 **Support**           | Troubleshooting and assistance                      |
+| 📜 **Policies**          | Governance, privacy, security, and project policies |
+
+---
+
+# 🌎 Platform Overview
+
+**PotGrowHub** is envisioned as a unified ecosystem connecting:
+
+```text
+                    🌱 POTGROWHUB
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+     👤 USERS          🤖 AI            📚 KNOWLEDGE
+        │                │                │
+        ├───────────────┼────────────────┤
+        │                │                │
+     📊 DATA          ⚡ REAL-TIME      🛠️ TOOLS
+        │                │                │
+        ├───────────────┼────────────────┤
+        │                │                │
+     🛒 COMMERCE      📱 APP            🌐 COMMUNITY
+        │                │                │
+        └────────────────┼────────────────┘
+                         │
+                  ☁️ PLATFORM CORE
+                         │
+          ┌──────────────┼──────────────┐
+          │              │              │
+       PostgreSQL      Redis          APIs
+          │              │              │
+          └──────────────┼──────────────┘
+                         │
+                 🔐 SECURITY LAYER
+                         │
+                 🌐 potgrowhub.store
+```
+
+## 🎯 Mission
+
+Build a modern, scalable, secure, intelligent, and highly extensible platform that brings cultivation information, digital tools, AI assistance, community capabilities, and data-driven functionality together within one ecosystem.
+
+## 💡 Vision
+
+> **Make PotGrowHub a central digital destination for growers, educators, creators, developers, researchers, communities, and technology-driven cultivation experiences.**
+
+---
+
+# 🧠 Core Principles
+
+| Principle               | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| 🌱 **Grower First**     | Build around useful real-world experiences              |
+| 🧠 **Intelligence**     | Use AI to make information easier to understand and use |
+| 🔐 **Security First**   | Protect users, systems, data, and infrastructure        |
+| ⚡ **Performance**       | Fast interfaces and efficient backend services          |
+| ♿ **Accessibility**     | Design for broad usability                              |
+| 📱 **Responsive**       | Desktop, tablet, and mobile support                     |
+| 🧩 **Modularity**       | Independent systems with clean boundaries               |
+| 📈 **Scalability**      | Architect for growth from the beginning                 |
+| 🧪 **Quality**          | Automated testing and continuous validation             |
+| 🔄 **Maintainability**  | Clear architecture and documented systems               |
+| 🌐 **Interoperability** | Standards-based APIs and integrations                   |
+| 🛡️ **Privacy**         | Minimize unnecessary data exposure                      |
+
+---
+
+# 🏗️ System Architecture
+
+## 🌐 Platform Layers
+
+```text
+┌───────────────────────────────────────────────┐
+│                 🌐 EXPERIENCE                 │
+│                                               │
+│ Web • PWA • Mobile • Accessibility • UI/UX   │
+└───────────────────────┬───────────────────────┘
+                        │
+┌───────────────────────▼───────────────────────┐
+│                 🔌 API LAYER                  │
+│                                               │
+│ REST • WebSockets • Authentication • Events   │
+└───────────────────────┬───────────────────────┘
+                        │
+┌───────────────────────▼───────────────────────┐
+│               🧠 APPLICATION CORE             │
+│                                               │
+│ Business Logic • Services • Workflows        │
+└───────────────────────┬───────────────────────┘
+                        │
+┌───────────────────────▼───────────────────────┐
+│                 🤖 AI LAYER                   │
+│                                               │
+│ GanjaGroot • RAG • Knowledge • AI Services   │
+└───────────────────────┬───────────────────────┘
+                        │
+┌───────────────────────▼───────────────────────┐
+│                💾 DATA LAYER                  │
+│                                               │
+│ PostgreSQL • Redis • Object Storage • Search  │
+└───────────────────────┬───────────────────────┘
+                        │
+┌───────────────────────▼───────────────────────┐
+│             ☁️ INFRASTRUCTURE                 │
+│                                               │
+│ Hosting • CI/CD • Monitoring • Backups        │
+└───────────────────────────────────────────────┘
+```
+
+---
+
+# 🧩 Core Platform Systems
+
+## 👤 Identity & Authentication
+
+The identity platform is designed around:
+
+* 🔐 Secure authentication
+* 👥 User accounts
+* 🪪 Role-based access control
+* 🛡️ Session management
+* 🔑 Password recovery
+* 📱 Multi-factor authentication
+* 🔄 Account lifecycle management
+* 🧾 Audit logging
+* 🚫 Abuse prevention
+* 🔒 Secure authorization boundaries
+
+---
+
+## 🤖 GanjaGroot AI
+
+**GanjaGroot** represents the intelligent assistant layer of PotGrowHub.
+
+### AI Capabilities
+
+* 🧠 Conversational assistance
+* 📚 Knowledge retrieval
+* 🔎 Semantic search
+* 🗂️ Knowledge-base integration
+* 🌱 Cultivation education
+* 📊 Data interpretation
+* 📝 Content assistance
+* 💬 Context-aware conversations
+* 🔄 Real-time interaction
+* 🧩 Tool and API integration
+* 🛡️ Safety and policy controls
+* 📈 Personalized experiences
+
+### AI Architecture
+
+```text
+User
+ │
+ ▼
+💬 Conversation Interface
+ │
+ ▼
+🧠 GanjaGroot Orchestrator
+ │
+ ├── 🔎 Retrieval
+ ├── 📚 Knowledge
+ ├── 🧮 Tools
+ ├── 🔌 APIs
+ ├── 📊 User Context
+ └── 🛡️ Safety Controls
+ │
+ ▼
+🤖 AI Model Layer
+ │
+ ▼
+📝 Response
+```
+
+---
+
+# 🗄️ Data Platform
+
+## PostgreSQL
+
+Primary relational data services can support:
+
+* 👤 Users
+* 🔐 Identity
+* 👥 Roles
+* 📚 Knowledge
+* 🌱 Grow records
+* 📊 Analytics
+* 💬 Conversations
+* 🛒 Commerce
+* 🔔 Notifications
+* ⚙️ Configuration
+* 🧾 Audit records
+
+## Redis
+
+Redis can support:
+
+* ⚡ Caching
+* 🔐 Sessions
+* 🚦 Rate limiting
+* 📬 Queues
+* 📡 Pub/Sub
+* 🔄 Temporary state
+* ⚙️ Background jobs
+* 🚀 Performance optimization
+
+---
+
+# ⚡ Real-Time Platform
+
+PotGrowHub can provide real-time functionality through WebSockets and event-driven services.
+
+### Real-Time Features
+
+* 💬 Live chat
+* 🔔 Notifications
+* 📊 Live dashboards
+* 🤖 AI streaming
+* 👥 Presence
+* 🔄 Data synchronization
+* 📡 Event propagation
+* 🟢 Online/offline state
+* ⚠️ System alerts
+
+```text
+Client
+  │
+  ▼
+WebSocket Gateway
+  │
+  ├── Authentication
+  ├── Authorization
+  ├── Rooms
+  ├── Events
+  └── Presence
+  │
+  ▼
+Event Bus
+  │
+  ├── Redis
+  ├── Services
+  └── Notifications
+```
+
+---
+
+# 🎨 Frontend Experience
+
+The frontend architecture is intended to provide:
+
+* 🎨 Modern visual design
+* 🌙 Dark mode
+* ☀️ Light mode
+* 📱 Responsive layouts
+* ♿ Accessibility
+* ⌨️ Keyboard navigation
+* 🎙️ Voice interaction
+* 🧭 Intelligent navigation
+* 🔔 Notifications
+* 📊 Interactive dashboards
+* 🧩 Reusable components
+* ⚡ Optimized performance
+* 📲 Progressive Web App capabilities
+
+### Design System
+
+```text
+🎨 Color Tokens
+🔤 Typography
+📐 Spacing
+🧱 Components
+🪟 Layouts
+🎛️ Controls
+🔔 Notifications
+📊 Data Visualization
+♿ Accessibility
+🌙 Themes
+```
+
+---
+
+# 🔌 API Ecosystem
+
+Potential API domains include:
+
+| API Area             | Purpose                    |
+| -------------------- | -------------------------- |
+| `/api/auth`          | Authentication             |
+| `/api/users`         | User management            |
+| `/api/profile`       | Profile management         |
+| `/api/grow`          | Grow-related functionality |
+| `/api/knowledge`     | Knowledge resources        |
+| `/api/ai`            | GanjaGroot services        |
+| `/api/search`        | Search and discovery       |
+| `/api/analytics`     | Analytics                  |
+| `/api/notifications` | Notifications              |
+| `/api/files`         | File management            |
+| `/api/admin`         | Administration             |
+| `/api/health`        | Health checks              |
+
+---
+
+# 📊 Analytics & Intelligence
+
+The analytics system can provide multiple levels of visibility.
+
+### 👤 User Analytics
+
+* Active users
+* Sessions
+* Engagement
+* Feature usage
+* Retention
+* Conversion events
+
+### ⚙️ System Analytics
+
+* API latency
+* Error rates
+* Database performance
+* Cache performance
+* WebSocket connections
+* Queue processing
+* Infrastructure health
+
+### 🤖 AI Analytics
+
+* Requests
+* Response latency
+* Tool usage
+* Retrieval performance
+* User feedback
+* Error rates
+* Token/cost monitoring
+
+---
+
+# 🔐 Security Architecture
+
+Security is a foundational platform requirement.
+
+## Security Domains
+
+```text
+🔐 Identity
+   ↓
+🛡️ Authorization
+   ↓
+🔒 Encryption
+   ↓
+🚦 Rate Limiting
+   ↓
+🧹 Input Validation
+   ↓
+🧾 Audit Logging
+   ↓
+📊 Monitoring
+   ↓
+🚨 Incident Response
+```
+
+### Security Controls
+
+* HTTPS/TLS
+* Secure cookies
+* CSRF protection
+* XSS protection
+* SQL injection protection
+* Input validation
+* Output encoding
+* Rate limiting
+* Abuse detection
+* Secure headers
+* Secrets management
+* Dependency scanning
+* Authentication controls
+* Authorization enforcement
+* Audit trails
+* Backup protection
+
+> [!WARNING]
+> Production credentials, private keys, API secrets, database passwords, access tokens, and other sensitive values must never be committed to the repository.
+
+---
+
+# ☁️ Infrastructure & DevOps
+
+## Deployment Pipeline
+
+```text
+💻 Developer
+     │
+     ▼
+📦 Git Repository
+     │
+     ▼
+🔍 Validation
+     │
+     ├── Lint
+     ├── Type Check
+     ├── Unit Tests
+     ├── Integration Tests
+     └── Security Scan
+     │
+     ▼
+🏗️ Build
+     │
+     ▼
+🧪 Staging
+     │
+     ▼
+🚦 Verification
+     │
+     ▼
+🚀 Production
+     │
+     ▼
+📊 Monitoring
+```
+
+---
+
+# 🧪 Testing & Quality
+
+## Quality Layers
+
+* 🔬 Unit testing
+* 🔗 Integration testing
+* 🌐 API testing
+* 🖥️ End-to-end testing
+* 📱 Responsive testing
+* ♿ Accessibility testing
+* 🔐 Security testing
+* ⚡ Performance testing
+* 🧠 AI evaluation
+* 🗄️ Database testing
+* 🔄 WebSocket testing
+* 🚨 Failure recovery testing
+
+### Quality Gate
+
+```text
+Code
+ ↓
+Lint
+ ↓
+Type Safety
+ ↓
+Unit Tests
+ ↓
+Integration Tests
+ ↓
+Security Checks
+ ↓
+Build
+ ↓
+E2E
+ ↓
+Deploy
+```
+
+---
+
+# 📚 Documentation Architecture
+
+The Wiki is intended to evolve into a complete documentation system.
+
+```text
+📚 PotGrowHub Wiki
+│
+├── 🏠 Home
+├── 🌱 Overview
+├── 🏗️ Architecture
+├── 🎨 Frontend
+├── 🔌 Backend
+├── 🗄️ Database
+├── 🤖 GanjaGroot
+├── ⚡ WebSockets
+├── 🔐 Security
+├── 📊 Analytics
+├── ☁️ Infrastructure
+├── 🧪 Testing
+├── 🚀 Deployment
+├── 🔧 Configuration
+├── 🔌 API Reference
+├── 👤 User Guide
+├── 🛠️ Administrator Guide
+├── 🤝 Contributing
+├── 🗺️ Roadmap
+└── 🆘 Troubleshooting
+```
+
+---
+
+# 🌐 Domain Architecture
+
+## Primary Domain
+
+**[https://potgrowhub.store](https://potgrowhub.store)**
+
+### Recommended Service Map
+
+| Hostname                  | Role                    |
+| ------------------------- | ----------------------- |
+| `potgrowhub.store`        | Public platform         |
+| `www.potgrowhub.store`    | Public web alias        |
+| `app.potgrowhub.store`    | Application             |
+| `api.potgrowhub.store`    | API gateway             |
+| `admin.potgrowhub.store`  | Administration          |
+| `docs.potgrowhub.store`   | Documentation           |
+| `status.potgrowhub.store` | Service status          |
+| `cdn.potgrowhub.store`    | Static/media delivery   |
+| `auth.potgrowhub.store`   | Authentication services |
+
+---
+
+# 🗺️ Development Roadmap
+
+## 🟢 Foundation
+
+* [x] Establish PotGrowHub brand
+* [x] Establish primary domain
+* [ ] Finalize repository architecture
+* [ ] Finalize application architecture
+* [ ] Establish development environments
+* [ ] Establish production infrastructure
+
+## 🟡 Platform Core
+
+* [ ] Authentication
+* [ ] User profiles
+* [ ] PostgreSQL
+* [ ] Redis
+* [ ] API layer
+* [ ] WebSocket infrastructure
+* [ ] Notification system
+* [ ] File storage
+* [ ] Search infrastructure
+
+## 🔵 Intelligence
+
+* [ ] GanjaGroot AI
+* [ ] Knowledge base
+* [ ] Retrieval system
+* [ ] AI tools
+* [ ] AI analytics
+* [ ] Conversational memory
+* [ ] Voice capabilities
+
+## 🟣 Advanced Platform
+
+* [ ] Analytics
+* [ ] Community systems
+* [ ] Advanced dashboards
+* [ ] Personalization
+* [ ] Automation
+* [ ] Mobile/PWA experience
+* [ ] Advanced integrations
+
+## 🔴 Production
+
+* [ ] Security hardening
+* [ ] Load testing
+* [ ] Disaster recovery
+* [ ] Backup validation
+* [ ] Monitoring
+* [ ] Alerting
+* [ ] Incident response
+* [ ] Production launch
+
+---
+
+# 📈 Platform Maturity
+
+| Area              | Target                  |
+| ----------------- | ----------------------- |
+| 🏗️ Architecture  | Enterprise-grade        |
+| 🔐 Security       | Production hardened     |
+| ⚡ Performance     | High performance        |
+| 📱 UX             | Responsive              |
+| ♿ Accessibility   | Inclusive               |
+| 🧪 Testing        | Automated               |
+| 🤖 AI             | Integrated              |
+| 🗄️ Data          | Scalable                |
+| 📊 Analytics      | Comprehensive           |
+| ☁️ Infrastructure | Cloud-ready             |
+| 🔄 Deployment     | Automated               |
+| 📚 Documentation  | Continuously maintained |
+
+---
+
+# 🤝 Contribution Philosophy
+
+PotGrowHub is designed around collaborative development.
+
+### Contributions may include:
+
+* 💻 Code
+* 🎨 UI/UX
+* 📚 Documentation
+* 🧪 Testing
+* 🐛 Bug reports
+* 💡 Feature proposals
+* 🔐 Security reports
+* 🤖 AI improvements
+* 📊 Analytics
+* 🌱 Educational resources
+
+---
+
+# 🆘 Support & Troubleshooting
+
+When reporting an issue, include:
+
+```text
+Environment:
+Operating System:
+Browser:
+Application Version:
+Affected Feature:
+Expected Behavior:
+Actual Behavior:
+Steps to Reproduce:
+Relevant Logs:
+Screenshots:
+Additional Context:
+```
+
+> [!NOTE]
+> Never include passwords, API keys, access tokens, private credentials, payment information, or other secrets in an issue.
+
+---
+
+# 📜 Project Governance
+
+PotGrowHub should maintain clear standards for:
+
+* 🔐 Security
+* 👥 Access control
+* 🧑‍💻 Development
+* 📦 Releases
+* 🧪 Quality
+* 📝 Documentation
+* 🐛 Issue management
+* 🔄 Change management
+* 🚨 Incident response
+* 🛡️ Responsible disclosure
+
+---
+
+# 🧱 Technology Domains
+
+```text
+Frontend
+├── HTML
+├── CSS
+├── JavaScript / TypeScript
+├── UI Components
+├── PWA
+└── Accessibility
+
+Backend
+├── API Services
+├── Authentication
+├── Business Logic
+├── Background Jobs
+└── WebSockets
+
+Data
+├── PostgreSQL
+├── Redis
+├── Object Storage
+├── Search
+└── Analytics
+
+AI
+├── GanjaGroot
+├── Retrieval
+├── Knowledge
+├── Tools
+└── Evaluation
+
+Infrastructure
+├── DNS
+├── Hosting
+├── CI/CD
+├── Monitoring
+├── Backups
+└── Security
+```
+
+---
+
+# ✨ Experience Goals
+
+PotGrowHub should feel:
+
+> 🌱 **Natural**
+> ⚡ **Fast**
+> 🧠 **Intelligent**
+> 🎨 **Beautiful**
+> 🔐 **Secure**
+> 📱 **Accessible**
+> 🧩 **Flexible**
+> 🚀 **Modern**
+> 🤝 **Community-driven**
+> 🌎 **Scalable**
+
+---
+
+# 🏷️ Project Tags
+
+`#PotGrowHub` `#PotGrowHubStore` `#GanjaGroot` `#AI` `#Cultivation` `#Growers` `#Technology` `#WebPlatform` `#PostgreSQL` `#Redis` `#WebSockets` `#Security` `#Analytics` `#PWA` `#APIs` `#DevOps` `#OpenSource` `#Innovation`
+
+---
+
+# 📌 Current Status
+
+| Component         | Status          |
+| ----------------- | --------------- |
+| 🌐 Domain         | 🟢 Active       |
+| 🏠 Platform       | 🟡 Building     |
+| 🎨 Frontend       | 🟡 Building     |
+| 🔌 Backend        | 🟡 Building     |
+| 🗄️ Database      | 🟡 Architecture |
+| ⚡ Real-Time       | 🟡 Architecture |
+| 🤖 GanjaGroot     | 🟡 Development  |
+| 🔐 Security       | 🟡 Hardening    |
+| 📊 Analytics      | 🟡 Planned      |
+| ☁️ Infrastructure | 🟡 Building     |
+| 📚 Wiki           | 🟢 Active       |
+
+---
+
+# 🚀 What's Next?
+
+### Recommended Reading
+
+1. 🏗️ **System Architecture**
+2. 🎨 **Frontend Architecture**
+3. 🔌 **Backend Architecture**
+4. 🗄️ **Database Architecture**
+5. 🤖 **GanjaGroot AI**
+6. 🔐 **Security Architecture**
+7. ⚡ **Real-Time Architecture**
+8. ☁️ **Deployment Architecture**
+9. 🧪 **Testing Strategy**
+10. 🗺️ **Development Roadmap**
+
+---
+
+# 🌱 PotGrowHub
+
+<p align="center">
+
+**GROW 🌱 LEARN 🧠 TRACK 📊 CONNECT 🤝 INNOVATE 🚀**
+
+**[https://potgrowhub.store](https://potgrowhub.store)**
+
+</p>
+
+---
+
+### 💚 Built for the ecosystem. Designed for growth. Engineered for what's next.
+
+`#PotGrowHub` `#GanjaGroot` `#GrowSmarter` `#BuildTheFuture`
+
+[1]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax?utm_source=chatgpt.com "Basic writing and formatting syntax - GitHub Docs"

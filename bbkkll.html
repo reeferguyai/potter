@@ -1,1256 +1,829 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en-US" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <!-- SEO, AEO & Meta Tags -->
-    <meta name="description" content="Potgrowhubstore is the ultimate AI-powered cannabis ecosystem, offering 3D/AR/VR product design, print-on-demand merch, automated eco-friendly dropshipping, intelligent budtender AI, and strain discovery.">
-    <meta name="keywords" content="cannabis, potgrowhub, ganjaguru, ganja goddess ai, 3dpod, print on demand, weed, marijuana, strain finder, ai budtender, pwa, e-commerce, eco-friendly">
-    <meta name="author" content="Ray">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Expanded PWA & Mobile Web App Meta -->
-    <meta name="theme-color" content="#0d0f12">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Potgrowhub">
-    
-    <!-- Canonical & Resource Hints -->
-    <link rel="canonical" href="https://github.com/potgrowhub/potgrowhubstore">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com">
-    
-    <!-- Open Graph / Social Media AEO & SEO -->
-    <meta property="og:title" content="Potgrowhubstore | The AI-Powered Cannabis Ecosystem">
-    <meta property="og:description" content="Explore strain profiles, design custom 3D bongs in AR/VR, and chat with GanjaGuru—the sentient botanical AI.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://github.com/potgrowhub/potgrowhubstore">
-    <meta property="og:site_name" content="Potgrowhubstore">
-    <meta property="og:image" content="https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Potgrowhubstore | The AI-Powered Cannabis Ecosystem">
-    <meta name="twitter:description" content="Explore strain profiles, design custom 3D bongs in AR/VR, and chat with GanjaGuru—the sentient botanical AI.">
-    <meta name="twitter:image" content="https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png">
-
-    <!-- Schema.org JSON-LD Structured Data for Answer Engine Optimization (AEO) -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Potgrowhubstore",
-        "url": "https://github.com/potgrowhub/potgrowhubstore",
-        "description": "The back-porch smoke circle of the web—powered by AI, interactive design tools, and a gamified marketplace.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://github.com/potgrowhub/potgrowhubstore/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>PotGrowHub | Cannabis Intelligence, AI Tools & Cultivation Resources</title>
+<meta name="description" content="PotGrowHub delivers AI-powered cannabis strain intelligence, cultivation guides, legal compliance tools, dispensary blueprints, design studio, and logistics resources for growers and businesses.">
+<meta name="keywords" content="PotGrowHub, cannabis AI, strain profiles, hydroponic cultivation, dispensary blueprint, cannabis legal compliance, grow logistics, cannabis marketplace">
+<meta name="author" content="PotGrowHub">
+<meta name="publisher" content="PotGrowHub">
+<meta name="creator" content="PotGrowHub">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="language" content="English">
+<meta name="content-language" content="en-US">
+<meta name="theme-color" content="#0d0f12">
+<meta name="msapplication-TileColor" content="#0d0f12">
+<meta name="color-scheme" content="dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+<meta name="application-name" content="PotGrowHub">
+<meta name="apple-mobile-web-app-title" content="PotGrowHub">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="domain" content="potgrowhub.store">
+<meta name="site-domain" content="potgrowhub.store">
+<meta name="site-url" content="https://potgrowhub.store/">
+<meta name="canonical-domain" content="potgrowhub.store">
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-domain" content="potgrowhub.store">
+<link rel="canonical" href="https://potgrowhub.store/">
+<link rel="alternate" href="https://potgrowhub.store/" hreflang="en-us">
+<link rel="alternate" href="https://potgrowhub.store/" hreflang="x-default">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://potgrowhub.store/sitemap.xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48x48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PotGrowHub">
+<meta property="og:title" content="PotGrowHub — Cannabis Intelligence, AI Tools & Resources">
+<meta property="og:description" content="Explore AI-powered strain intelligence, cultivation tools, legal resources, design studio, commerce, and logistics on PotGrowHub.">
+<meta property="og:url" content="https://potgrowhub.store/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://potgrowhub.store/assets/social/potgrowhub-og.jpg">
+<meta property="og:image:secure_url" content="https://potgrowhub.store/assets/social/potgrowhub-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PotGrowHub cannabis intelligence platform">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PotGrowHub — Cannabis Intelligence & AI Tools">
+<meta name="twitter:description" content="AI-powered strain intelligence, cultivation guides, legal tools, design studio, and logistics for cannabis professionals.">
+<meta name="twitter:image" content="https://potgrowhub.store/assets/social/potgrowhub-og.jpg">
+<meta name="twitter:image:alt" content="PotGrowHub">
+<meta name="twitter:site" content="@PotGrowHub">
+<meta name="twitter:creator" content="@PotGrowHub">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://potgrowhub.store/#organization",
+      "name": "PotGrowHub",
+      "url": "https://potgrowhub.store/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://potgrowhub.store/icons/icon-512.png",
+        "width": 512,
+        "height": 512
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Potgrowhubstore",
-        "url": "https://github.com/potgrowhub/potgrowhubstore",
-        "logo": "https://github.com/potgrowhub/potgrowhubstore/raw/main/icon-512.png",
-        "sameAs": [
-          "https://github.com/potgrowhub/potgrowhubstore"
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "GanjaGuru AI & 3D POD Ecosystem",
-        "operatingSystem": "All",
-        "applicationCategory": "BusinessApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
+      "description": "PotGrowHub is a digital cannabis platform providing AI strain intelligence, cultivation resources, legal compliance tools, design studio, commerce, and logistics information.",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://twitter.com/PotGrowHub",
+        "https://www.linkedin.com/company/potgrowhub",
+        "https://github.com/potgrowhub"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@potgrowhub.store",
+        "availableLanguage": "English"
       }
-    ]
-    </script>
-    
-    <meta name="hosting-provider" content="GitHub Pages">
-    <meta name="github-repository" content="https://github.com/potgrowhub/potgrowhubstore">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potgrowhubstore | AI-Powered Cannabis Ecosystem</title>
-    
-    <!-- PWA & Valuable File Links -->
-    <link rel="manifest" href="/manifest.json">
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/icon-192.png">
-    
-    <!-- Font Links & 3D/AR Model Viewer Import -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-primary: #0d0f12;
-            --bg-secondary: #16191e;
-            --bg-tertiary: #1e2229;
-            --border-color: #2a2f3a;
-            --text-main: #ececec;
-            --text-muted: #8e95a5;
-            --accent-green: #38d39f;
-            --accent-glow: rgba(56, 211, 159, 0.25);
-            --blunt-amber: #ff7b00;
-            --smoke-white: rgba(220, 235, 225, 0.7);
-            --sidebar-width: 260px;
-            --focus-ring: 0 0 0 3px rgba(56, 211, 159, 0.4);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        /* Accessibility Skip Link */
-        .skip-link {
-            position: absolute;
-            top: -50px;
-            left: 10px;
-            background: var(--accent-green);
-            color: var(--bg-primary);
-            padding: 10px 16px;
-            font-weight: 700;
-            z-index: 10001;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: top 0.2s ease;
-        }
-        .skip-link:focus {
-            top: 10px;
-            outline: none;
-        }
-
-        /* Focus Ring Standard */
-        button:focus-visible, a:focus-visible, textarea:focus-visible, input:focus-visible {
-            outline: none;
-            box-shadow: var(--focus-ring);
-        }
-
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        /* Custom Dark Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-green);
-        }
-
-        /* Age Gate & Cookie Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(13, 15, 18, 0.92);
-            backdrop-filter: blur(12px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            max-width: 480px;
-            width: 100%;
-            padding: 32px;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px var(--accent-glow);
-        }
-
-        .modal-card h2 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--accent-green);
-            margin-bottom: 16px;
-            font-size: 24px;
-        }
-
-        .modal-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .modal-btn {
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s ease;
-        }
-
-        .modal-btn.primary {
-            background: var(--accent-green);
-            color: var(--bg-primary);
-        }
-
-        .modal-btn.primary:hover {
-            opacity: 0.9;
-            box-shadow: 0 0 15px var(--accent-green);
-        }
-
-        .modal-btn.secondary {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-        }
-
-        .modal-btn.secondary:hover {
-            background: var(--bg-tertiary);
-        }
-
-        /* Feature Modals / Drawers */
-        .feature-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(13, 15, 18, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 1500;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .feature-modal.active {
-            display: flex;
-        }
-
-        .feature-modal-content {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            max-width: 700px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 24px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.7);
-            position: relative;
-        }
-
-        .close-modal-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            z-index: 10;
-        }
-        .close-modal-btn:hover {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
-        }
-
-        /* Cookie Warning Banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 16px 24px;
-            z-index: 900;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .cookie-banner p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        .cookie-banner span {
-            color: var(--accent-green);
-        }
-
-        /* Sidebar Styling */
-        .sidebar {
-            width: var(--sidebar-width);
-            background-color: var(--bg-secondary);
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 12px;
-            z-index: 10;
-            transition: transform 0.3s ease;
-        }
-
-        .new-chat-btn {
-            background-color: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 10px 14px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            font-weight: 500;
-            width: 100%;
-            transition: all 0.2s ease;
-        }
-
-        .new-chat-btn:hover {
-            background-color: var(--bg-tertiary);
-            border-color: var(--accent-green);
-        }
-
-        .chat-history {
-            flex: 1;
-            margin-top: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .history-item {
-            padding: 10px 12px;
-            border-radius: 6px;
-            color: var(--text-muted);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .history-item:hover, .history-item.active {
-            background-color: var(--bg-tertiary);
-            color: var(--text-main);
-        }
-
-        .user-profile {
-            border-top: 1px solid var(--border-color);
-            padding-top: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .user-profile-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2d5a3f, #1b3a27);
-            border: 1px solid var(--accent-green);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--accent-green);
-        }
-
-        .nav-icon-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-        }
-        .nav-icon-link:hover {
-            color: var(--accent-green);
-        }
-
-        /* Mobile Header Controls */
-        .mobile-header-bar {
-            display: none;
-            height: 50px;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 16px;
-            z-index: 15;
-        }
-
-        .mobile-menu-toggle {
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Sidebar Backdrop Overlay */
-        .sidebar-backdrop {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.7);
-            z-index: 9;
-        }
-
-        /* Main Workspace */
-        .main-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            background: radial-gradient(circle at center, #13171f 0%, #0d0f12 100%);
-            overflow: hidden;
-        }
-
-        .viewport-hero {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Live Chat Stream Overlay Area (Powered by GanjaGuru AI) */
-        .chat-stream-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(13, 15, 18, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 5;
-            display: none;
-            flex-direction: column;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .chat-stream-container.active {
-            display: flex;
-        }
-        .message-bubble {
-            max-width: 680px;
-            margin: 12px auto;
-            width: 100%;
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .message-bubble.user {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            align-self: flex-end;
-        }
-        .message-bubble.ai {
-            background: var(--bg-secondary);
-            border: 1px solid rgba(56, 211, 159, 0.3);
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-        .message-bubble.ai h4 {
-            color: var(--accent-green);
-            margin-bottom: 8px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Stage Container for Orbit & Groot Visual */
-        .stage {
-            position: relative;
-            width: 500px;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Central Cannabis Groot Artwork Structure */
-        .groot-wrapper {
-            position: relative;
-            width: 240px;
-            height: 320px;
-            z-index: 2;
-            filter: drop-shadow(0 0 25px rgba(56, 211, 159, 0.15));
-        }
-
-        /* Animated SVG Cannabis Female Figure */
-        .groot-svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Blunt & Smoke Emitter */
-        .blunt-tip {
-            animation: cherryGlow 2.5s infinite alternate ease-in-out;
-        }
-
-        @keyframes cherryGlow {
-            0% { fill: #ff4500; filter: drop-shadow(0 0 2px #ff4500); }
-            100% { fill: #ffaa00; filter: drop-shadow(0 0 10px #ffaa00); }
-        }
-
-        /* Puff Stream Animation */
-        .smoke-puff {
-            position: absolute;
-            top: 45%;
-            left: 58%;
-            width: 12px;
-            height: 12px;
-            background: var(--smoke-white);
-            border-radius: 50%;
-            filter: blur(4px);
-            opacity: 0;
-            animation: riseAndExpand 4s infinite ease-out;
-        }
-
-        @keyframes riseAndExpand {
-            0% {
-                transform: translate(0, 0) scale(0.5);
-                opacity: 0.8;
-            }
-            50% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translate(-60px, -120px) scale(3.5);
-                opacity: 0;
-            }
-        }
-
-        /* Orbiting System */
-        .orbit-system {
-            position: absolute;
-            width: 440px;
-            height: 440px;
-            border-radius: 50%;
-            border: 1px solid rgba(56, 211, 159, 0.1);
-            animation: rotateOrbit 35s linear infinite;
-            transform-style: preserve-3d;
-        }
-
-        @keyframes rotateOrbit {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .orbit-node {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 68px;
-            height: 68px;
-            margin-top: -34px;
-            margin-left: -34px;
-            border-radius: 50%;
-            background: rgba(22, 25, 30, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(56, 211, 159, 0.4);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px var(--accent-glow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            color: var(--text-main);
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .node-counter-rotate {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            animation: counterRotate 35s linear infinite;
-        }
-
-        @keyframes counterRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
-
-        .orbit-node:hover {
-            border-color: var(--accent-green);
-            box-shadow: 0 0 20px var(--accent-green);
-            transform: scale(1.15);
-            background: rgba(30, 34, 41, 0.95);
-        }
-
-        .orbit-node span {
-            font-size: 9px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            color: var(--accent-green);
-            text-transform: uppercase;
-        }
-
-        /* Positioning Nodes Along Circular Path */
-        .node-1 { transform: rotate(0deg) translate(210px); }
-        .node-2 { transform: rotate(51.4deg) translate(210px); }
-        .node-3 { transform: rotate(102.8deg) translate(210px); }
-        .node-4 { transform: rotate(154.2deg) translate(210px); }
-        .node-5 { transform: rotate(205.6deg) translate(210px); }
-        .node-6 { transform: rotate(257deg) translate(210px); }
-        .node-7 { transform: rotate(308.4deg) translate(210px); }
-
-        /* Input Dock Area */
-        .input-container {
-            width: 100%;
-            max-width: 760px;
-            margin: 0 auto 30px auto;
-            padding: 0 20px;
-            z-index: 6;
-        }
-
-        .file-status-pill {
-            display: none;
-            align-items: center;
-            gap: 6px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--accent-green);
-            color: var(--accent-green);
-            font-size: 11px;
-            padding: 4px 10px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            width: fit-content;
-        }
-
-        .input-box {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            transition: border-color 0.2s ease;
-        }
-
-        .input-box:focus-within {
-            border-color: var(--accent-green);
-        }
-
-        .input-box textarea {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: var(--text-main);
-            font-size: 15px;
-            resize: none;
-            height: 24px;
-            max-height: 150px;
-        }
-
-        .send-btn {
-            background-color: var(--accent-green);
-            border: none;
-            border-radius: 8px;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-primary);
-            cursor: pointer;
-            transition: opacity 0.2s ease;
-        }
-
-        .send-btn:hover {
-            opacity: 0.85;
-        }
-
-        /* Offline Banner */
-        .offline-banner {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: #e63946;
-            color: #ffffff;
-            text-align: center;
-            padding: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            z-index: 10000;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .mobile-header-bar {
-                display: flex;
-            }
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                transform: translateX(-100%);
-                box-shadow: 10px 0 30px rgba(0,0,0,0.8);
-            }
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            .sidebar-backdrop.open {
-                display: block;
-            }
-            .stage {
-                width: 340px;
-                height: 340px;
-            }
-            .orbit-system {
-                width: 300px;
-                height: 300px;
-            }
-            .node-1 { transform: rotate(0deg) translate(140px); }
-            .node-2 { transform: rotate(51.4deg) translate(140px); }
-            .node-3 { transform: rotate(102.8deg) translate(140px); }
-            .node-4 { transform: rotate(154.2deg) translate(140px); }
-            .node-5 { transform: rotate(205.6deg) translate(140px); }
-            .node-6 { transform: rotate(257deg) translate(140px); }
-            .node-7 { transform: rotate(308.4deg) translate(140px); }
-            .orbit-node {
-                width: 52px;
-                height: 52px;
-                margin-top: -26px;
-                margin-left: -26px;
-            }
-            .orbit-node span {
-                font-size: 7px;
-            }
-        }
-    </style>
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://potgrowhub.store/#website",
+      "url": "https://potgrowhub.store/",
+      "name": "PotGrowHub",
+      "description": "Cannabis intelligence, AI tools, strain resources, design, commerce, legal resources, and logistics.",
+      "publisher": {
+        "@id": "https://potgrowhub.store/#organization"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://potgrowhub.store/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://potgrowhub.store/#webpage",
+      "url": "https://potgrowhub.store/",
+      "name": "PotGrowHub | Cannabis Intelligence, AI Tools & Cultivation Resources",
+      "isPartOf": {
+        "@id": "https://potgrowhub.store/#website"
+      },
+      "about": {
+        "@id": "https://potgrowhub.store/#organization"
+      },
+      "description": "AI-powered cannabis strain intelligence, cultivation guides, legal compliance, dispensary blueprints, and logistics tools.",
+      "inLanguage": "en-US",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://potgrowhub.store/assets/social/potgrowhub-og.jpg"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://potgrowhub.store/#app",
+      "name": "PotGrowHub AI Platform",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "AI-driven cannabis intelligence platform for strain analysis, cultivation planning, legal compliance, and business tools."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://potgrowhub.store/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://potgrowhub.store/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://potgrowhub.store/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is PotGrowHub?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PotGrowHub is an AI-powered digital platform offering cannabis strain intelligence, cultivation resources, legal compliance tools, design studio features, e-commerce capabilities, and logistics support for growers and cannabis businesses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PotGrowHub provide strain information?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. PotGrowHub provides detailed strain profiles, genetic information, cultivation recommendations, and AI-assisted strain analysis tools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is PotGrowHub free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Core tools and resources on PotGrowHub are available at no cost. Advanced enterprise features may require a subscription."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg-primary: #0d0f12;
+  --bg-secondary: #16191e;
+  --bg-tertiary: #1e2229;
+  --border-color: #2a2f3a;
+  --text-main: #ececec;
+  --text-muted: #8e95a5;
+  --accent-green: #38d39f;
+  --accent-glow: rgba(56, 211, 159, 0.25);
+  --blunt-amber: #ff7b00;
+  --smoke-white: rgba(220, 235, 225, 0.7);
+  --sidebar-width: 260px;
+  --focus-ring: 0 0 0 3px rgba(56, 211, 159, 0.45);
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  background-color: var(--bg-primary);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  display: flex;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  line-height: 1.5;
+}
+a {
+  -webkit-tap-highlight-color: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+button, textarea {
+  -webkit-tap-highlight-color: transparent;
+  font-family: inherit;
+}
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--accent-green);
+  color: var(--bg-primary);
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+}
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  z-index: 10;
+  flex-shrink: 0;
+}
+.mobile-nav-toggle {
+  display: none;
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 30;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.new-chat-btn {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  width: 100%;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.new-chat-btn:hover,
+.new-chat-btn:focus-visible {
+  background-color: var(--bg-tertiary);
+  border-color: var(--accent-green);
+}
+.chat-history {
+  flex: 1;
+  margin-top: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+.history-item {
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
+  background: transparent;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.history-item:hover,
+.history-item:focus-visible {
+  background-color: var(--bg-tertiary);
+  color: var(--text-main);
+}
+.user-profile {
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2d5a3f, #1b3a27);
+  border: 1px solid var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--accent-green);
+  flex-shrink: 0;
+}
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: radial-gradient(circle at center, #13171f 0%, #0d0f12 100%);
+  min-width: 0;
+}
+.viewport-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 12px;
+}
+.stage {
+  position: relative;
+  width: min(500px, 90vw);
+  height: min(500px, 90vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.groot-wrapper {
+  position: relative;
+  width: 48%;
+  height: 64%;
+  z-index: 2;
+  filter: drop-shadow(0 0 25px rgba(56, 211, 159, 0.15));
+}
+.groot-svg {
+  width: 100%;
+  height: 100%;
+}
+.blunt-tip {
+  animation: cherryGlow 2.5s infinite alternate ease-in-out;
+}
+@keyframes cherryGlow {
+  0% { fill: #ff4500; filter: drop-shadow(0 0 2px #ff4500); }
+  100% { fill: #ffaa00; filter: drop-shadow(0 0 10px #ffaa00); }
+}
+.smoke-puff {
+  position: absolute;
+  top: 45%;
+  left: 58%;
+  width: 12px;
+  height: 12px;
+  background: var(--smoke-white);
+  border-radius: 50%;
+  filter: blur(4px);
+  opacity: 0;
+  animation: riseAndExpand 4s infinite ease-out;
+  pointer-events: none;
+}
+@keyframes riseAndExpand {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0.8; }
+  50% { opacity: 0.5; }
+  100% { transform: translate(-60px, -120px) scale(3.5); opacity: 0; }
+}
+.orbit-system {
+  position: absolute;
+  width: 88%;
+  height: 88%;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 211, 159, 0.1);
+  animation: rotateOrbit 35s linear infinite;
+}
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.orbit-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  height: 68px;
+  margin-top: -34px;
+  margin-left: -34px;
+  border-radius: 50%;
+  background: rgba(22, 25, 30, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 211, 159, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px var(--accent-glow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+.node-counter-rotate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: counterRotate 35s linear infinite;
+}
+@keyframes counterRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+.orbit-node:hover,
+.orbit-node:focus-visible {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 20px var(--accent-green);
+  transform: scale(1.15);
+  background: rgba(30, 34, 41, 0.95);
+}
+.orbit-node span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent-green);
+  text-transform: uppercase;
+}
+.node-1 { transform: rotate(0deg) translate(min(210px, 42vw)); }
+.node-2 { transform: rotate(51.4deg) translate(min(210px, 42vw)); }
+.node-3 { transform: rotate(102.8deg) translate(min(210px, 42vw)); }
+.node-4 { transform: rotate(154.2deg) translate(min(210px, 42vw)); }
+.node-5 { transform: rotate(205.6deg) translate(min(210px, 42vw)); }
+.node-6 { transform: rotate(257deg) translate(min(210px, 42vw)); }
+.node-7 { transform: rotate(308.4deg) translate(min(210px, 42vw)); }
+.input-container {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 30px auto;
+  padding: 0 20px;
+}
+.input-box {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease;
+}
+.input-box:focus-within {
+  border-color: var(--accent-green);
+}
+.input-box textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-size: 15px;
+  resize: none;
+  height: 24px;
+  max-height: 150px;
+  line-height: 1.4;
+}
+.send-btn {
+  background-color: var(--accent-green);
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-primary);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+.send-btn:hover,
+.send-btn:focus-visible {
+  opacity: 0.85;
+}
+.send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 900px) {
+  :root { --sidebar-width: 220px; }
+  .stage { transform: scale(0.9); }
+  .input-container { max-width: 95%; }
+}
+@media (max-width: 700px) {
+  body { overflow-x: hidden; }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    height: 100dvh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 40;
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.4);
+  }
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+  .mobile-nav-toggle {
+    display: flex;
+  }
+  .stage {
+    width: min(430px, 92vw);
+    height: min(430px, 92vw);
+  }
+  .input-container {
+    margin-bottom: 18px;
+    padding: 0 12px;
+  }
+  .input-box {
+    border-radius: 14px;
+  }
+  .orbit-node {
+    width: 58px;
+    height: 58px;
+    margin-top: -29px;
+    margin-left: -29px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .orbit-system,
+  .node-counter-rotate,
+  .blunt-tip,
+  .smoke-puff {
+    animation: none !important;
+  }
+}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MW3MB134F"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9MW3MB134F', {
+  linker: {
+    domains: ['potgrowhub.store', 'www.potgrowhub.store', 'api.potgrowhub.store', 'admin.potgrowhub.store']
+  }
+});
+</script>
 </head>
 <body>
-
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div id="offline-banner" class="offline-banner">Network Connection Lost. Operating in Offline PWA Cache Mode.</div>
-
-    <!-- Age Verification Modal -->
-    <div id="age-modal" class="modal-overlay">
-        <div class="modal-card">
-            <h2>Age Verification Required</h2>
-            <p>Welcome to Potgrowhubstore. You must be at least 21 years of age (or the legal age in your jurisdiction) to enter this botanical AI and eco-commerce ecosystem.</p>
-            <div class="modal-actions">
-                <button class="modal-btn secondary" onclick="window.location.href='https://google.com'">I am Under 21</button>
-                <button class="modal-btn primary" onclick="verifyAge()">I am 21 or Older</button>
-            </div>
-        </div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</button>
+<aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+  <div>
+    <button type="button" class="new-chat-btn" id="new-chat-btn" aria-label="Start a new chat">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      New Chat
+    </button>
+    <div class="chat-history" role="list" aria-label="Chat history">
+      <button type="button" class="history-item" role="listitem" aria-label="Hydroponic Strain Profiles conversation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Hydroponic Strain Profiles
+      </button>
+      <button type="button" class="history-item" role="listitem" aria-label="Legal Compliance Checklist conversation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Legal Compliance Checklist
+      </button>
+      <button type="button" class="history-item" role="listitem" aria-label="Dispensary Blueprint V2 conversation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Dispensary Blueprint V2
+      </button>
     </div>
-
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="cookie-banner">
-        <p>We use encrypted session tokens and <span>eco-friendly cookies</span> to optimize your AI budtender memory and 3D print-on-demand workflow.</p>
-        <button class="modal-btn primary" style="padding: 8px 16px; font-size: 12px;" onclick="acceptCookies()">Accept</button>
+  </div>
+  <div class="user-profile" role="contentinfo" aria-label="User profile">
+    <div class="avatar" aria-hidden="true">CG</div>
+    <div style="font-size:14px;font-weight:500;">CannaStudio Pro</div>
+  </div>
+</aside>
+<main class="main-container" id="main-content" role="main" aria-label="PotGrowHub main workspace">
+  <div class="viewport-hero">
+    <h1 class="visually-hidden">PotGrowHub — Cannabis Intelligence, AI Tools & Cultivation Resources</h1>
+    <div class="stage" role="img" aria-label="Animated cannabis plant illustration surrounded by seven feature modules: Studio, AI Engine, Strains, Store, Legal, Blueprint, and Logistics">
+      <div class="groot-wrapper">
+        <svg class="groot-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="groot-title groot-desc">
+          <title id="groot-title">Stylized cannabis plant character</title>
+          <desc id="groot-desc">A green cannabis plant character with glowing buds holding a lit blunt, representing PotGrowHub brand identity</desc>
+          <defs>
+            <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2d5a27"/>
+              <stop offset="50%" stop-color="#1e3c1a"/>
+              <stop offset="100%" stop-color="#0f200e"/>
+            </linearGradient>
+            <linearGradient id="budGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#52b788"/>
+              <stop offset="50%" stop-color="#2d6a4f"/>
+              <stop offset="100%" stop-color="#1b4332"/>
+            </linearGradient>
+            <radialGradient id="trichomeGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#d8f3dc" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#74c69d" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <path d="M75,280 C65,220 55,170 70,120 C75,100 80,80 100,50 C120,80 125,100 130,120 C145,170 135,220 125,280 Z" fill="url(#stemGrad)" stroke="#122613" stroke-width="2"/>
+          <circle cx="90" cy="140" r="14" fill="url(#budGrad)"/>
+          <circle cx="110" cy="140" r="14" fill="url(#budGrad)"/>
+          <circle cx="100" cy="125" r="18" fill="url(#budGrad)"/>
+          <circle cx="85" cy="170" r="16" fill="url(#budGrad)"/>
+          <circle cx="115" cy="170" r="16" fill="url(#budGrad)"/>
+          <circle cx="100" cy="190" r="22" fill="url(#budGrad)"/>
+          <path d="M80,60 Q50,40 30,50 Q55,65 75,70 Z" fill="#40916c"/>
+          <path d="M85,50 Q60,20 45,25 Q65,45 80,55 Z" fill="#52b788"/>
+          <path d="M120,60 Q150,40 170,50 Q145,65 125,70 Z" fill="#40916c"/>
+          <path d="M115,50 Q140,20 155,25 Q135,45 120,55 Z" fill="#52b788"/>
+          <path d="M100,45 Q100,10 100,5 Q105,25 105,45 Z" fill="#74c69d"/>
+          <ellipse cx="88" cy="92" rx="5" ry="7" fill="#0d0f12"/>
+          <ellipse cx="112" cy="92" rx="5" ry="7" fill="#0d0f12"/>
+          <circle cx="89" cy="90" r="2" fill="#38d39f"/>
+          <circle cx="113" cy="90" r="2" fill="#38d39f"/>
+          <path d="M92,108 Q100,114 108,108" fill="none" stroke="#122613" stroke-width="2"/>
+          <g transform="rotate(-15, 110, 108)">
+            <rect x="110" y="105" width="35" height="5" rx="1" fill="#c29b38"/>
+            <rect x="107" y="105" width="5" height="5" fill="#8c6a1d"/>
+            <circle class="blunt-tip" cx="146" cy="107.5" r="3.5"/>
+          </g>
+          <circle cx="85" cy="130" r="8" fill="url(#trichomeGlow)"/>
+          <circle cx="115" cy="160" r="10" fill="url(#trichomeGlow)"/>
+          <circle cx="100" cy="80" r="6" fill="url(#trichomeGlow)"/>
+        </svg>
+      </div>
+      <div class="smoke-puff" aria-hidden="true"></div>
+      <div class="smoke-puff" style="animation-delay:1.3s" aria-hidden="true"></div>
+      <div class="smoke-puff" style="animation-delay:2.6s" aria-hidden="true"></div>
+      <div class="orbit-system" role="group" aria-label="Feature modules">
+        <a href="#design-studio" class="orbit-node node-1" aria-label="Open Design Studio">
+          <div class="node-counter-rotate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38d39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="8.5" cy="18.5" r="2.5"/><circle cx="15.5" cy="18.5" r="2.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <span>Studio</span>
+          </div>
+        </a>
+        <a href="#ai" class="orbit-node node-2" aria-label="Open AI Engine">
+          <div class="node-counter-rotate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38d39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.912 5.813L20 12l-6.088 3.187L12 21l-1.912-5.813L4 12l6.088-3.187L12 3z"/></svg>
+            <span>AI Engine</span>
+          </div>
+        </a>
+        <a href="#strain-creation" class="orbit-node node-3" aria-label="Open Strain Creation tools">
+          <div class="node-counter-rotate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38d39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 15c6.667-6 13.333 0 20-6"/><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"/><path d="M17 6.1c.66.66 1.2 1.4 1.6 2.2"/><path d="M7 17.9c-.66-.66-1.2-1.4-1.6-2.2"/></svg>
+            <span>Strains</span>
+          </div>
+        </a>
+        <a href="#e-commerce" class="orbit-node node-4" aria-label="Open Store">
+          <div class="node-counter-rotate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38d39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Store</span>
+          </div>
+        </a>
+        <a href="#legal" class="orbit-node node-5" aria-label="Open Legal resources">
+          <div class="node-counter-rotate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38d39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+            <span>Legal</span>
+          </div>
+        </a>
+        <a href="#blueprint" class="orbit-node node-6" aria-label="Open Blueprint tools">
+          <div class="node-counter-rotate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38d39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <span>Blueprint</span>
+          </div>
+        </a>
+        <a href="#procurement" class="orbit-node node-7" aria-label="Open Logistics">
+          <div class="node-counter-rotate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38d39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span>Logistics</span>
+          </div>
+        </a>
+      </div>
     </div>
-
-    <!-- Interactive Feature Modals (3D Studio, Strains, Store, Telemetry, AR/VR, Community, Settings) -->
-    <div id="feature-modal" class="feature-modal" onclick="closeFeatureModal(event)">
-        <div class="feature-modal-content" id="feature-modal-body" onclick="event.stopPropagation()">
-            <button class="close-modal-btn" onclick="closeFeatureModalExplicit()"><i data-lucide="x"></i></button>
-            <div id="dynamic-modal-inner"></div>
-        </div>
-    </div>
-
-    <!-- Mobile Header Bar -->
-    <header class="mobile-header-bar">
-        <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
-            <i data-lucide="menu"></i>
-        </button>
-        <div style="font-weight: 700; color: var(--accent-green); font-family: 'Poppins', sans-serif;">POTGROWHUB</div>
-        <div style="width: 24px;"></div>
-    </header>
-
-    <!-- Sidebar Backdrop -->
-    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
-
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar" id="sidebar">
-        <div>
-            <button class="new-chat-btn" onclick="startNewSession()">
-                <i data-lucide="plus" style="width: 18px; height: 18px;"></i>
-                New Botanical Session
-            </button>
-            <div class="chat-history" id="chat-history">
-                <a href="#" class="history-item active" onclick="loadSession(1)"><i data-lucide="message-square" style="width: 15px;"></i> GanjaGuru Strain Match</a>
-                <a href="#" class="history-item" onclick="loadSession(2)"><i data-lucide="box" style="width: 15px;"></i> 3D Custom Bong CAD</a>
-                <a href="#" class="history-item" onclick="loadSession(3)"><i data-lucide="cpu" style="width: 15px;"></i> IoT Grow Telemetry</a>
-                <a href="#" class="history-item" onclick="loadSession(4)"><i data-lucide="truck" style="width: 15px;"></i> Zero-Inventory POD Hub</a>
-            </div>
-        </div>
-        <div class="user-profile">
-            <div class="user-profile-left">
-                <div class="avatar">R</div>
-                <div style="font-size: 13px; font-weight: 600;">Ray (Master)</div>
-            </div>
-            <button class="nav-icon-link" aria-label="Settings" onclick="openSettingsModal()"><i data-lucide="settings" style="width: 18px; height: 18px;"></i></button>
-        </div>
-    </nav>
-
-    <!-- Main Workspace Container -->
-    <main class="main-container" id="main-content">
-        <div class="viewport-hero">
-            <!-- Active Chat Stream Container (Appears when interacting with GanjaGuru) -->
-            <div class="chat-stream-container" id="chat-stream">
-                <div style="max-width: 680px; margin: 20px auto 10px auto; width: 100%; display: flex; justify-content: space-between; align-items: center;">
-                    <h3 style="color: var(--accent-green); font-family: 'Poppins', sans-serif;">GanjaGuru AI Live Stream</h3>
-                    <button class="modal-btn secondary" style="padding: 6px 12px; font-size: 12px;" onclick="returnToOrbit()">Back to Orbit</button>
-                </div>
-                <div id="chat-messages" style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 30px;">
-                    <div class="message-bubble ai">
-                        <h4>🌱 GanjaGuru Sentient AI</h4>
-                        <p>Greetings, cultivator. I am online and synced with your localized Ollama and web ecosystem. Ask me anything regarding strain profiles, micro-climate VPD targets, or 3D print-on-demand parameters.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stage & Orbit Node System -->
-            <div class="stage" id="orbit-stage">
-                <!-- Orbiting Navigation Node System -->
-                <div class="orbit-system">
-                    <a class="orbit-node node-1" onclick="openFeature('ai-hub')" aria-label="AI Budtender">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="bot" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
-                            <span>GURU AI</span>
-                        </div>
-                    </a>
-                    <a class="orbit-node node-2" onclick="openFeature('studio-3d')" aria-label="3D CAD Studio">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="box" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
-                            <span>3D POD</span>
-                        </div>
-                    </a>
-                    <a class="orbit-node node-3" onclick="openFeature('strains')" aria-label="Strain Finder">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="flower-2" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
-                            <span>STRAINS</span>
-                        </div>
-                    </a>
-                    <a class="orbit-node node-4" onclick="openFeature('store')" aria-label="Eco-Store">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="shopping-bag" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
-                            <span>STORE</span>
-                        </div>
-                    </a>
-                    <a class="orbit-node node-5" onclick="openFeature('telemetry')" aria-label="Grow Telemetry">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="activity" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
-                            <span>GROW</span>
-                        </div>
-                    </a>
-                    <a class="orbit-node node-6" onclick="openFeature('ar-vr')" aria-label="AR/VR Studio">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="glasses" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
-                            <span>AR/VR</span>
-                        </div>
-                    </a>
-                    <a class="orbit-node node-7" onclick="openFeature('community')" aria-label="Smoke Circle Community">
-                        <div class="node-counter-rotate">
-                            <i data-lucide="users" style="width: 20px; height: 20px; color: var(--accent-green);"></i>
-                            <span>CIRCLE</span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Central Ganja Groot SVG Artwork -->
-                <div class="groot-wrapper">
-                    <!-- Smoke Puff Emitters -->
-                    <div class="smoke-puff" style="animation-delay: 0s;"></div>
-                    <div class="smoke-puff" style="animation-delay: 1.3s;"></div>
-                    <div class="smoke-puff" style="animation-delay: 2.6s;"></div>
-
-                    <svg class="groot-svg" viewBox="0 0 240 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Roots & Base -->
-                        <path d="M70 290C70 270 90 260 120 260C150 260 170 270 170 290C170 305 150 315 120 315C90 315 70 305 70 290Z" fill="#1b3a27" stroke="#38d39f" stroke-width="2"/>
-                        <path d="M50 305L75 285" stroke="#38d39f" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M190 305L165 285" stroke="#38d39f" stroke-width="3" stroke-linecap="round"/>
-
-                        <!-- Stem / Torso -->
-                        <path d="M95 180C90 220 95 265 120 275C145 265 150 220 145 180" fill="#16191e" stroke="#38d39f" stroke-width="2.5"/>
-                        <path d="M105 200C115 220 125 220 135 200" stroke="#38d39f" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M102 230C115 245 125 245 138 230" stroke="#38d39f" stroke-width="1.5" stroke-linecap="round"/>
-
-                        <!-- Head / Crown -->
-                        <circle cx="120" cy="115" r="55" fill="#16191e" stroke="#38d39f" stroke-width="2.5"/>
-
-                        <!-- Cannabis Fan Leaves as Crown / Hair -->
-                        <path d="M120 60C120 40 100 20 80 15C100 35 110 50 120 60Z" fill="#2d5a3f" stroke="#38d39f" stroke-width="1.5"/>
-                        <path d="M120 60C130 35 150 20 170 15C150 35 135 50 120 60Z" fill="#2d5a3f" stroke="#38d39f" stroke-width="1.5"/>
-                        <path d="M120 60C120 30 135 10 120 0C105 10 120 30 120 60Z" fill="#38d39f" stroke="#38d39f" stroke-width="1.5"/>
-                        <path d="M85 85C65 75 45 75 35 85C55 95 70 95 85 85Z" fill="#2d5a3f" stroke="#38d39f" stroke-width="1.5"/>
-                        <path d="M155 85C175 75 195 75 205 85C185 95 170 95 155 85Z" fill="#2d5a3f" stroke="#38d39f" stroke-width="1.5"/>
-
-                        <!-- Glowing Eyes (Sentient AI Vibe) -->
-                        <circle cx="100" cy="110" r="6" fill="#38d39f" filter="drop-shadow(0 0 6px #38d39f)"/>
-                        <circle cx="140" cy="110" r="6" fill="#38d39f" filter="drop-shadow(0 0 6px #38d39f)"/>
-
-                        <!-- Smiling Botanist Mouth & Blunt -->
-                        <path d="M105 135C112 143 128 143 135 135" stroke="#38d39f" stroke-width="2.5" stroke-linecap="round"/>
-                        <!-- Hand holding blunt -->
-                        <path d="M130 155C140 155 150 145 155 135" stroke="#38d39f" stroke-width="2.5" stroke-linecap="round"/>
-                        <!-- Joint / Blunt stick -->
-                        <rect x="145" y="128" width="30" height="7" rx="3" transform="rotate(-15 145 128)" fill="#d4a373" stroke="#8e95a5" stroke-width="1"/>
-                        <!-- Glowing Cherry Tip -->
-                        <circle cx="172" cy="120" r="3.5" class="blunt-tip"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!-- Input Dock Area -->
-        <div class="input-container">
-            <div id="file-status-pill" class="file-status-pill">
-                <i data-lucide="paperclip" style="width: 12px; height: 12px;"></i>
-                <span id="file-status-text">Attached 3D Model / Strain Spec</span>
-                <i data-lucide="x" style="width: 12px; height: 12px; cursor: pointer;" onclick="clearAttachment()"></i>
-            </div>
-            <div class="input-box">
-                <button class="nav-icon-link" aria-label="Attach File" onclick="triggerFileUpload()">
-                    <i data-lucide="paperclip" style="width: 20px; height: 20px;"></i>
-                </button>
-                <input type="file" id="hidden-file-input" style="display:none;" onchange="handleFileSelected(event)">
-                <textarea id="prompt-textarea" placeholder="Ask GanjaGuru AI anything about strains, custom 3D bongs, or grow room VPD..." rows="1" oninput="autoResizeTextarea(this)"></textarea>
-                <button class="send-btn" aria-label="Send Prompt" onclick="submitPrompt()">
-                    <i data-lucide="arrow-up" style="width: 16px; height: 16px;"></i>
-                </button>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Age Verification & Cookie Handlers
-        function verifyAge() {
-            localStorage.setItem('potgrowhub_age_verified', 'true');
-            document.getElementById('age-modal').style.display = 'none';
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('potgrowhub_cookies_accepted', 'true');
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('potgrowhub_age_verified') === 'true') {
-                document.getElementById('age-modal').style.display = 'none';
-            }
-            if (localStorage.getItem('potgrowhub_cookies_accepted') === 'true') {
-                document.getElementById('cookie-banner').style.display = 'none';
-            }
-        });
-
-        // Mobile Sidebar Toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const sidebar = document.getElementById('sidebar');
-        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
-
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            sidebarBackdrop.classList.toggle('open');
-        });
-
-        sidebarBackdrop.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-            sidebarBackdrop.classList.remove('open');
-        });
-
-        // Textarea Auto-Resize
-        function autoResizeTextarea(el) {
-            el.style.height = 'auto';
-            el.style.height = Math.min(el.scrollHeight, 150) + 'px';
-        }
-
-        // File Attachment Simulation
-        function triggerFileUpload() {
-            document.getElementById('hidden-file-input').click();
-        }
-
-        function handleFileSelected(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const pill = document.getElementById('file-status-pill');
-                const text = document.getElementById('file-status-text');
-                text.textContent = file.name;
-                pill.style.display = 'flex';
-            }
-        }
-
-        function clearAttachment() {
-            document.getElementById('hidden-file-input').value = '';
-            document.getElementById('file-status-pill').style.display = 'none';
-        }
-
-        // Feature Modals System
-        function openFeature(type) {
-            const modal = document.getElementById('feature-modal');
-            const inner = document.getElementById('dynamic-modal-inner');
-            modal.classList.add('active');
-
-            if (type === 'ai-hub') {
-                inner.innerHTML = `
-                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">🌿 GanjaGuru AI Budtender & Bot</h3>
-                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Chat live with GanjaGuru, your sentient botanical copilot connected to local Ollama and cloud vector memory.</p>
-                    <div style="background:var(--bg-tertiary); padding:16px; border-radius:12px; border:1px solid var(--border-color);">
-                        <p style="font-size:13px; margin-bottom:10px;"><b>Active Model:</b> deepseek-r1 (Local Modelfile)</p>
-                        <button class="modal-btn primary" style="width:100%; font-size:13px;" onclick="openChatStream()">Launch Full-Screen Chat Stream</button>
-                    </div>
-                `;
-            } else if (type === 'studio-3d') {
-                inner.innerHTML = `
-                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">📦 3D Print-on-Demand CAD Studio</h3>
-                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Inspect custom bongs, grinder housings, and grow accessories in 3D & AR.</p>
-                    <div style="background:var(--bg-tertiary); border-radius:12px; overflow:hidden; border:1px solid var(--border-color); height:300px; display:flex; align-items:center; justify-content:center;">
-                        <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" alt="3D POD Preview" auto-rotate camera-controls style="width:100%; height:100%;"></model-viewer>
-                    </div>
-                `;
-            } else if (type === 'strains') {
-                inner.innerHTML = `
-                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">🧬 Strain Discovery & Terpene Finder</h3>
-                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Explore curated profiles based on THC/CBD ratio, myrcene, limonene, and caryophyllene.</p>
-                    <div style="display:flex; flex-direction:column; gap:8px;">
-                        <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
-                            <div><b>OG Kush (Indica)</b><br><span style="font-size:12px; color:var(--text-muted);">Terpenes: Myrcene, Limonene</span></div>
-                            <span style="color:var(--accent-green); font-weight:600;">28.4% THC</span>
-                        </div>
-                        <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
-                            <div><b>Super Lemon Haze (Sativa)</b><br><span style="font-size:12px; color:var(--text-muted);">Terpenes: Terpinolene, Caryophyllene</span></div>
-                            <span style="color:var(--accent-green); font-weight:600;">25.1% THC</span>
-                        </div>
-                    </div>
-                `;
-            } else if (type === 'store') {
-                inner.innerHTML = `
-                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">🛍️ Eco-Friendly Zero-Inventory Store</h3>
-                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Order print-on-demand merchandise and sustainable gardening kits.</p>
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-                        <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; border:1px solid var(--border-color);">
-                            <b>PotGrowHub Organic Tee</b><br><span style="font-size:12px; color:var(--accent-green);">$29.99</span>
-                        </div>
-                        <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; border:1px solid var(--border-color);">
-                            <b>Smart VPD Sensor Kit</b><br><span style="font-size:12px; color:var(--accent-green);">$89.99</span>
-                        </div>
-                    </div>
-                `;
-            } else if (type === 'telemetry') {
-                inner.innerHTML = `
-                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">📊 IoT Grow Room Telemetry</h3>
-                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Real-time climate monitoring for your indoor grow setup.</p>
-                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; text-align:center;">
-                        <div style="background:var(--bg-tertiary); padding:14px; border-radius:8px;"><span style="font-size:11px; color:var(--text-muted);">TEMPERATURE</span><br><b style="color:var(--accent-green); font-size:18px;">76.4°F</b></div>
-                        <div style="background:var(--bg-tertiary); padding:14px; border-radius:8px;"><span style="font-size:11px; color:var(--text-muted);">HUMIDITY</span><br><b style="color:var(--accent-green); font-size:18px;">58.2%</b></div>
-                        <div style="background:var(--bg-tertiary); padding:14px; border-radius:8px;"><span style="font-size:11px; color:var(--text-muted);">VPD TARGET</span><br><b style="color:var(--accent-green); font-size:18px;">1.25 kPa</b></div>
-                    </div>
-                `;
-            } else if (type === 'ar-vr') {
-                inner.innerHTML = `
-                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">👓 AR/VR Spatial Viewer</h3>
-                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Project custom bongs and grow tent layouts into your physical room using WebXR.</p>
-                    <button class="modal-btn primary" style="width:100%;" onclick="alert('Launching WebXR AR Session...')">Activate AR Camera</button>
-                `;
-            } else if (type === 'community') {
-                inner.innerHTML = `
-                    <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">🔥 Smoke Circle Community</h3>
-                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Connect with fellow growers, share harvest photos, and discuss breeding projects.</p>
-                    <div style="background:var(--bg-tertiary); padding:12px; border-radius:8px; font-size:13px; color:var(--text-muted);">
-                        <b>Recent Thread:</b> Best organic nutrient blends for vegetative growth? (14 replies)
-                    </div>
-                `;
-            }
-            lucide.createIcons();
-        }
-
-        function closeFeatureModal(event) {
-            document.getElementById('feature-modal').classList.remove('active');
-        }
-
-        function closeFeatureModalExplicit() {
-            document.getElementById('feature-modal').classList.remove('active');
-        }
-
-        function openSettingsModal() {
-            const modal = document.getElementById('feature-modal');
-            const inner = document.getElementById('dynamic-modal-inner');
-            modal.classList.add('active');
-            inner.innerHTML = `
-                <h3 style="color:var(--accent-green); font-family:'Poppins',sans-serif; margin-bottom:12px;">⚙️ Master Settings</h3>
-                <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Configure your Ollama endpoint, PWA cache settings, and local database sync.</p>
-                <div style="display:flex; flex-direction:column; gap:10px; font-size:13px;">
-                    <label>Ollama Endpoint: <input type="text" value="http://localhost:11434" style="width:100%; padding:8px; background:var(--bg-tertiary); border:1px solid var(--border-color); color:var(--text-main); border-radius:6px; margin-top:4px;"></label>
-                    <label>Active Local Model: <input type="text" value="deepseek-r1" style="width:100%; padding:8px; background:var(--bg-tertiary); border:1px solid var(--border-color); color:var(--text-main); border-radius:6px; margin-top:4px;"></label>
-                    <button class="modal-btn primary" style="margin-top:10px;" onclick="alert('Settings saved successfully!'); closeFeatureModalExplicit();">Save Configuration</button>
-                </div>
-            `;
-        }
-
-        function openChatStream() {
-            closeFeatureModalExplicit();
-            document.getElementById('chat-stream').classList.add('active');
-            document.getElementById('orbit-stage').style.display = 'none';
-        }
-
-        function returnToOrbit() {
-            document.getElementById('chat-stream').classList.remove('active');
-            document.getElementById('orbit-stage').style.display = 'flex';
-        }
-
-        function startNewSession() {
-            openChatStream();
-            const container = document.getElementById('chat-messages');
-            container.innerHTML = `
-                <div class="message-bubble ai">
-                    <h4>🌱 GanjaGuru Sentient AI</h4>
-                    <p>New botanical session initialized. What shall we design, grow, or explore today?</p>
-                </div>
-            `;
-        }
-
-        function loadSession(id) {
-            openChatStream();
-            const titles = {
-                1: "GanjaGuru Strain Match",
-                2: "3D Custom Bong CAD",
-                3: "IoT Grow Telemetry",
-                4: "Zero-Inventory POD Hub"
-            };
-            const container = document.getElementById('chat-messages');
-            container.innerHTML = `
-                <div class="message-bubble ai">
-                    <h4>🌱 GanjaGuru Sentient AI</h4>
-                    <p>Loaded previous session: <b>${titles[id] || 'Botanical Session'}</b>. How can I assist you further?</p>
-                </div>
-            `;
-        }
-
-        // Submit Prompt Action
-        function submitPrompt() {
-            const textarea = document.getElementById('prompt-textarea');
-            const val = textarea.value.trim();
-            if (!val) return;
-            
-            openChatStream();
-            const container = document.getElementById('chat-messages');
-            
-            // Append User Message
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message-bubble user';
-            userMsg.textContent = val;
-            container.appendChild(userMsg);
-            
-            textarea.value = '';
-            textarea.style.height = '24px';
-            clearAttachment();
-
-            // Simulate AI Response
-            setTimeout(() => {
-                const aiMsg = document.createElement('div');
-                aiMsg.className = 'message-bubble ai';
-                aiMsg.innerHTML = `<h4>🌱 GanjaGuru Sentient AI</h4><p>Analyzing query: "<em>${val}</em>"... Optimal parameters computed across your 3D POD and strain databases. Everything is fully optimized.</p>`;
-                container.appendChild(aiMsg);
-                container.scrollTop = container.scrollHeight;
-            }, 800);
-        }
-
-        // Offline PWA Detection
-        window.addEventListener('online', updateOnlineStatus);
-        window.addEventListener('offline', updateOnlineStatus);
-
-        function updateOnlineStatus() {
-            const banner = document.getElementById('offline-banner');
-            if (!navigator.onLine) {
-                banner.style.display = 'block';
-            } else {
-                banner.style.display = 'none';
-            }
-        }
-        updateOnlineStatus();
-
-        // Register Service Worker for PWA
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').then(reg => {
-                    console.log('ServiceWorker registered with scope:', reg.scope);
-                }).catch(err => {
-                    console.log('ServiceWorker registration failed:', err);
-                });
-            });
-        }
-    </script>
+  </div>
+  <div class="input-container">
+    <form class="input-box" id="chat-form" role="search" aria-label="Ask PotGrowHub">
+      <button type="button" id="attach-btn" aria-label="Attach file" style="background:none;border:none;padding:0;cursor:pointer;color:var(--text-muted);display:flex;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+      </button>
+      <label for="chat-input" class="visually-hidden">Ask PotGrowHub anything about strains, legal, or designs</label>
+      <textarea id="chat-input" name="q" placeholder="Ask PotGrowHub anything about strains, legal, or designs..." aria-label="Ask PotGrowHub" autocomplete="off" spellcheck="true" rows="1"></textarea>
+      <button type="submit" class="send-btn" id="send-btn" aria-label="Send message">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+      </button>
+    </form>
+  </div>
+</main>
+<script>
+(function () {
+  "use strict";
+  window.PotGrowHub = window.PotGrowHub || {};
+  window.PotGrowHub.config = {
+    brand: "PotGrowHub",
+    domain: "potgrowhub.store",
+    canonicalUrl: "https://potgrowhub.store/",
+    wwwUrl: "https://www.potgrowhub.store/",
+    apiUrl: "https://api.potgrowhub.store/",
+    adminUrl: "https://admin.potgrowhub.store/",
+    authUrl: "https://auth.potgrowhub.store/",
+    cdnUrl: "https://cdn.potgrowhub.store/",
+    environment: "production",
+    protocol: "https:",
+    hostname: window.location.hostname,
+    port: window.location.port || "443",
+    locale: "en-US",
+    timezone: "America/New_York",
+    currency: "USD"
+  };
+  if (window.location.protocol !== "https:" && window.location.hostname === "potgrowhub.store") {
+    window.location.replace("https://potgrowhub.store" + window.location.pathname + window.location.search + window.location.hash);
+  }
+  if (window.location.hostname === "www.potgrowhub.store") {
+    window.location.replace("https://potgrowhub.store" + window.location.pathname + window.location.search + window.location.hash);
+  }
+  var tx = document.getElementById("chat-input");
+  if (tx) {
+    tx.addEventListener("input", function () {
+      this.style.height = "auto";
+      this.style.height = Math.min(this.scrollHeight, 150) + "px";
+    });
+  }
+  var toggle = document.getElementById("mobile-nav-toggle");
+  var sidebar = document.getElementById("sidebar");
+  if (toggle && sidebar) {
+    toggle.addEventListener("click", function () {
+      var open = sidebar.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && sidebar.classList.contains("is-open")) {
+        sidebar.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open navigation menu");
+        toggle.focus();
+      }
+    });
+  }
+  var form = document.getElementById("chat-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var val = tx && tx.value.trim();
+      if (!val) return;
+      if (typeof gtag === "function") {
+        gtag("event", "search", { search_term: val });
+      }
+      window.location.href = "/search?q=" + encodeURIComponent(val);
+    });
+  }
+})();
+</script>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="144bd917-e9b6-46ad-afc2-3388b8cadf79" data-app-host="app.netlify.com"></script>
 </body>
 </html>

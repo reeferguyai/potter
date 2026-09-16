@@ -1,0 +1,254 @@
+<svg id="ganja-goddess-3d-avatar" viewBox="0 0 1000 1000" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Cinematic Background Vignette -->
+    <radialGradient id="bg-vignette" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#182c2d"/>
+      <stop offset="50%" stop-color="#0c1719"/>
+      <stop offset="100%" stop-color="#04080a"/>
+    </radialGradient>
+
+    <!-- Hyper-Realistic Cyan Eye Core Shader -->
+    <radialGradient id="cyan-iris-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#73ffff"/>
+      <stop offset="60%" stop-color="#00ffd5"/>
+      <stop offset="85%" stop-color="#007f66"/>
+      <stop offset="100%" stop-color="#02211b"/>
+    </radialGradient>
+
+    <!-- Amber Ember & Sap Spore Gradient -->
+    <radialGradient id="spore-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#ffcc00"/>
+      <stop offset="70%" stop-color="#ff6600"/>
+      <stop offset="100%" stop-color="rgba(255, 102, 0, 0)"/>
+    </radialGradient>
+
+    <!-- Joint Cherry Thermal Glow -->
+    <radialGradient id="cherry-thermal" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#ffdd66"/>
+      <stop offset="55%" stop-color="#ff4400"/>
+      <stop offset="85%" stop-color="#cc0000"/>
+      <stop offset="100%" stop-color="rgba(204, 0, 0, 0)"/>
+    </radialGradient>
+
+    <!-- Multi-Stage Bloom & Blur Filters -->
+    <filter id="bloom-intense" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur1"/>
+      <feGaussianBlur stdDeviation="18" result="blur2"/>
+      <feGaussianBlur stdDeviation="35" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="smoke-volumetric" x="-40%" y="-40%" width="180%" height="180%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="25" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+      <feGaussianBlur in="displaced" stdDeviation="8" result="blurred"/>
+      <feMerge>
+        <feMergeNode in="blurred"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Reusable Detailed 3D Cannabis Leaf -->
+    <g id="leaf-3d">
+      <!-- Shadow Under-layer -->
+      <path d="M0,0 Q-8,-30 -20,-50 Q-8,-42 0,-70 Q8,-42 20,-50 Q8,-30 0,0 Z" fill="#0d1f11"/>
+      <!-- Main Blade -->
+      <path d="M0,0 Q-6,-28 -16,-48 Q-5,-40 0,-66 Q5,-40 16,-48 Q6,-28 0,0 Z" fill="#2d6e24"/>
+      <!-- Side Serrations -->
+      <path d="M0,0 Q-14,-20 -30,-30 Q-16,-24 -20,-48 Q-6,-34 0,0 Z" fill="#23571c"/>
+      <path d="M0,0 Q14,-20 30,-30 Q16,-24 20,-48 Q6,-34 0,0 Z" fill="#23571c"/>
+      <path d="M0,0 Q-20,-10 -36,-10 Q-24,-14 -28,-26 Q-12,-18 0,0 Z" fill="#1b4516"/>
+      <path d="M0,0 Q20,-10 36,-10 Q24,-14 28,-26 Q12,-18 0,0 Z" fill="#1b4516"/>
+      <!-- Glowing Vein Highlights -->
+      <path d="M0,0 L0,-62 M0,-8 L-24,-27 M0,-8 L24,-27 M0,-8 L-30,-9 M0,-8 L30,-9" stroke="#73e659" stroke-width="1.2" fill="none" opacity="0.85"/>
+      <path d="M0,0 L0,-62" stroke="#ffffff" stroke-width="0.6" fill="none" opacity="0.6"/>
+    </g>
+  </defs>
+
+  <style>
+    /* Continuous Ambient Animations */
+    .cyan-eye-pulse {
+      animation: eyeBeaming 2.8s ease-in-out infinite alternate;
+    }
+
+    .ember-spore {
+      animation: sporeFloat 3s ease-in-out infinite alternate;
+    }
+    .sp-1 { animation-delay: 0.2s; }
+    .sp-2 { animation-delay: 0.7s; }
+    .sp-3 { animation-delay: 1.3s; }
+    .sp-4 { animation-delay: 1.8s; }
+    .sp-5 { animation-delay: 2.3s; }
+
+    .cherry-burn {
+      animation: cherryPulse 1.5s ease-in-out infinite alternate;
+    }
+
+    .volumetric-smoke-1 {
+      animation: smokeRise1 5s linear infinite;
+      transform-origin: 790px 600px;
+    }
+    .volumetric-smoke-2 {
+      animation: smokeRise2 6s linear infinite 2s;
+      transform-origin: 790px 600px;
+    }
+
+    @keyframes eyeBeaming {
+      0% { filter: drop-shadow(0 0 8px #00ffd5) drop-shadow(0 0 20px #00ffd5); opacity: 0.85; }
+      100% { filter: drop-shadow(0 0 18px #00ffd5) drop-shadow(0 0 45px #00ffd5); opacity: 1.0; }
+    }
+
+    @keyframes sporeFloat {
+      0% { transform: translateY(0px) scale(0.8); opacity: 0.4; }
+      50% { opacity: 1.0; filter: drop-shadow(0 0 8px #ffaa00); }
+      100% { transform: translateY(-25px) scale(1.3); opacity: 0.3; }
+    }
+
+    @keyframes cherryPulse {
+      0% { filter: drop-shadow(0 0 6px #ff3300); }
+      100% { filter: drop-shadow(0 0 22px #ffaa00); }
+    }
+
+    @keyframes smokeRise1 {
+      0% { opacity: 0; transform: translateY(0) translateX(0) scale(0.4) rotate(0deg); }
+      20% { opacity: 0.7; }
+      80% { opacity: 0.4; }
+      100% { opacity: 0; transform: translateY(-320px) translateX(-60px) scale(2.4) rotate(-25deg); }
+    }
+
+    @keyframes smokeRise2 {
+      0% { opacity: 0; transform: translateY(0) translateX(0) scale(0.3) rotate(0deg); }
+      30% { opacity: 0.6; }
+      80% { opacity: 0.3; }
+      100% { opacity: 0; transform: translateY(-360px) translateX(50px) scale(2.8) rotate(30deg); }
+    }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="1000" fill="url(#bg-vignette)"/>
+
+  <!-- Back Foliage Crown Geometry (Deep Layer) -->
+  <g id="layer-back-crown">
+    <use href="#leaf-3d" transform="translate(320, 260) rotate(-75) scale(1.6)"/>
+    <use href="#leaf-3d" transform="translate(250, 340) rotate(-90) scale(1.5)"/>
+    <use href="#leaf-3d" transform="translate(210, 440) rotate(-105) scale(1.4)"/>
+    <use href="#leaf-3d" transform="translate(720, 300) rotate(65) scale(1.5)"/>
+    <use href="#leaf-3d" transform="translate(770, 390) rotate(85) scale(1.4)"/>
+  </g>
+
+  <!-- Deep Shadow Silhouette & Bark Base -->
+  <g id="layer-bark-body">
+    <!-- Neck & Torso Foundation -->
+    <path d="M300,1000 C340,820 280,700 400,600 C450,560 540,550 620,600 C720,660 740,820 780,1000 Z" fill="#140d09" stroke="#060403" stroke-width="4"/>
+
+    <!-- Braided Wood Roots & Muscle Anatomy -->
+    <path d="M260,1000 C320,880 400,780 470,670 C500,620 480,580 440,570" fill="none" stroke="#261810" stroke-width="26" stroke-linecap="round"/>
+    <path d="M310,1000 C380,900 460,820 530,710 C570,640 540,590 500,580" fill="none" stroke="#3b271a" stroke-width="20" stroke-linecap="round"/>
+    <path d="M380,1000 C450,910 540,830 610,730 C660,660 630,600 580,590" fill="none" stroke="#1f130c" stroke-width="18" stroke-linecap="round"/>
+
+    <!-- Wood Bark Highlights (Rim Light Effect) -->
+    <path d="M280,1000 C340,880 420,780 490,670" fill="none" stroke="#5e412f" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    <path d="M620,600 C700,660 720,820 760,1000" fill="none" stroke="#00ffd5" stroke-width="3" opacity="0.45"/> <!-- Cyan Rim Light -->
+
+    <!-- Shoulder Foliage Overlay -->
+    <use href="#leaf-3d" transform="translate(190, 830) rotate(-55) scale(1.3)"/>
+    <use href="#leaf-3d" transform="translate(140, 900) rotate(-75) scale(1.4)"/>
+    <use href="#leaf-3d" transform="translate(230, 950) rotate(-45) scale(1.2)"/>
+  </g>
+
+  <!-- 3D Wood Grain Head & Facial Carvings -->
+  <g id="layer-head-structure">
+    <!-- Skull Base -->
+    <path d="M400,580 C360,490 380,380 460,300 C550,210 660,240 720,320 C780,400 750,520 670,590 C590,660 460,650 400,580 Z" fill="#291a11" stroke="#0d0805" stroke-width="6"/>
+    <!-- Deep Eye Sockets Recess -->
+    <path d="M470,430 C430,420 420,490 480,510 C530,520 550,450 470,430 Z" fill="#0c0704"/>
+    <path d="M600,440 C560,430 550,500 610,520 C660,530 680,460 600,440 Z" fill="#0c0704"/>
+
+    <!-- Facial Bark Crevices & Cracks -->
+    <path d="M510,340 Q540,410 500,500 T480,600" fill="none" stroke="#120b07" stroke-width="5" stroke-linecap="round"/>
+    <path d="M570,320 Q610,390 580,490 T570,590" fill="none" stroke="#120b07" stroke-width="6" stroke-linecap="round"/>
+    <path d="M620,350 Q660,420 630,510" fill="none" stroke="#120b07" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Cheekbone & Brow Ridges -->
+    <path d="M460,400 Q530,410 580,400" fill="none" stroke="#4a3120" stroke-width="8" stroke-linecap="round"/>
+    <path d="M450,520 Q520,550 580,530" fill="none" stroke="#3d2719" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Nose Ridge Structure -->
+    <path d="M550,420 L540,510 L520,525" fill="none" stroke="#1a100a" stroke-width="6" stroke-linecap="round"/>
+    <path d="M545,420 L535,510" fill="none" stroke="#634531" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Forehead Crown Foliage (Front Layer) -->
+  <g id="layer-front-crown">
+    <use href="#leaf-3d" transform="translate(440, 240) rotate(-35) scale(1.8)"/>
+    <use href="#leaf-3d" transform="translate(520, 200) rotate(-15) scale(2.0)"/>
+    <use href="#leaf-3d" transform="translate(610, 195) rotate(10) scale(2.0)"/>
+    <use href="#leaf-3d" transform="translate(690, 220) rotate(30) scale(1.8)"/>
+    <use href="#leaf-3d" transform="translate(370, 280) rotate(-60) scale(1.7)"/>
+    <use href="#leaf-3d" transform="translate(300, 350) rotate(-80) scale(1.5)"/>
+  </g>
+
+  <!-- Glowing Cyan Eyes (Hyper-Illuminated) -->
+  <g id="layer-cyan-eyes" class="cyan-eye-pulse">
+    <!-- Left Eye -->
+    <ellipse cx="490" cy="460" rx="30" ry="24" fill="url(#cyan-iris-core)"/>
+    <circle cx="490" cy="460" r="10" fill="#ffffff" filter="url(#bloom-intense)"/>
+    <ellipse cx="482" cy="452" rx="6" ry="4" fill="#ffffff" opacity="0.8"/> <!-- Eye Glint -->
+
+    <!-- Right Eye -->
+    <ellipse cx="625" cy="470" rx="27" ry="22" fill="url(#cyan-iris-core)"/>
+    <circle cx="625" cy="470" r="9" fill="#ffffff" filter="url(#bloom-intense)"/>
+    <ellipse cx="618" cy="463" rx="5" ry="3" fill="#ffffff" opacity="0.8"/> <!-- Eye Glint -->
+  </g>
+
+  <!-- Hand, Joint Prop, Ember & Volumetric Smoke -->
+  <g id="layer-prop-and-smoke">
+    <!-- Root Hand Holding Joint -->
+    <path d="M780,1000 C750,890 760,780 720,680 C700,640 660,630 620,620" fill="none" stroke="#261810" stroke-width="28" stroke-linecap="round"/>
+    <path d="M720,670 C690,630 660,610 600,600" fill="none" stroke="#422c1d" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- Joint Body -->
+    <path d="M580,565 L790,595" stroke="#ded8c5" stroke-width="12" stroke-linecap="round"/>
+    <path d="M575,565 L598,568" stroke="#a89a74" stroke-width="13"/> <!-- Filter Tip -->
+
+    <!-- Burning Cherry Ember -->
+    <circle cx="792" cy="595" r="11" fill="url(#cherry-thermal)" class="cherry-burn" filter="url(#bloom-intense)"/>
+    <circle cx="792" cy="595" r="4" fill="#ffffff"/>
+
+    <!-- Volumetric Smoke Streams -->
+    <g id="smoke-plumes" filter="url(#smoke-volumetric)">
+      <path class="volumetric-smoke-1" d="M792,595 Q820,510 770,440 T830,300 T760,160" fill="none" stroke="rgba(215, 245, 240, 0.55)" stroke-width="22" stroke-linecap="round"/>
+      <path class="volumetric-smoke-2" d="M792,595 Q760,520 810,420 T750,270 T820,130" fill="none" stroke="rgba(180, 230, 220, 0.4)" stroke-width="30" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Floating Bioluminescent Amber Spores & Embers -->
+  <g id="layer-amber-spores">
+    <!-- Torso & Shoulder Spores -->
+    <circle cx="410" cy="680" r="7" fill="url(#spore-glow)" class="ember-spore sp-1" filter="url(#bloom-intense)"/>
+    <circle cx="480" cy="740" r="9" fill="url(#spore-glow)" class="ember-spore sp-2" filter="url(#bloom-intense)"/>
+    <circle cx="530" cy="660" r="6" fill="url(#spore-glow)" class="ember-spore sp-3" filter="url(#bloom-intense)"/>
+    <circle cx="370" cy="820" r="8" fill="url(#spore-glow)" class="ember-spore sp-4" filter="url(#bloom-intense)"/>
+    <circle cx="580" cy="800" r="11" fill="url(#spore-glow)" class="ember-spore sp-5" filter="url(#bloom-intense)"/>
+    <circle cx="460" cy="910" r="7" fill="url(#spore-glow)" class="ember-spore sp-1" filter="url(#bloom-intense)"/>
+
+    <!-- Head & Crown Spores -->
+    <circle cx="510" cy="340" r="8" fill="url(#spore-glow)" class="ember-spore sp-3" filter="url(#bloom-intense)"/>
+    <circle cx="630" cy="320" r="7" fill="url(#spore-glow)" class="ember-spore sp-4" filter="url(#bloom-intense)"/>
+    <circle cx="460" cy="420" r="5" fill="url(#spore-glow)" class="ember-spore sp-2" filter="url(#bloom-intense)"/>
+    <circle cx="690" cy="410" r="8" fill="url(#spore-glow)" class="ember-spore sp-5" filter="url(#bloom-intense)"/>
+    <circle cx="490" cy="540" r="6" fill="url(#spore-glow)" class="ember-spore sp-1" filter="url(#bloom-intense)"/>
+
+    <!-- Arm & Hand Spores -->
+    <circle cx="740" cy="760" r="6" fill="url(#spore-glow)" class="ember-spore sp-4" filter="url(#bloom-intense)"/>
+    <circle cx="710" cy="850" r="8" fill="url(#spore-glow)" class="ember-spore sp-2" filter="url(#bloom-intense)"/>
+  </g>
+</svg>
