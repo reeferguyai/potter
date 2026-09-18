@@ -204,3 +204,6 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 ---
 
 *Maintained by Ray & the PotGrowHub AI Engine (`ganjaguru@potgrowhub.local`).*
+## Workspace architecture
+
+The repository is now organized around explicit ownership boundaries. The current static PWA remains at the repository root while the Vite web application is being built in `apps/web`. Administrative UI, API, background work, shared contracts, database lifecycle assets, infrastructure, and model metadata each have dedicated directories. See [`docs/architecture/repository-layout.md`](docs/architecture/repository-layout.md) for the rules and migration boundaries.

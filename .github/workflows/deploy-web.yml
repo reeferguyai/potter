@@ -1,0 +1,7 @@
+name: Deploy web
+on: { workflow_dispatch: {} }
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Configure web deployment target before enabling this workflow."

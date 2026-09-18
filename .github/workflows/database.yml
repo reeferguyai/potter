@@ -1,0 +1,7 @@
+name: Database
+on: { workflow_dispatch: {} }
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Configure database credentials before enabling migrations."
