@@ -1,116 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ╔══════════════════════════════════════════════════════════════════════╗
-  ║                    🌱 POTGROWHUB SITEMAP                            ║
-  ║              https://potgrowhub.store/sitemap.xml                  ║
-  ║                                                                    ║
-  ║  MASTER SITEMAP INDEX                                              ║
-  ║  Architecture: AI • Knowledge • Cannabis • Cultivation • Commerce ║
-  ║  Tools • AR/VR/XR • Community • Content • Media • Company          ║
-  ╚══════════════════════════════════════════════════════════════════════╝
 
-  IMPORTANT:
-  • This file is the MASTER SITEMAP INDEX.
-  • Each child sitemap contains PotGrowHub URLs.
-  • Do NOT place external backlink URLs inside <sitemap>.
-  • Backlink opportunities are documented below for implementation.
-  • Keep only live, canonical, indexable PotGrowHub sitemap files here.
-  • Keep lastmod accurate to actual content changes.
-
-  ══════════════════════════════════════════════════════════════════════
-  🌐 FREE DISCOVERY / BACKLINK TARGETS
-  ══════════════════════════════════════════════════════════════════════
-
-  GitHub
-  https://github.com/
-
-  GitLab
-  https://gitlab.com/
-
-  Bitbucket
-  https://bitbucket.org/
-
-  Codeberg
-  https://codeberg.org/
-
-  LinkedIn
-  https://www.linkedin.com/
-
-  YouTube
-  https://www.youtube.com/
-
-  Reddit
-  https://www.reddit.com/
-
-  Pinterest
-  https://www.pinterest.com/
-
-  Facebook
-  https://www.facebook.com/
-
-  Instagram
-  https://www.instagram.com/
-
-  X
-  https://x.com/
-
-  TikTok
-  https://www.tiktok.com/
-
-  Google Business Profile
-  https://www.google.com/business/
-
-  Bing Webmaster Tools
-  https://www.bing.com/webmasters/
-
-  Bing Places
-  https://www.bingplaces.com/
-
-  Apple Business Connect
-  https://businessconnect.apple.com/
-
-  NOTE:
-  These platforms are NOT sitemap entries.
-  Use them legitimately for profiles, project pages, publications,
-  open-source projects, videos, resources, business listings, etc.
-  Do not create spam, fake profiles, duplicate listings, or automated
-  mass submissions.
-
-  ══════════════════════════════════════════════════════════════════════
-  🔎 SEARCH / DISCOVERY
-  ══════════════════════════════════════════════════════════════════════
-
-  Google Search Console
-  https://search.google.com/search-console/
-
-  Bing Webmaster Tools
-  https://www.bing.com/webmasters/
-
-  IndexNow
-  https://www.indexnow.org/
-
-  ══════════════════════════════════════════════════════════════════════
-  📈 INDEXING
-  ══════════════════════════════════════════════════════════════════════
-
-  Recommended robots.txt:
-
-  Sitemap: https://potgrowhub.store/sitemap.xml
-
-  IndexNow can additionally be used for newly created, updated,
-  or deleted URLs. IndexNow is free and is designed to notify
-  participating search engines about URL changes.
-  https://www.indexnow.org/
-
-  ══════════════════════════════════════════════════════════════════════
--->
-
-<sitemapindex
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- ============================================================= -->
-  <!-- 🌱 CORE -->
-  <!-- ============================================================= -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-core.xml</loc>
@@ -121,20 +11,7 @@
   </sitemap>
 
   <sitemap>
-    <loc>https://potgrowhub.store/sitemap-navigation.xml</loc>
-  </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🤖 AI / INTELLIGENCE -->
-  <!-- ============================================================= -->
-
-  <sitemap>
     <loc>https://potgrowhub.store/sitemap-ai.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-agents.xml</loc>
   </sitemap>
 
   <sitemap>
@@ -146,17 +23,8 @@
   </sitemap>
 
   <sitemap>
-    <loc>https://potgrowhub.store/sitemap-ai-tools.xml</loc>
+    <loc>https://potgrowhub.store/sitemap-agents.xml</loc>
   </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-ai-guides.xml</loc>
-  </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 📚 KNOWLEDGE -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-knowledge.xml</loc>
@@ -177,11 +45,6 @@
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-education.xml</loc>
   </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🌿 CANNABIS DATA -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-strains.xml</loc>
@@ -206,19 +69,6 @@
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-effects.xml</loc>
   </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-flavors-aromas.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-strain-comparisons.xml</loc>
-  </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🌱 CULTIVATION -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-cultivation.xml</loc>
@@ -312,11 +162,6 @@
     <loc>https://potgrowhub.store/sitemap-ipm.xml</loc>
   </sitemap>
 
-
-  <!-- ============================================================= -->
-  <!-- 🛒 PRODUCTS -->
-  <!-- ============================================================= -->
-
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-products.xml</loc>
   </sitemap>
@@ -346,14 +191,6 @@
   </sitemap>
 
   <sitemap>
-    <loc>https://potgrowhub.store/sitemap-consumables.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-cannabis-lifestyle.xml</loc>
-  </sitemap>
-
-  <sitemap>
     <loc>https://potgrowhub.store/sitemap-product-guides.xml</loc>
   </sitemap>
 
@@ -364,11 +201,6 @@
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-product-reviews.xml</loc>
   </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🏪 MARKETPLACE -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-marketplace.xml</loc>
@@ -399,15 +231,6 @@
   </sitemap>
 
   <sitemap>
-    <loc>https://potgrowhub.store/sitemap-local-services.xml</loc>
-  </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- ⭐ COLLECTIONS -->
-  <!-- ============================================================= -->
-
-  <sitemap>
     <loc>https://potgrowhub.store/sitemap-collections.xml</loc>
   </sitemap>
 
@@ -434,11 +257,6 @@
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-recommended.xml</loc>
   </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🎨 DESIGN / 3D -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-design-studio.xml</loc>
@@ -469,17 +287,8 @@
   </sitemap>
 
   <sitemap>
-    <loc>https://potgrowhub.store/sitemap-digital-designs.xml</loc>
-  </sitemap>
-
-  <sitemap>
     <loc>https://potgrowhub.store/sitemap-printables.xml</loc>
   </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🥽 AR / VR / XR -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-ar.xml</loc>
@@ -504,23 +313,6 @@
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-virtual-grow-room.xml</loc>
   </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-ar-products.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-ar-experiences.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-vr-experiences.xml</loc>
-  </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🧮 TOOLS / CALCULATORS -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-tools.xml</loc>
@@ -562,11 +354,6 @@
     <loc>https://potgrowhub.store/sitemap-comparison-tools.xml</loc>
   </sitemap>
 
-
-  <!-- ============================================================= -->
-  <!-- 🍪 RECIPES / EDIBLES / PROCESSING -->
-  <!-- ============================================================= -->
-
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-recipes.xml</loc>
   </sitemap>
@@ -594,15 +381,6 @@
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-processing.xml</loc>
   </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-post-harvest.xml</loc>
-  </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🛡️ SAFETY -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-health-safety.xml</loc>
@@ -636,11 +414,6 @@
     <loc>https://potgrowhub.store/sitemap-consumer-safety.xml</loc>
   </sitemap>
 
-
-  <!-- ============================================================= -->
-  <!-- ⚖️ LEGAL -->
-  <!-- ============================================================= -->
-
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-legal.xml</loc>
   </sitemap>
@@ -651,10 +424,6 @@
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-compliance.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-age-restrictions.xml</loc>
   </sitemap>
 
   <sitemap>
@@ -673,11 +442,6 @@
     <loc>https://potgrowhub.store/sitemap-legal-guides.xml</loc>
   </sitemap>
 
-
-  <!-- ============================================================= -->
-  <!-- 🛍️ ECOMMERCE -->
-  <!-- ============================================================= -->
-
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-ecommerce.xml</loc>
   </sitemap>
@@ -687,37 +451,8 @@
   </sitemap>
 
   <sitemap>
-    <loc>https://potgrowhub.store/sitemap-commerce-guides.xml</loc>
-  </sitemap>
-
-  <sitemap>
     <loc>https://potgrowhub.store/sitemap-shopping.xml</loc>
   </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-checkout.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-orders.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-cart.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-subscriptions.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-affiliate.xml</loc>
-  </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 🚚 LOGISTICS -->
-  <!-- ============================================================= -->
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-logistics.xml</loc>
@@ -744,19 +479,6 @@
   </sitemap>
 
   <sitemap>
-    <loc>https://potgrowhub.store/sitemap-supply-chain.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-tracking.xml</loc>
-  </sitemap>
-
-
-  <!-- ============================================================= -->
-  <!-- 👥 COMMUNITY -->
-  <!-- ============================================================= -->
-
-  <sitemap>
     <loc>https://potgrowhub.store/sitemap-community.xml</loc>
   </sitemap>
 
@@ -770,10 +492,6 @@
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-ratings.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-comments.xml</loc>
   </sitemap>
 
   <sitemap>
@@ -804,10 +522,558 @@
     <loc>https://potgrowhub.store/sitemap-quests.xml</loc>
   </sitemap>
 
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-blog.xml</loc>
+  </sitemap>
 
-  <!-- ============================================================= -->
-  <!-- 📰 CONTENT -->
-  <!-- ============================================================= -->
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-news.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-trends.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-research.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-case-studies.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-interviews.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-announcements.xml</loc>
+  </sitemap>
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-core.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-pages.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-ai.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-ganjaguru.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-ganjagroot.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-agents.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-knowledge.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-wiki.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-glossary.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-faq.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-education.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-strains.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-genetics.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-breeding.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-terpenes.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-cannabinoids.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-effects.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-cultivation.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-grow-guides.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-grow-rooms.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-indoor-growing.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-outdoor-growing.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-hydroponics.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-aeroponics.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-soil.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-soilless.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-lighting.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-nutrients.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-irrigation.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-climate-control.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-environment.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-pest-management.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-harvesting.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-drying-curing.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-storage.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-cloning.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-seeds.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-germination.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-plant-training.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-ipm.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-products.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-accessories.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-equipment.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-grow-equipment.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-hydroponic-products.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-lighting-products.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-nutrients-products.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-product-guides.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-product-comparisons.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-product-reviews.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-marketplace.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-merchants.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-brands.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-vendors.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-suppliers.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-manufacturers.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-services.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-collections.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-featured.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-trending.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-new.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-popular.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-seasonal.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-recommended.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-design-studio.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-custom-products.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-pod.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-3d-printing.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-3d-models.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-stl.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-cad.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-printables.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-ar.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-vr.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-xr.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-metaverse.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-immersive.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-virtual-grow-room.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-tools.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-calculators.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-grow-calculators.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-dosage-calculators.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-nutrient-calculators.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-lighting-calculators.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-yield-calculators.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-conversion-tools.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-unit-converters.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-comparison-tools.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-recipes.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-edibles.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-beverages.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-infusions.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-extracts.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-concentrates.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-processing.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-health-safety.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-medication-interactions.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-allergy-warnings.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-side-effects.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-safety.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-responsible-use.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-dosage-guidelines.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-consumer-safety.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-legal.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-regulations.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-compliance.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-jurisdictions.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-state-laws.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-country-laws.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-legal-guides.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-ecommerce.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-ghost-commerce.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-shopping.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-logistics.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-delivery.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-shipping.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-fulfillment.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-procurement.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-sourcing.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-community.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-user-profiles.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-reviews.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-ratings.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-discussions.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-groups.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-events.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-gamification.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-leaderboards.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-achievements.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://potgrowhub.store/sitemap-quests.xml</loc>
+  </sitemap>
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-blog.xml</loc>
@@ -873,11 +1139,6 @@
     <loc>https://potgrowhub.store/sitemap-resources.xml</loc>
   </sitemap>
 
-
-  <!-- ============================================================= -->
-  <!-- 🎬 MEDIA -->
-  <!-- ============================================================= -->
-
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-media.xml</loc>
   </sitemap>
@@ -910,11 +1171,6 @@
     <loc>https://potgrowhub.store/sitemap-downloads.xml</loc>
   </sitemap>
 
-
-  <!-- ============================================================= -->
-  <!-- 🏢 COMPANY -->
-  <!-- ============================================================= -->
-
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-company.xml</loc>
   </sitemap>
@@ -941,10 +1197,6 @@
 
   <sitemap>
     <loc>https://potgrowhub.store/sitemap-careers.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://potgrowhub.store/sitemap-investors.xml</loc>
   </sitemap>
 
   <sitemap>
