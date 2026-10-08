@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Main pages -->
   <url>
     <loc>https://potgrowhub.store/</loc>
-    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://potgrowhub.store/about</loc>
@@ -33,8 +30,6 @@
   <url>
     <loc>https://potgrowhub.store/accessibility</loc>
   </url>
-
-  <!-- Store and collection pages -->
   <url>
     <loc>https://potgrowhub.store/products</loc>
   </url>
@@ -77,8 +72,6 @@
   <url>
     <loc>https://potgrowhub.store/collections/books-and-guides</loc>
   </url>
-
-  <!-- Example product pages -->
   <url>
     <loc>https://potgrowhub.store/products/grow-tent-120x120</loc>
   </url>
@@ -118,8 +111,6 @@
   <url>
     <loc>https://potgrowhub.store/products/indoor-gardening-handbook</loc>
   </url>
-
-  <!-- Blog pages -->
   <url>
     <loc>https://potgrowhub.store/blog</loc>
   </url>
@@ -141,8 +132,6 @@
   <url>
     <loc>https://potgrowhub.store/blog/how-to-use-a-ph-meter</loc>
   </url>
-
-  <!-- Guide pages -->
   <url>
     <loc>https://potgrowhub.store/guides</loc>
   </url>
@@ -170,5 +159,4 @@
   <url>
     <loc>https://potgrowhub.store/guides/glossary</loc>
   </url>
-
 </urlset>
