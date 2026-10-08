@@ -44,9 +44,29 @@
     "db:migrate": "node scripts/migrate.js",
     "db:seed": "node scripts/seed.js",
     "ai:train": "node ai/train_model.js",
-    "security:scan": "npm audit --production && snyk test"
+    "security:scan": "npm audit --production && snyk test",
+    "dev:reload": "nodemon server.js",
+    "lint:fix": "eslint script.js service-worker.js server.js --fix",
+    "format:check": "prettier --check \"**/*.{js,json,css,html,md}\"",
+    "validate:json": "node -e \"const fs=require('node:fs'); for(const file of ['package.json','manifest.json']) JSON.parse(fs.readFileSync(file,'utf8'));\"",
+    "validate:syntax": "node --check script.js && node --check service-worker.js && node --check server.js",
+    "validate:files": "node -e \"const fs=require('node:fs'); const files=['index.html','style.css','script.js','manifest.json','service-worker.js','robots.txt','sitemap.xml','ads.txt','seo.txt','aeo.txt','security.txt']; const missing=files.filter(file=>!fs.existsSync(file)); if(missing.length) throw new Error('Missing files: '+missing.join(', '));\"",
+    "validate:package": "node -e \"const fs=require('node:fs'); const p=JSON.parse(fs.readFileSync('package.json','utf8')); for(const key of ['name','version','scripts','dependencies']) if(!p[key]) throw new Error('Missing package field: '+key);\"",
+    "validate:config": "node -e \"const p=require('./package.json'); const c=p.config; if(!c||!Number.isInteger(c.port)||c.port<1||c.port>65535) throw new Error('Invalid configured port'); if(!['development','test','staging','production'].includes(c.environment)) throw new Error('Invalid configured environment');\"",
+    "validate:exports": "node -e \"const fs=require('node:fs'); const p=require('./package.json'); const visit=value=>{if(typeof value==='string'&&value.startsWith('./')&&!value.includes('*')&&!fs.existsSync(value)) throw new Error('Missing export target: '+value); if(value&&typeof value==='object') Object.values(value).forEach(visit);}; visit(p.exports); for(const key of ['main','module','types','typings']) if(p[key]&&!fs.existsSync(p[key])) throw new Error('Missing '+key+' target: '+p[key]);\"",
+    "validate": "npm run validate:package && npm run validate:json && npm run validate:syntax && npm run validate:files && npm run validate:config",
+    "verify:build": "node -e \"const fs=require('node:fs'); const files=['index.html','style.css','script.js','manifest.json','service-worker.js','robots.txt','sitemap.xml','ads.txt','seo.txt','aeo.txt','security.txt']; for(const file of files){const target='dist/'+file; if(!fs.existsSync(target)||fs.statSync(target).size===0) throw new Error('Missing or empty build artifact: '+target); if(!fs.readFileSync(file).equals(fs.readFileSync(target))) throw new Error('Build artifact differs from source: '+target);}\"",
+    "preview": "serve dist",
+    "deps:check": "npm ls --all",
+    "deps:outdated": "npm outdated",
+    "deps:explain": "npm explain",
+    "security:audit": "npm audit",
+    "security:audit:production": "npm audit --omit=dev",
+    "security:snyk": "snyk test",
+    "package:preview": "npm pack --dry-run",
+    "ci:check": "npm run validate && npm run lint && npm run format:check && npm test"
   },
- "dependencies": {
+  "dependencies": {
     "lucide": "^1.0.0",
     "express": "^4.19.2",
     "dotenv": "^16.4.5",
@@ -101,7 +121,6 @@
     "medusa-core-js": "^1.3.1",
     "@google-cloud/dialogflow": "^6.3.0",
     "node-wit": "^6.1.0",
-    "node-geocoder": "^4.4.0",
     "mapbox-gl": "^3.2.0",
     "google-maps-services-js": "^3.4.0",
     "node-cron": "^3.0.3",
@@ -148,50 +167,6 @@
     "Safari >= 14",
     "Edge >= 90"
   ],
-  "dependencies": {
-    "lucide": "^1.0.0",
-    "express": "^4.19.2",
-    "dotenv": "^16.4.5",
-    "cors": "^2.8.5",
-    "compression": "^1.7.4",
-    "helmet": "^7.1.0",
-    "three": "^0.162.0",
-    "express-rate-limit": "^7.2.0",
-    "morgan": "^1.10.0",
-    "validator": "^13.11.0",
-    "jsonwebtoken": "^9.0.2",
-    "bcryptjs": "^2.4.3",
-    "pg": "^8.11.3",
-    "redis": "^4.6.13",
-    "ws": "^8.16.0",
-    "multer": "^1.4.5-lts.1",
-    "@google/generative-ai": "^0.21.0",
-    "openai": "^4.33.0",
-    "langchain": "^0.1.36",
-    "@tensorflow/tfjs-node": "^4.17.0",
-    "webxr-polyfill": "^2.0.3",
-    "aframe": "^1.5.0",
-    "@react-three/fiber": "^8.15.16",
-    "@react-three/drei": "^9.102.0",
-    "stripe": "^14.21.0",
-    "@paypal/checkout-server-sdk": "^1.0.3",
-    "shopify-api-node": "^3.15.0",
-    "@woocommerce/woocommerce-rest-api": "^1.0.1",
-    "node-speak-easy": "^0.1.3",
-    "@google-cloud/text-to-speech": "^5.2.0",
-    "@google-cloud/speech": "^6.3.0",
-    "node-record-lpcm16": "^1.0.1",
-    "socket.io": "^4.7.5",
-    "node-geocoder": "^4.4.0",
-    "@turf/turf": "^6.5.0",
-    "fullcalendar": "^6.1.11",
-    "rrule": "^2.8.1",
-    "stl-loader": "^2.0.0",
-    "three-gltf-loader": "^1.111.0",
-    "canvas": "^2.11.2",
-    "printful-api": "^1.2.0",
-    "gelato-api": "^1.0.0"
-  },
   "devDependencies": {
     "serve": "^14.2.0",
     "eslint": "^8.57.0",
@@ -296,21 +271,302 @@
     "architectureVersion": "2.5",
     "deploymentTarget": "Render/GitHub Pages/Vercel",
     "primaryDatabase": "Supabase PostgreSQL",
-    "localAIBackend": "Ollama / DeepSeek-R1"
+    "localAIBackend": "Ollama / DeepSeek-R1",
+    "metadataConfidentiality": "This field is ordinary package metadata and does not provide confidentiality.",
+    "ownership": {
+      "owner": "Ray",
+      "organization": "PotGrowHub",
+      "repositoryAccount": "potgrowhub",
+      "maintainers": [
+        {
+          "name": "Ray",
+          "profile": "https://github.com/potgrowhub",
+          "email": "ray@potgrowhub.local",
+          "emailVerified": false
+        }
+      ]
+    },
+    "supportChannels": {
+      "issues": "https://github.com/potgrowhub/potgrowhubstore/issues",
+      "security": "https://github.com/potgrowhub/potgrowhubstore/security/advisories",
+      "discord": "https://discord.gg/potgrowhub",
+      "social": "https://twitter.com/potgrowhub",
+      "email": "support@potgrowhub.local",
+      "externalChannelsVerified": false
+    },
+    "documentationLinks": {
+      "readme": "https://github.com/potgrowhub/potgrowhubstore#readme",
+      "apiDocumentation": null,
+      "architectureDocumentation": null,
+      "deploymentDocumentation": null,
+      "contributorGuide": null,
+      "incidentRunbook": null
+    },
+    "deploymentEnvironments": {
+      "development": {
+        "url": null,
+        "purpose": "Local development and debugging",
+        "configured": false
+      },
+      "test": {
+        "url": null,
+        "purpose": "Automated tests using isolated fixtures and credentials",
+        "configured": false
+      },
+      "staging": {
+        "url": null,
+        "purpose": "Pre-production integration and deployment verification",
+        "configured": false
+      },
+      "production": {
+        "url": "https://potgrowhub.store",
+        "purpose": "Public application",
+        "configured": false,
+        "configurationVerified": false
+      }
+    },
+    "deploymentMetadata": {
+      "candidatePlatforms": [
+        "Render",
+        "GitHub Pages",
+        "Vercel"
+      ],
+      "selectedPlatform": null,
+      "backendHost": null,
+      "staticAssetHost": null,
+      "deploymentRegion": null,
+      "rollbackProcedure": null,
+      "automatedDeploymentConfigured": false
+    },
+    "environmentRequirements": {
+      "runtime": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+      },
+      "containerRuntime": {
+        "docker": ">=24.0.0",
+        "requiredFor": [
+          "docker:build",
+          "docker:run"
+        ]
+      },
+      "existingBuildShell": "POSIX-compatible shell required by the preserved build and clean commands",
+      "secretStorage": "Environment variables or a deployment secret manager",
+      "requiredEnvironmentVariables": [],
+      "requiredEnvironmentVariablesStatus": "Determine from application source before enforcing validation",
+      "nativeDependencyPrerequisitesVerified": false
+    },
+    "featureFlags": {
+      "status": "Proposed metadata only; application wiring required",
+      "proposedFlags": {
+        "aiAssistant": false,
+        "voiceInteraction": false,
+        "threeDimensionalViewer": false,
+        "augmentedReality": false,
+        "offlineSupport": false,
+        "pushNotifications": false,
+        "multiProviderPayments": false,
+        "backgroundWorkers": false,
+        "multilingualContent": false
+      }
+    },
+    "integrationInventory": {
+      "status": "Inferred from declared dependencies; implementation and credentials unverified",
+      "ai": [
+        "Google Generative AI",
+        "OpenAI",
+        "Anthropic",
+        "Hugging Face",
+        "Replicate",
+        "TensorFlow.js",
+        "Ollama",
+        "DeepSeek-R1"
+      ],
+      "commerce": [
+        "Stripe",
+        "PayPal",
+        "Shopify",
+        "WooCommerce",
+        "Printful",
+        "Gelato",
+        "Razorpay",
+        "Square",
+        "Medusa"
+      ],
+      "speech": [
+        "Google Cloud Text-to-Speech",
+        "Google Cloud Speech",
+        "Dialogflow",
+        "Wit"
+      ],
+      "data": [
+        "PostgreSQL",
+        "Supabase",
+        "Redis"
+      ],
+      "realtimeAndQueues": [
+        "Socket.IO",
+        "WebSocket",
+        "BullMQ"
+      ],
+      "visualization": [
+        "Three.js",
+        "React Three Fiber",
+        "React Three Drei",
+        "A-Frame",
+        "Babylon.js",
+        "MediaPipe",
+        "WebXR"
+      ],
+      "mapping": [
+        "Mapbox",
+        "Google Maps",
+        "Node Geocoder",
+        "Turf"
+      ]
+    },
+    "dataRetentionPolicies": {
+      "status": "Not established",
+      "accountData": {
+        "retentionDays": null,
+        "deletionProcedure": null
+      },
+      "orders": {
+        "retentionDays": null,
+        "legalReviewRequired": true
+      },
+      "aiConversations": {
+        "retentionDays": null,
+        "consentPolicy": null
+      },
+      "voiceRecordings": {
+        "retentionDays": null,
+        "storageEnabled": null
+      },
+      "applicationLogs": {
+        "retentionDays": null,
+        "redactionRequired": true
+      },
+      "backups": {
+        "retentionDays": null,
+        "expiryProcedure": null
+      }
+    },
+    "accessibilityTargets": {
+      "status": "Proposed targets; compliance not verified",
+      "standard": "WCAG 2.2",
+      "level": "AA",
+      "checks": [
+        "Keyboard navigation",
+        "Visible focus",
+        "Accessible names",
+        "Form labels and errors",
+        "Color contrast",
+        "Reduced-motion support",
+        "Screen-reader behavior",
+        "Alternative text",
+        "Captions for relevant media"
+      ]
+    },
+    "performanceBudgets": {
+      "status": "Proposed targets; not measured or enforced",
+      "largestContentfulPaintMilliseconds": 2500,
+      "interactionToNextPaintMilliseconds": 200,
+      "cumulativeLayoutShift": 0.1,
+      "initialJavaScriptGzipBytes": 256000,
+      "initialCssGzipBytes": 64000,
+      "threeDimensionalAssets": {
+        "lazyLoadingTarget": true,
+        "maximumBytesPerModel": null
+      }
+    },
+    "aiModelInventory": {
+      "status": "Declared project labels; model access unverified",
+      "applicationEngine": "GanjaGuru-v1",
+      "localBackend": "Ollama",
+      "localModelFamily": "DeepSeek-R1",
+      "remoteModels": [],
+      "evaluationDataset": null,
+      "promptVersion": null,
+      "fallbackOrder": [],
+      "usageBudget": null
+    },
+    "monitoringConfiguration": {
+      "status": "Not configured",
+      "loggingPackage": "morgan",
+      "declaredLogFormat": "combined",
+      "metricsProvider": null,
+      "errorTrackingProvider": null,
+      "uptimeProvider": null,
+      "alertDestinations": [],
+      "healthEndpoint": null,
+      "redact": [
+        "Authorization headers",
+        "Cookies",
+        "API keys",
+        "Passwords",
+        "Payment credentials",
+        "Personal data"
+      ]
+    },
+    "backupPolicies": {
+      "status": "Not configured",
+      "databaseSchedule": null,
+      "objectStorageSchedule": null,
+      "retentionDays": null,
+      "encrypted": null,
+      "offsiteDestination": null,
+      "restoreTestSchedule": null,
+      "recoveryPointObjectiveMinutes": null,
+      "recoveryTimeObjectiveMinutes": null
+    },
+    "architectureMetadata": {
+      "version": "2.5",
+      "applicationAreas": [
+        "Static PWA",
+        "Node.js server",
+        "AI services",
+        "Commerce integrations",
+        "3D and AR experiences"
+      ],
+      "workspacePatterns": [
+        "packages/*",
+        "services/*"
+      ],
+      "boundariesVerified": false,
+      "architectureDecisionRecords": null
+    },
+    "dataHandlingPolicies": {
+      "status": "Proposed requirements; implementation unverified",
+      "requirements": [
+        "Keep secrets out of browser bundles",
+        "Validate untrusted input",
+        "Limit collection of personal data",
+        "Redact sensitive logs",
+        "Document provider data sharing",
+        "Define deletion and export procedures",
+        "Define access controls",
+        "Review retention requirements",
+        "Use separate credentials for each environment"
+      ]
+    }
   },
   "types": "types/index.d.ts",
   "typings": "types/index.d.ts",
   "exports": {
     ".": {
+      "types": "./types/index.d.ts",
       "import": "./script.js",
-      "require": "./server.js",
-      "types": "./types/index.d.ts"
+      "require": "./server.js"
     },
     "./client": "./script.js",
     "./server": "./server.js"
   },
   "release": {
-    "branches": ["main", "next"],
+    "branches": [
+      "main",
+      "next"
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
@@ -321,5 +577,573 @@
   "gitHooks": {
     "pre-commit": "npm run lint",
     "pre-push": "npm test"
+  },
+  "keywords": [
+    "potgrowhub",
+    "ganjaguru",
+    "botanical-intelligence",
+    "cannabis",
+    "horticulture",
+    "ecommerce",
+    "progressive-web-app",
+    "artificial-intelligence",
+    "three-dimensional-visualization",
+    "augmented-reality",
+    "webxr",
+    "voice-interface",
+    "product-catalog",
+    "growing-guides"
+  ],
+  "optionalDependencies": {},
+  "prettier": {
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "useTabs": false,
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "endOfLine": "lf",
+    "bracketSpacing": true,
+    "arrowParens": "always"
+  },
+  "potgrowhubEnhancementPlan": {
+    "status": "Planning metadata, not executable automation",
+    "validationStatus": {
+      "originalSettingsPreserved": true,
+      "dependencyInstallationTested": false,
+      "dependencyVersionsVerified": false,
+      "scriptsExecuted": false,
+      "repositoryFilesInspected": false,
+      "productionReadinessVerified": false
+    },
+    "sectionExpansionPolicy": {
+      "scalarFields": "Preserved without changing identity, licensing, publication intent, or entry points",
+      "dependencies": "Preserved; additional packages require registry and compatibility verification",
+      "devDependencies": "Preserved; additional tooling remains planned until selected",
+      "peerDependencies": "Preserved; additional peers require consumer-contract review",
+      "peerDependenciesMeta": "Preserved without changing required or optional peer behavior",
+      "resolutions": "Preserved; additional forced versions require dependency-tree review",
+      "overrides": "Preserved; additional overrides require compatibility and security testing",
+      "publishConfig": "Preserved; public publication remains enabled",
+      "config": "Preserved; proposed operational settings are stored separately",
+      "files": "Preserved; packaging additions require verified paths and secret-exposure review",
+      "man": "Preserved empty until real manual pages exist",
+      "os": "Preserved; declared support remains untested",
+      "cpu": "Preserved; native-package compatibility remains untested",
+      "funding": "Preserved without inventing additional funding accounts",
+      "workspaces": "Preserved; additional workspace patterns require existing directories",
+      "exports": "Preserved; additional exports require existing compatible files",
+      "release": "Preserved; release tooling must be installed and configured",
+      "gitHooks": "Preserved; hook execution requires actual hook setup",
+      "browserslist": "Preserved; query results and browser support require tooling and tests"
+    },
+    "requestedFields": {
+      "type": {
+        "status": "Deferred to avoid changing existing JavaScript interpretation",
+        "allowedChoices": [
+          "commonjs",
+          "module"
+        ],
+        "selectedValue": null,
+        "prerequisite": "Inspect server.js and script.js module syntax and package boundaries"
+      },
+      "imports": {
+        "status": "Deferred",
+        "proposedAliases": [
+          "#config",
+          "#database",
+          "#logger",
+          "#ai",
+          "#commerce"
+        ],
+        "prerequisite": "Identify existing internal module paths before creating mappings"
+      },
+      "bin": {
+        "status": "Deferred",
+        "proposedCommand": "potgrowhub",
+        "entryFile": null,
+        "prerequisite": "Create and test a CLI entry file before declaring an executable"
+      },
+      "directories": {
+        "status": "Deferred",
+        "proposedMappings": {
+          "test": "tests",
+          "doc": "docs"
+        },
+        "prerequisite": "Verify directories exist"
+      },
+      "optionalDependencies": {
+        "status": "Empty active field",
+        "selectionCriteria": [
+          "Application works without the package",
+          "Missing-package behavior is handled",
+          "Version availability is verified"
+        ]
+      },
+      "devEngines": {
+        "status": "Deferred",
+        "runtimeName": "node",
+        "packageManagerName": "npm",
+        "exactPolicy": null,
+        "prerequisite": "Choose a tested runtime and package-manager policy"
+      },
+      "libc": {
+        "status": "Deferred",
+        "selectedValue": null,
+        "prerequisite": "Test native dependencies on the intended Linux runtime before restricting libc"
+      },
+      "packageManager": {
+        "status": "Deferred",
+        "selectedManager": "npm",
+        "exactVersion": null,
+        "prerequisite": "Pin the actual tested package-manager version"
+      },
+      "eslintConfig": {
+        "status": "Deferred",
+        "prerequisite": "Inspect existing ESLint configuration and browser/server module syntax",
+        "proposedRuleAreas": [
+          "Undefined variables",
+          "Unused variables",
+          "Promise handling",
+          "Browser and Node.js environment separation",
+          "Prettier compatibility"
+        ]
+      },
+      "prettier": {
+        "status": "Configured in package.json",
+        "enforcementCommand": "npm run format:check"
+      },
+      "jest": {
+        "status": "Installed as an existing development dependency; configuration deferred",
+        "prerequisite": "Separate Jest test discovery from the existing Node.js test suite",
+        "proposedSuites": [
+          "Unit tests",
+          "Integration tests"
+        ]
+      },
+      "babel": {
+        "status": "Deferred",
+        "prerequisite": "Choose a bundler and establish transpilation requirements before adding presets"
+      },
+      "lint-staged": {
+        "status": "Deferred",
+        "proposedScope": [
+          "Staged JavaScript",
+          "Staged JSON",
+          "Staged CSS",
+          "Staged HTML",
+          "Staged Markdown"
+        ],
+        "prerequisite": "Install compatible tooling and configure an actual pre-commit hook"
+      },
+      "commitlint": {
+        "status": "Deferred",
+        "proposedConvention": "Conventional Commits",
+        "prerequisite": "Install compatible tooling and configure an actual commit-msg hook"
+      }
+    },
+    "workflowCategories": {
+      "environmentValidation": {
+        "status": "Planned",
+        "proposedScript": "validate:env",
+        "purpose": "Validate required variables, credential presence, and environment-specific settings",
+        "prerequisite": "Derive required variables from source code without exposing their values"
+      },
+      "configurationValidation": {
+        "status": "Partial basic check added",
+        "script": "validate:config",
+        "purpose": "Check the declared port and environment",
+        "remainingWork": "Validate application-specific configuration against an explicit schema"
+      },
+      "secretScanning": {
+        "status": "Planned",
+        "proposedScript": "security:secrets",
+        "purpose": "Detect credentials in tracked files and build artifacts",
+        "prerequisite": "Choose a scanner and reviewed false-positive policy"
+      },
+      "licenseComplianceChecks": {
+        "status": "Planned",
+        "proposedScript": "license:check",
+        "purpose": "Inventory dependency licenses and compare them with an approved policy",
+        "prerequisite": "Establish the approved license policy"
+      },
+      "softwareBillOfMaterialsGeneration": {
+        "status": "Planned",
+        "proposedScript": "sbom:generate",
+        "purpose": "Generate a dependency inventory from the resolved lockfile",
+        "prerequisite": "Select an SBOM format and generator compatible with the tested npm version"
+      },
+      "dependencyGraphAnalysis": {
+        "status": "Basic inspection command added",
+        "script": "deps:check",
+        "purpose": "Inspect installed dependency relationships",
+        "remainingWork": "Add graph visualization if needed"
+      },
+      "unusedDependencyDetection": {
+        "status": "Planned",
+        "proposedScript": "deps:unused",
+        "purpose": "Find unused packages and exports",
+        "prerequisite": "Choose a source-aware analyzer and account for dynamic imports"
+      },
+      "circularDependencyDetection": {
+        "status": "Planned",
+        "proposedScript": "deps:circular",
+        "purpose": "Find circular relationships in application modules",
+        "prerequisite": "Configure module resolution and source entry points"
+      },
+      "bundleSizeChecks": {
+        "status": "Planned",
+        "proposedScript": "bundle:check",
+        "purpose": "Enforce agreed JavaScript, CSS, and asset-size budgets",
+        "prerequisite": "Create a real bundling pipeline and baseline"
+      },
+      "browserCompatibilityTesting": {
+        "status": "Planned",
+        "proposedScript": "test:browsers",
+        "purpose": "Test important flows across selected browser engines",
+        "prerequisite": "Install browser automation and define supported environments"
+      },
+      "apiContractTesting": {
+        "status": "Planned",
+        "proposedScript": "test:contracts",
+        "purpose": "Verify API request and response compatibility",
+        "prerequisite": "Create an API contract and test fixtures"
+      },
+      "loadAndStressTesting": {
+        "status": "Planned",
+        "proposedScript": "test:load",
+        "purpose": "Measure throughput, latency, resource use, and failure behavior",
+        "prerequisite": "Use an authorized isolated test environment and approved load limits"
+      },
+      "visualRegressionTesting": {
+        "status": "Planned",
+        "proposedScript": "test:visual",
+        "purpose": "Detect unintended interface changes using reviewed screenshots",
+        "prerequisite": "Establish deterministic browser settings and approved baselines"
+      },
+      "brokenLinkChecking": {
+        "status": "Planned",
+        "proposedScript": "links:check",
+        "purpose": "Check internal links and selected external links",
+        "prerequisite": "Define crawl scope and exclusions"
+      },
+      "structuredDataValidation": {
+        "status": "Planned",
+        "proposedScript": "seo:structured-data",
+        "purpose": "Validate structured data emitted by actual pages",
+        "prerequisite": "Identify supported schemas and rendered page fixtures"
+      },
+      "robotsTxtValidation": {
+        "status": "Planned",
+        "proposedScript": "seo:robots",
+        "purpose": "Check syntax and intended crawler access behavior",
+        "prerequisite": "Define intended access rules and select a parser"
+      },
+      "serviceWorkerTesting": {
+        "status": "Planned",
+        "proposedScript": "test:service-worker",
+        "purpose": "Test registration, activation, cache updates, and scope",
+        "prerequisite": "Create browser tests against the real service worker"
+      },
+      "offlineFunctionalityTesting": {
+        "status": "Planned",
+        "proposedScript": "test:offline",
+        "purpose": "Test offline routes, cached resources, and reconnection behavior",
+        "prerequisite": "Define which flows must work offline"
+      },
+      "databaseHealthChecks": {
+        "status": "Planned",
+        "proposedScript": "db:health",
+        "purpose": "Check authorized database connectivity and basic readiness",
+        "prerequisite": "Provide a dedicated health-check implementation and credentials"
+      },
+      "databaseSchemaValidation": {
+        "status": "Planned",
+        "proposedScript": "db:validate",
+        "purpose": "Compare expected schema with migrations and deployed state",
+        "prerequisite": "Choose schema ownership and migration tooling"
+      },
+      "cacheManagement": {
+        "status": "Planned",
+        "proposedScripts": [
+          "cache:inspect",
+          "cache:invalidate"
+        ],
+        "purpose": "Inspect and selectively invalidate owned cache entries",
+        "prerequisite": "Define namespaces and safeguards against unrelated-data deletion"
+      },
+      "backgroundWorkerManagement": {
+        "status": "Planned",
+        "proposedScripts": [
+          "worker:start",
+          "worker:health"
+        ],
+        "purpose": "Run and monitor queue workers",
+        "prerequisite": "Create worker entry points and queue connection settings"
+      },
+      "searchIndexRebuilding": {
+        "status": "Planned",
+        "proposedScript": "search:reindex",
+        "purpose": "Rebuild the search index from approved source data",
+        "prerequisite": "Select a search backend and implement idempotent indexing"
+      },
+      "translationValidation": {
+        "status": "Planned",
+        "proposedScript": "i18n:validate",
+        "purpose": "Check translation keys, placeholders, and fallback coverage",
+        "prerequisite": "Identify locale files and the default language"
+      },
+      "imageConversion": {
+        "status": "Planned",
+        "proposedScript": "images:convert",
+        "purpose": "Generate appropriate image formats and responsive sizes",
+        "prerequisite": "Define source and output directories and preserve original assets"
+      },
+      "fontOptimization": {
+        "status": "Planned",
+        "proposedScript": "fonts:optimize",
+        "purpose": "Reduce font payload while preserving required glyphs",
+        "prerequisite": "Verify font licensing and supported languages"
+      },
+      "sourceMapGeneration": {
+        "status": "Planned",
+        "proposedScript": "build:sourcemaps",
+        "purpose": "Generate debugging mappings for bundled assets",
+        "prerequisite": "Configure the selected bundler and source-map exposure policy"
+      },
+      "buildArtifactVerification": {
+        "status": "Basic verification command added",
+        "script": "verify:build",
+        "purpose": "Check preserved build outputs are present, nonempty, and match source files",
+        "remainingWork": "Check referenced assets, deployment headers, and runtime behavior"
+      },
+      "deploymentSmokeTesting": {
+        "status": "Planned",
+        "proposedScript": "deploy:smoke",
+        "purpose": "Check critical routes and safe transactions after deployment",
+        "prerequisite": "Provide an explicit authorized deployment URL and test account"
+      },
+      "containerVulnerabilityScanning": {
+        "status": "Planned",
+        "proposedScript": "security:container",
+        "purpose": "Scan the built container image",
+        "prerequisite": "Choose a scanner and severity policy"
+      },
+      "developmentAutoReload": {
+        "status": "Command added",
+        "script": "dev:reload",
+        "purpose": "Restart the server during development",
+        "prerequisite": "Existing server.js and installed nodemon"
+      },
+      "assetBundling": {
+        "status": "Planned",
+        "proposedScript": "build:bundle",
+        "purpose": "Bundle modules and optimize browser assets",
+        "prerequisite": "Select one primary bundler and configure real entry points"
+      },
+      "imageOptimization": {
+        "status": "Planned",
+        "proposedScript": "images:optimize",
+        "purpose": "Reduce image transfer size without unacceptable quality loss",
+        "prerequisite": "Implement an asset pipeline using verified inputs"
+      },
+      "sitemapGeneration": {
+        "status": "Planned",
+        "proposedScript": "seo:sitemap",
+        "purpose": "Generate sitemap entries from published canonical routes",
+        "prerequisite": "Provide an authoritative route inventory and accurate modification dates"
+      },
+      "typeChecking": {
+        "status": "Planned",
+        "proposedScript": "typecheck",
+        "purpose": "Check source types and public declarations",
+        "prerequisite": "Install TypeScript and configure actual source files"
+      },
+      "unitTesting": {
+        "status": "Existing general test command preserved; dedicated suite planned",
+        "existingScript": "test",
+        "proposedScript": "test:unit",
+        "purpose": "Test individual functions and modules",
+        "prerequisite": "Create isolated unit fixtures and runner-specific discovery"
+      },
+      "integrationTesting": {
+        "status": "Planned",
+        "proposedScript": "test:integration",
+        "purpose": "Test interactions between services and data layers",
+        "prerequisite": "Provide isolated databases and mocked external services"
+      },
+      "endToEndTesting": {
+        "status": "Planned",
+        "proposedScript": "test:e2e",
+        "purpose": "Test complete user journeys",
+        "prerequisite": "Choose a browser test runner and create safe test data"
+      },
+      "accessibilityTesting": {
+        "status": "Planned",
+        "proposedScript": "test:a11y",
+        "purpose": "Combine automated checks with keyboard and assistive-technology review",
+        "prerequisite": "Select tooling and document manual checks"
+      },
+      "performanceTesting": {
+        "status": "Planned",
+        "proposedScript": "test:performance",
+        "purpose": "Measure page and server performance against agreed budgets",
+        "prerequisite": "Define repeatable environments and representative journeys"
+      },
+      "dependencyChecking": {
+        "status": "Commands added",
+        "scripts": [
+          "deps:check",
+          "deps:outdated",
+          "deps:explain"
+        ],
+        "purpose": "Inspect dependency health, available updates, and dependency origins"
+      },
+      "securityAuditing": {
+        "status": "Commands added",
+        "scripts": [
+          "security:audit",
+          "security:audit:production",
+          "security:snyk"
+        ],
+        "purpose": "Audit dependencies without automatically applying potentially breaking fixes",
+        "prerequisite": "Install dependencies and configure any required scanner authentication"
+      },
+      "databaseRollback": {
+        "status": "Planned",
+        "proposedScript": "db:rollback",
+        "purpose": "Reverse approved reversible migrations",
+        "prerequisite": "Implement migration-specific rollback and restoration safeguards"
+      },
+      "databaseBackup": {
+        "status": "Planned",
+        "proposedScript": "db:backup",
+        "purpose": "Create encrypted, restorable backups",
+        "prerequisite": "Configure storage, credentials, retention, and restore testing"
+      },
+      "documentationGeneration": {
+        "status": "Planned",
+        "proposedScript": "docs:build",
+        "purpose": "Generate documentation from maintained sources",
+        "prerequisite": "Choose documentation tooling and source paths"
+      },
+      "deployment": {
+        "status": "Planned",
+        "proposedScript": "deploy",
+        "purpose": "Deploy verified artifacts to the selected platform",
+        "prerequisite": "Select platform-specific tooling and approval safeguards"
+      },
+      "releaseAutomation": {
+        "status": "Existing release metadata preserved; execution not configured",
+        "proposedScript": "release",
+        "purpose": "Generate changelogs and publish approved releases",
+        "prerequisite": "Install the release runner and plugins, configure credentials, and confirm public publishing intent"
+      }
+    },
+    "tooling": {
+      "typescript": {
+        "status": "Planned",
+        "configurationFile": "tsconfig.json",
+        "purpose": "Type checking and declaration validation",
+        "prerequisite": "Determine JavaScript checking versus TypeScript migration"
+      },
+      "vite": {
+        "status": "Candidate",
+        "configurationFile": "vite.config.js",
+        "purpose": "Browser development server and production asset bundling",
+        "prerequisite": "Select as primary bundler only after source compatibility review"
+      },
+      "webpack": {
+        "status": "Alternative candidate",
+        "configurationFile": "webpack.config.js",
+        "purpose": "Configurable asset bundling",
+        "prerequisite": "Use only if selected instead of, or for a distinct purpose from, other bundlers"
+      },
+      "rollup": {
+        "status": "Alternative candidate",
+        "configurationFile": "rollup.config.js",
+        "purpose": "Library or specialized module bundling",
+        "prerequisite": "Establish a distinct build target before introducing another pipeline"
+      },
+      "vitest": {
+        "status": "Candidate",
+        "configurationFile": "vitest.config.js",
+        "purpose": "Unit and integration test execution",
+        "prerequisite": "Avoid overlapping test discovery with Node.js tests and Jest"
+      },
+      "playwright": {
+        "status": "Candidate",
+        "configurationFile": "playwright.config.js",
+        "purpose": "Browser, visual, offline, and end-to-end tests",
+        "prerequisite": "Install compatible tooling and browser binaries"
+      },
+      "cypress": {
+        "status": "Alternative candidate",
+        "configurationFile": "cypress.config.js",
+        "purpose": "Browser and component testing",
+        "prerequisite": "Define a distinct need or select it instead of another end-to-end runner"
+      },
+      "storybook": {
+        "status": "Planned",
+        "configurationDirectory": ".storybook",
+        "purpose": "Component documentation and isolated interface review",
+        "prerequisite": "Identify the actual frontend framework and reusable components"
+      },
+      "tailwindCss": {
+        "status": "Candidate",
+        "purpose": "Utility-based styling",
+        "prerequisite": "Choose a compatible version and integration without replacing existing styles unintentionally"
+      },
+      "postcss": {
+        "status": "Candidate",
+        "configurationFile": "postcss.config.js",
+        "purpose": "CSS transformations",
+        "prerequisite": "Select plugins compatible with the chosen build pipeline"
+      },
+      "docker": {
+        "status": "Existing commands preserved; container definition unverified",
+        "configurationFile": "Dockerfile",
+        "imageName": "potgrowhubstore",
+        "declaredPortMapping": "3000:3000",
+        "prerequisite": "Inspect Dockerfile, build context, secret exclusions, and application port"
+      },
+      "ciCdWorkflows": {
+        "status": "Planned",
+        "configurationDirectory": ".github/workflows",
+        "proposedStages": [
+          "Install locked dependencies",
+          "Validate configuration",
+          "Lint",
+          "Check formatting",
+          "Run tests",
+          "Scan secrets",
+          "Audit dependencies",
+          "Build",
+          "Verify artifacts",
+          "Deploy to staging",
+          "Run smoke tests",
+          "Approve production deployment",
+          "Deploy to production",
+          "Verify production health"
+        ],
+        "prerequisite": "Create actual workflow files and configure protected credentials and environments"
+      }
+    },
+    "activationRequirements": [
+      "Verify every existing dependency name and version against the registry",
+      "Resolve peer dependencies before installation is considered successful",
+      "Inspect application source and existing configuration files",
+      "Create and test required implementation files",
+      "Select compatible tooling rather than installing every alternative",
+      "Keep planned script names out of active scripts until implemented",
+      "Verify required native build prerequisites",
+      "Review the preserved POSIX-only build and clean commands for Windows portability",
+      "Review the preserved Husky setup against the installed version",
+      "Review public npm publication settings",
+      "Verify package exports and declaration files exist",
+      "Test the production bundle for missing assets",
+      "Confirm no secrets or sensitive metadata enter public artifacts",
+      "Run installation, validation, tests, and build in a clean environment"
+    ]
   }
 }
